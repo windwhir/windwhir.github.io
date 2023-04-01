@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/ahu.css" /></head>
+<body>
+<style>
+p{color:#000000;}
+a{color:#000000;}
+body{
+background-color:#ccffcc;
+background-image:url();}
+</style>
+<p id="topper"></p>
+<hr/>
+<p id="debug"></p>
+<hr/>
+<p class="m" id="most">值日表
+</p>
+
+<div id="zhiwei">
+<p class="warn" onclick="getlink()">&gt;&gt;点击此处&lt;&lt;</p><p>请点上方链接获取值日内容和值日的要求</p>
+</div>
+<p id="yaoqiu"></p>
+<div id="zhiribiao"></div>
+<script src="res/stu.js"></script>
+<script>
+var day=[0,1,5,7,5,1,5,3,1,2,3,3,2,2,2,5,3,456,4,2,4,4,12345,7,6,3,4,5,1,3,5,7,7,1,3,4,4,456,5,7,1,5,2,6,4,6,4,123,123,6,2,12345,4,2,7,1,1,5,2,6,3,1,3];
+var work=["O","F","B","Q","C1","A","A","C1","E","G","G","A","C1","A","F","I","F","H","C1","B","A","X","O","Q","C1","X","E","D","I","B","F","Q","Q","B","E","F","I","C2","G","Q","D","E","E","A","G","F","B","H","C2","I","X","O","D","I","Q","G","X","X","D","B","D","C1","I"];
+var posiA="在早读和大课间值日：地面无垃圾；一次性瓶子不接地；教室后方无杂物；球类入筐；值日完成后粗查并提醒卫生自查员"
+var posiB="在早读值日：地面无胶无异物无水渍<br/>在大课间值日：检查地面是否有异物水渍并及时清理"
+var posiC1="在前一天放学值日：写课表<br/>在早读和大课间值日：讲桌清朗整洁；黑板槽（包括内外）无粉笔灰；黑板面无粉印（干湿两部曲）；电教柜无灰尘无水渍（抹布一遍纸巾一遍）<br/>在上午1,2.3,5节上课前值日：擦黑板"
+var posiC2="在下午上课前：擦黑板<br/>在7.8上课前及需要时值日：擦黑板"
+var posiD="在早读和大课间值日：南窗框（含上半窗和下半窗的1/3）无灰尘；南红墙（从窗框底部往上）1/3以下无灰尘；南北窗槽无灰尘无异物（注意角落位置）；一日常规、班级海报、公告栏、上下沿无灰尘"
+var posiE="在早读值日：在外侧泼洒水至南侧窗户并用刮子将水刮下，用纸（切忌抹布）沾去剩余水珠，在内侧用水和纸清理内侧的手印等<br/>在大课间值日：检查是否有新的手印等并将其及时清除"
+var posiF="在早读值日：干湿两部曲（尤其要注意门框边的死角，需要清理干净）<br/>在大课间值日：检查室外地面卫生并及时清理"
+var posiG="在早读和大课间值日：用抹布擦消火栓、灭火器上盖和栏杆（注意横竖上下都要擦）；用拖把拖栏杆底座；用抹布擦卫生角的瓷砖"
+var posiH="在早读和大课间值日：用抹布擦门的上下沿，清理门接地处的死角"
+var posiI="在早读和大课间值日：倒垃圾使其不超过容量的1/3，擦垃圾桶盖至摸不出灰<br/>在垃圾桶剩余容量不足1/2值日：倒垃圾"
+var posiX="在早读值日：清理树慧楼报告厅门前地面和栏杆<br/>（6：55第一次检查，7：05第二次检查，需要等到检查的同学检查完我班卫生区并表示不扣分才可回班）"
+var posiQ="本栏都是每周只值一次日，但每周要值日一次，<br/>室内建议在周六放学后或者周日提前来值！<br/>外派：你 觉 得 呢<br/>张：擦黑板极上沿<br/>刘：用刮子清理北窗内玻璃，<br/>抹布稍微擦北窗外玻璃，一个手掌就够<br/>冉：抹布擦铁门的门面，门上栏杆和门上小窗以及接地处<br/>牛：小心翼翼地清理南窗内玻璃，<br/>小心不要洒水洒到别人东西或者身上了"
+var posiO="<br/><b>A:</b><br/>"+posiA+"<br/><b>B:</b><br/>"+posiB+"<br/><b>C1:</b><br/>"+posiC1+"<br/><b>C2:</b><br/>"+posiC2+"<br/><b>D:</b><br/>"+posiD+"<br/><b>E:</b><br/>"+posiE+"<br/><b>F:</b><br/>"+posiF+"<br/><b>G:</b><br/>"+posiG+"<br/><b>H:</b><br/>"+posiH+"<br/><b>I:</b><br/>"+posiI+"<br/><b>X:</b><br/>"+posiX+"<br/><b>Q:</b><br/>"+posiQ
+var myposi
+var mywork
+var myday
+function getlink(){
+  getstuid();
+  if(stuid==-1){
+  alert("Error:-1\n请检查您输入的姓名是否有误！")
+  }else{
+  myday=day[stuid];
+  mywork=work[stuid];
+  document.getElementById("zhiwei").innerHTML="<p>"+name+"同学，您的花名册序号是是"+stuid+"，<br/>值日岗位为星期"+myday+"的"+mywork+"岗位</p>";
+  if(mywork=="A"){myposi=posiA;}
+  if(mywork=="B"){myposi=posiB;}
+  if(mywork=="C1"){myposi=posiC1;}
+  if(mywork=="C2"){myposi=posiC2;}
+  if(mywork=="D"){myposi=posiD;}
+  if(mywork=="E"){myposi=posiE;}
+  if(mywork=="F"){myposi=posiF;}
+  if(mywork=="G"){myposi=posiG;}
+  if(mywork=="H"){myposi=posiH;}
+  if(mywork=="I"){myposi=posiI;}
+  if(mywork=="X"){myposi=posiX;}
+  if(mywork=="O"){myposi=posiO;}
+  if(mywork=="Q"){myposi=posiQ;}
+  document.getElementById("yaoqiu").innerHTML=myposi;
+  document.getElementById("zhiribiao").innerHTML="<p>建议您牢记或者截图进行保存！<br/>当以上叙述和值日表出现不一致bug时，请以值日表为准！</p><img src='res/zrb.png' alt='值日表没有正常显示，请刷新网页或更换浏览器' style='display:inline-block;vertical:middle;width:100%'/>"
+  }
+}
+getlink();
+</script>
+
+<hr/><hr/>
+<footer id="footer"></footer>
+<script src="/topper.js"></script>
+</body>
+</html>
