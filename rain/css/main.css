@@ -1,0 +1,29 @@
+*{transition:all 500ms}
+p{
+  color:#ffffff;
+  text-align:center;
+  font-size:200%;
+}
+body{
+  background-color:#fcc;
+}
+.noimg img{
+  display:none;
+}
+.m{
+  text-align:center;
+  font-size:300%
+}
+/*链接*/
+a{
+  color:#ffffff;
+  text-decoration:underline;
+  cursor: pointer;
+}
+a:hover { color:#ff6666;}
+a:active { color:#ff0000;}
+/*大选项*/
+.a{
+  font-size:400%;border: 2px solid #ffffff; border-radius: 10px;
+}
+.a:hover{border: 4px solid #ff9999; border-radius: 15px;font-size: 410%}
