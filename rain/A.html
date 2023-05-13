@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>那些想说的话-2023</title>
+    <link href="css/normalize.css" rel="stylesheet" />
+    <style>
+ /*背景图*/
+  @keyframes beijingtu {
+    0%{background-image: url('img/bg1.png');}
+    33%{background-image: url('img/bg2.png');}
+    66%{background-image: url('img/bg3.png');}
+    100%{background-image: url('img/bg1.png');}}
+  /*加载中*/
+  @keyframes jiazaizhong{
+    0%{background-color:#ff0000;}
+    50%{background-color:#ffaaaa;}
+    100%{background-color:#ff0000;}}
+  /*年龄变色*/
+  @keyframes nianling {
+  0%{color:#fffdfd;}
+  20%{color:#ffffff}
+  50%{color:#ffffff}
+  80%{color:#ffffff}
+  100%{color:#fffdfd}
+  }
+  /*通用选择器*/
+  *{
+    color:#ffffff;
+    transition: all 500ms;
+  }
+  /*页面背景*/
+  body{animation: beijingtu 5s infinite;
+    background-color:#ffcccc;
+  }
+  /*div通选*/
+  div{position: absolute;
+    text-align: center;
+    font-size: 33px;
+  }
+  /*加载中那个小方块*/
+  div.jiazaizhong{animation: jiazaizhong 2s infinite;
+    bottom: 50%;
+    right: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(50%,50%);
+    background-color: #ffbbbb;
+    border-radius: 10px;
+  }
+  /*容器，主要的方形*/
+  div.container {bottom: 50%;
+    right: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(50%,50%);
+    border: 3px solid #ff555540;
+    background-color: #ffbbbb;
+  }
+  /*那些单个的字符*/
+  div.f{width:98px;
+    height: 98px;
+    background-color: #ff7777;
+    color:#ff7777;
+    border-radius: 20px;
+    border: 3px solid #ff7777;
+    opacity:0;
+    font-size: 90px;
+  } </style>
+  </head>
+  <body onload="gengxin()">
+    <style id="mingzi">i::after{content:"雨姐";color:#ffffff}</style>
+    <div style="width:100%;background-color: #ffbbbb;height:33px;position: sticky;text-align: left;" id="kongzhiqi">toRain | <span style="font-size:28px"><a style="color:#ff0000;text-decoration: underline;">Announce</a> <a href="B.html">Birthday</a> <a href="C.html">Cakeonly</a> | 控制选项：<a onclick="a=prompt('更改对雨姐的称呼','雨姐')" style="text-decoration:underline">更改称呼</a></span></div>
+    <div id="f1" class="jiazaizhong" style="height: 75px;width: 250px;">本页未开启<br/>等待至5月19日</div>
+      </body>
+</html>
