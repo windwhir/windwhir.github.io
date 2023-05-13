@@ -15,7 +15,7 @@
         document.getElementById("dg5").innerHTML=age;
       }
       function shengkuai(){
-        const jishi=setInterval(()=>{zhufu()},15500)
+        const jishi=setInterval(()=>{zhufu()},16000)
       }
       //我要蛋糕
       function zhufu(){
@@ -52,6 +52,12 @@
         document.getElementById("dg6").style=""
         },12000)
       }
+      function wunai(){
+        wunaia=prompt("确定关闭ui吗？更改不为0可取消 \nui包括顶部控制选项所在块，标题和来源\n请注意，该过程不可逆，想要再次显示需要刷新网页",0)
+        if(wunaia==0){
+          document.getElementById("kongzhiqi").style="display:none";
+          document.getElementById('wode').innerHTML="#wo{display:none}"
+        }}
     </script>
     <style>
       /*背景图*/
@@ -101,7 +107,7 @@
       div.container {bottom: 50%;
         right: 50%;
         width: 460px;
-        height: 460px;
+        height: 520px;
         transform: translate(50%,50%);
       }
       /*图片，蛋糕*/
@@ -111,14 +117,20 @@
         transform: scale(0);
         transition:3s;
       }
-      div img{
+      div.container img{
         width: 460px;
         height: 460px;
+      }
+      img.ck{
+        width:25px;
+        height: 25px;
       }
       #wo{opacity:0;right:0px;bottom: 0px;font-size: 20px;text-align: right;}
     </style>
   </head>
   <body onload="gengxin()">
+    <style id="wode">#wo{display:block}</style>
+    <div style="width:100%;background-color: #ffbbbb;height:33px;position: sticky;text-align: left;" id="kongzhiqi">toRain | <span style="font-size:28px"><a href="A.html">Announce</a> <a href="B.html">Birthday</a> <a style="color:#ff0000;text-decoration: underline;">Cakeonly</a> | 控制选项：</span><img class="ck" src="img/bmusic.png" onclick="document.getElementById('bgmusic').play()"/> <img src="img/bui.png" class="ck" onclick="wunai()"/></div>
     <div class="container" id="container">
       <div class="jiazaizhong" style="height:100px;width:100px" id="f1">加载中</div>
       <div class="tu" id="dg1"><img src="img/dg1.png"></div>
@@ -127,7 +139,8 @@
       <div class="tu" id="dg4"><img src="img/dg4.png"></div>
       <div class="tu" id="dg5"></div>
       <div class="tu" id="dg6"></div>
-      <div id="wo">WindWhir<br/><a href="B.html">完整版(Birthday.html)</a></div>
+      <div id="wo">WindWhir<br/>最上方可开启音乐、关闭ui</div>
+      <div style="transform: scale(0);"><audio loop="true" src="msc/生日快乐歌.mp3" id="bgmusic"></audio><img src="img/bg1.png"><img src="img/bg2.png"><img src="img/bg3.png"></div>
     </div>
   </body>
 </html>
