@@ -4,6 +4,117 @@
     <meta charset="utf-8">
     <title>那些想说的话-2023</title>
     <link href="css/normalize.css" rel="stylesheet" />
+        <script>
+    /*内容 neirong(元素id,变成啥)
+      *显示 xainshi(元素id)
+      *不显示 buxianshi(元素id)
+      *0-display；1-透明度；2-缩放；
+      */
+      function neirong(aidi,neirong){
+        document.querySelector(aidi).innerHTML=neirong
+      }
+      function xianshi0(aidi){
+        document.querySelector(aidi).style.display="unset"
+      }
+      function buxianshi0(aidi){
+        document.querySelector(aidi).style.display="none"
+      }
+      function xianshi1(aidi){
+        document.querySelector(aidi).style.opacity="1"
+      }
+      function buxianshi1(aidi){
+        document.querySelector(aidi).style.opacity='0';
+      }
+      function xianshi2(aidi){
+        document.querySelector(aidi).style.transform="scale(1)"
+      }
+      function buxianshi2(aidi){
+        document.querySelector(aidi).style.transform="scale(0)"
+      }
+      /*位置均为po+定位
+      *渐变位置 potran(元素id,x距离,y距离)
+      *其他变化 potrans(元素id,x距离,y距离)
+      *宽度 pow(元素id,宽度)
+      *高度 poh(元素id,高度)
+      *换页 huanye(页数)
+      */
+      function poleft(aidi,juli){
+        document.querySelector(aidi).style.right="";
+        document.querySelector(aidi).style.left=juli
+      }
+      function poright(aidi,juli){
+        document.querySelector(aidi).style.left="";
+        document.querySelector(aidi).style.right=juli
+      }
+      function pobottom(aidi,juli){
+        document.querySelector(aidi).style.top="";
+        document.querySelector(aidi).style.bottom=juli
+      }
+      function potop(aidi,juli){
+        document.querySelector(aidi).style.bottom="";
+        document.querySelector(aidi).style.top=juli
+        
+      }
+      function potran(aidi,tranx,trany){
+        document.querySelector(aidi).style.transform="translate("+tranx+","+trany+")"
+      }
+      function potrans(aidi,transformproperty){
+        document.querySelector(aidi).style.transform=transformproperty;
+      }
+      function pow(aidi,juli){
+        document.querySelector(aidi).style.width=juli;
+      }
+      function poh(aidi,juli){
+        document.querySelector(aidi).style.height=juli;
+      }
+      function huanye(dijiye){
+        document.getElementById("zongyemian").style.transform="translate(0px,"+(Number(dijiye)*-100)+"vh"
+      }
+      //控制器
+      var xiaoyu="雨姐"
+      function chenghu(){
+        xiaoyu=prompt("更改对雨姐的称呼(亲昵?)\n对表白页和情书页不起效果",xiaoyu)
+        document.getElementById("chenghu").innerHTML=".xiaoyu::after{content: '"+xiaoyu+"';}"
+      }
+      function mulu(){
+        huanye(0)
+      }
+      //onload
+      function gengxin(){
+        if(navigator.userAgent.indexOf("MQQ") > -1){alert("请点击右上角使用浏览器打开！")}
+        if(((document.body.clientWidth<800)+(document.body.clientHeight<600))>0){alert("请调整浏览器缩放(变小)或浏览器字体(变小)\n或使用电脑访问\n以获得更好效果\n\n若仍出现显示问题，请点击控制选项中的“视频”")}
+        buxianshi2("#f1")
+        pow("#container1","660px")
+        neirong("#ask1","为不令<span class='xiaoyu'></span>尴尬，我还是稳妥(懦弱)一点罢");xianshi1("#ask1")
+        setTimeout(()=>{
+          buxianshi1("#ask1");
+        },4000)
+        setTimeout(()=>{
+          potop("#ask1","30px")
+          poh("#container1","180px")
+          pow("#container1","500px")
+          neirong("#ask1","“我喜欢你”这句话，<br/><span class='xiaoyu'></span>愿意听么");
+          xianshi1("#ask1");xianshi1("#f1");xianshi2("#f2");xianshi2("#f3")
+        },5000)
+        setTimeout(()=>{})
+      }
+      //呃对不起
+      function ask1_no(){
+        alert("哎")
+      }
+      //我愿意听
+      function ask1_yes(){
+        pow('#container1',"200px")
+        poh("#container1","200px")
+        potran("#")
+        neirong('#container1',"<div class='centre' style='font-size:45px;width:100%'>我喜欢你<br/><div style='font-size:18px;width:100%'>将在2秒后转跳至分页1</div></div>")
+        setTimeout(()=>{
+          huanye(1)
+          buxianshi0("#container1")
+        },3000)
+      }
+      var xihuanshishenme=['喜欢是什么？','喜欢是忍不住的回头','喜欢是不直视的害羞','喜欢是差异性的表达','喜欢是相似性的追求','喜欢是主动致你的关心','喜欢是在意着你的感受','喜欢是按捺不住的喜悦','喜欢是莫名其妙的担忧','而喜欢，更是麦克风执于你我之手']
+    </script>
     <style>
  /*背景图*/
   @keyframes beijingtu {
@@ -70,7 +181,7 @@
   </head>
   <body onload="gengxin()">
     <style id="mingzi">i::after{content:"雨姐";color:#ffffff}</style>
-    <div style="width:100%;background-color: #ffbbbb;height:33px;position: sticky;text-align: left;" id="kongzhiqi">toRain | <span style="font-size:28px"><a style="color:#ff0000;text-decoration: underline;">Announce</a> <a href="B.html">Birthday</a> <a href="C.html">Cakeonly</a> | 控制选项：<a onclick="a=prompt('更改对雨姐的称呼','雨姐')" style="text-decoration:underline">更改称呼</a></span></div>
+  <div style="width:100%;height:33px;position: fixed;text-align: left;z-index:100" id="kongzhiqi">toRain | <span style="font-size:28px"><a style="color:#ff0000;text-decoration: underline;">Announce</a> <a href="B.html">Birthday</a> <a href="C.html">Cakeonly</a> | 控制选项：<a onclick="chenghu()" style="text-decoration:underline">称呼</a> <a onclick="mulu()" style="text-decoration: underline;">目录</a> <a onclick="alert('仅推荐在网页显示错误时看视频版\n视频版的效果和可操纵性大打折扣')" href="https://bilibili.com" target="_blank">视频</a></span></div>
     <div id="f1" class="jiazaizhong" style="height: 5px;width: 500px;color:#ffffff">等待至5月19日下午罢<br/><br/>构思实在有点多<br/>现在已经写了二百七十行了<br/>但还差好多好多<br/>没把这个网页写完……<br/><br/>那句"我写错了"语气不太好<br/>特此道歉<br/><br/>风吹呼呼(2409+x)<br/>2023/5/18</div>
       </body>
 </html>
