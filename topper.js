@@ -30,6 +30,12 @@ document.getElementById("head").innerHTML=('<link rel="icon" href="/2409.a2409.i
 document.getElementById("topper").innerHTML=(document.getElementById("topper").innerHTML+' &gt; <a href="/2409"><img src="/2409/a2409.ico">2409篇章</a>');
 document.getElementById("footer").innerHTML=(document.getElementById("footer").innerHTML+' - 郑州一中2409+x - 2409大文件内，蓝奏云密码均为2409 - 所有权利保留，仅供学习交流使用');
 }
+//致雨的文件夹
+footdone=1;
+document.getElementById("head").innerHTML=(document.getElementById("head").innerHTML+'<link rel="icon" href="/2409/a2409.ico" /><title>'+document.getElementById("most").innerHTML+' - toRain - 风吹呼呼</title>');
+document.getElementById("head").innerHTML=('<link rel="icon" href="/rain/img/bg1.png" />'+document.getElementById("head").innerHTML);
+document.getElementById("topper").innerHTML=(document.getElementById("topper").innerHTML+' &gt; <a href="/rain"><img src="/rain/img/bg1.png" style="width:16px;height:16px">toRain</a>');
+document.getElementById("footer").innerHTML=(document.getElementById("footer").innerHTML+' - 那些给小雨姐写的网页 - 是不是该反思一下你是怎么找进来的？');
 //否则
 if(footdone==0){
 document.getElementById("head").innerHTML=(document.getElementById("head").innerHTML+'<link rel="icon" href="/windwhir.ico" /><title>'+document.getElementById("most").innerHTML+' - 风吹呼呼</title>');
