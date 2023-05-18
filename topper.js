@@ -10,7 +10,7 @@ if(navigator.userAgent.indexOf("MQQ") > -1){document.getElementById("debug").inn
 if(navigator.userAgent.indexOf("WeChat") > -1){document.getElementById("debug").innerHTML=("<p style='font-size:300%;color:#ff0000;text-align:right;'>微信有诸多限制建议用浏览器打开↑↑↑</p>");}
 //应对本地下载
 if(thehref.indexOf("windwhir")<0)
-{document.getElementById("debug").innerHTML=(document.getElementById("debug").innerHTML+' 建议通过网络访问:<a href="https://windwhir.neocities.org">Neocities</a> / <a href="https://windwhir.github.io">github</a>')}
+{document.getElementById("debug").innerHTML=(document.getElementById("debug").innerHTML+' 建议通过网络访问:<b><a href="https://windwhir.4everland.app">4everland(推荐)</a></b> <a href="https://windwhir.neocities.org">Neocities</a> / <a href="https://windwhir.github.io">github</a>')}
 
 //首尾，样式，图标
 document.getElementById("topper").innerHTML=('<a href="/"><img src="/windwhir.ico" />风吹呼呼WindWhir的个人空间</a>');
@@ -43,4 +43,4 @@ if(footdone==0){
 document.getElementById("head").innerHTML=(document.getElementById("head").innerHTML+'<link rel="icon" href="/windwhir.ico" /><title>'+document.getElementById("most").innerHTML+' - 风吹呼呼</title>');
 }
 
-document.getElementById("footer").innerHTML=(document.getElementById("footer").innerHTML+' - html/script by WindWhir , hosted by <a href="https://windwhir.neocities.org">neocities</a> / <a href="https://windwhir.github.io">github</a> - <b style="color:white">当访问速度慢时，建议您点击前方白色链接更换访问方式</b>')
+document.getElementById("footer").innerHTML=(document.getElementById("footer").innerHTML+' - html/script by WindWhir , hosted by <a href="https://windwhir.4everland.app">4everland(推荐)</a> <a href="https://windwhir.neocities.org">neocities</a> / <a href="https://windwhir.github.io">github</a> - <b style="color:white">当访问速度慢时，建议您点击前方白色链接更换访问方式</b>')
