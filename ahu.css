@@ -1,4 +1,5 @@
 /*基础要素*/
+*{color:#ffffff;  transition:all 450ms;}
 body{
   background-color:#993333;
   background-image:url(/color.jpg);
@@ -24,8 +25,9 @@ a:active { color:#ff0000;}
   border: 2px solid #993333;
   border-radius: 8px;
   background-image:url(/alink.png);
-  background-repeat:no-repeat;background-attachment:fixed;background-size:100% 100%; 
+  background-repeat:no-repeat;background-attachment:fixed;background-size:100% 100%;
 }
+.a:hover{border: 3px solid #ff9999; border-radius: 15px;transform:scale(1.01);}
 /*警告*/
 .warn{
   border: 5px solid #ff0000;
@@ -45,3 +47,11 @@ a:active { color:#ff0000;}
   text-align:left;
   font-size:150%
 }
+/*iframe*/
+iframe{
+frameborder:no;
+border:0;
+background-color:transparent;
+}
+/*图片*/
+img:hover{transform:scale(1.05)}
