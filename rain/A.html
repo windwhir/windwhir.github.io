@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title id="title">那些想说的话-2023</title>
+    <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">	
+    <title id="title">那些想说的话</title>
     <link href="css/normalize.css" rel="stylesheet" />
     <link href="img/bg1.png" rel="icon" />
     <script>
@@ -34,25 +35,13 @@
       function buxianshi2(aidi){
         document.querySelector(aidi).style.transform="scale(0)"
       }
-      /*位置均为po+定位
+      /*顶部均为potop(元素id,距离顶部的距离)
       *渐变位置 potran(元素id,x距离,y距离)
       *其他变化 potrans(元素id,x距离,y距离)
       *宽度 pow(元素id,宽度)
       *高度 poh(元素id,高度)
       *换页 huanye(页数)
       */
-      function poleft(aidi,juli){
-        document.querySelector(aidi).style.right="";
-        document.querySelector(aidi).style.left=juli
-      }
-      function poright(aidi,juli){
-        document.querySelector(aidi).style.left="";
-        document.querySelector(aidi).style.right=juli
-      }
-      function pobottom(aidi,juli){
-        document.querySelector(aidi).style.top="";
-        document.querySelector(aidi).style.bottom=juli
-      }
       function potop(aidi,juli){
         document.querySelector(aidi).style.bottom="";
         document.querySelector(aidi).style.top=juli
@@ -136,6 +125,7 @@
       }
       //我愿意听
       function ask1_yes(){
+        alert("移动端:\n为正常访问A页，\n关闭对话框后请把页面下滑\n到地址栏被完全隐藏")
         document.getElementById('title').innerHTML="雨姐，我喜欢你"
         pow('#container1',"200px")
         poh("#container1","200px")
@@ -155,7 +145,6 @@
         setTimeout(()=>{
           huanye(2)
           buxianshi2("#container1")
-          buxianshi1("#fanye1")
         },8*10*pai+14000)
       }
       //小作文
@@ -166,7 +155,7 @@
         '喜欢是按捺不住的喜悦','喜欢是莫名其妙的担忧',
         '而喜欢，<br/>更是麦克风执于你我之手']
       var xihuanshizheyang=[
-        'bgm:《风语雨曰(原创)》<br/>注:以上不是歌词',
+        '注意！<br/>移动端:<br/>请上划至浏览器地址栏隐藏<br/><br/><br/>bgm:《风语雨曰(原创)》<br/>注:以上不是歌词',
         '坐在后面的时候忍不住往你的位置看<br/>坐在前面时想要回头,却换做余光轻视<br/>路过后回头看一眼,装作掉了什么东西',
         '不太敢和<span class="xiaoyu"></span>对视<br/>不敢打破姐的寂静(搭讪)',
         '与其他人我解决事情以效率为主<br/>跟你说话却不自主思忖怎样得体怎样合适<br/>(我脑子比较慢,所以有时候的确有点不过脑子,还请谅解)',
@@ -191,7 +180,7 @@
         setTimeout(()=>{neirong("#xiaozuowen",xihuanshishenme[8]);neirong("#fuyan1",xihuanshizheyang[8])},8*8*pai+1314)
         setTimeout(()=>{neirong("#xiaozuowen",xihuanshishenme[9]);neirong("#fuyan1","")},8*9*pai+1314)
         setTimeout(()=>{xianshi1("#xiaozuowen");neirong("#xiaozuowen","<span class='xiaoyu'></span>，我喜欢你");},8*10*pai+1500)
-        setTimeout(()=>{xianshi1("#fanye1");document.getElementById("msc0").pause()},8*10*pai+6000)
+        setTimeout(()=>{xianshi1("#fanye1");document.getElementById("msc0").pause()},8*10*pai+6000)//因为for报错索性就不用
       }
       //歌曲页
       function huangequ(dijiye){
@@ -201,6 +190,13 @@
         }
         document.getElementById("ge"+dijiye).style.flex="2";
         nobgm();document.getElementById("msc"+dijiye).play()
+      }
+      //情书页
+      function ilikeu(){
+        nobgm();document.getElementById("msc0").play();
+        buxianshi1('#xf1');xianshi1('#xf2');document.getElementById("xf1").style.zIndex="10";
+        setTimeout(()=>{buxianshi0('#xf1');buxianshi1('#xf2');xianshi1("#xf3")},4*pai)
+        setTimeout(()=>{buxianshi1('#xf3');xianshi2("#xf4")},16*pai+1314)
       }
     </script>
     <style>
@@ -228,7 +224,7 @@
     margin:0;padding: 0;line-height: 1;
   }
   /*页面背景*/
-  html,body{width: 100%;height: 100%;overflow:hidden;}
+  html,body{width: 100vw;height: 100vh;overflow:hidden;}
   body{
     background-color:#ffcccc;
   }
@@ -272,19 +268,9 @@
     background-color: #ffbbbb;
     z-index:100
   }
-  /*总页面*/
+  /*滚动页面*/
   #zongyemian{height:500vh;width:100%}
   #gequye{height:80vh;top:20vh;width:1000vh} 
-  /*那些单个的字符*/
-  div.f{width:98px;
-    height: 98px;
-    background-color: #ff7777;
-    color:#ff7777;
-    border-radius: 20px;
-    border: 3px solid #ff7777;
-    opacity:0;
-    font-size: 90px;
-  } 
   /*分页*/
   .fenye{
     height:100vh;width:100%
@@ -292,6 +278,7 @@
   /*控制器*/
   #kongzhiqi{opacity: 0.25}
   #kongzhiqi:hover{opacity: 1;}
+  #kongzhiqi:hover span{display:inline}
   /*目录的a*/
   #direction_yes a,#direction_no a{display: block;}
   /*选项*/
@@ -326,14 +313,19 @@
     flex:1;
   }
   #huange div:hover{flex:2;font-size: 40px;}
+  /*情书页图片*/
+  .xinfeng{height: 50vw;width:50vw;}
+  .imgfull{height:100%;width: 100%;}
   </style>
+  <!--称呼-->
   <style id="chenghu">.xiaoyu::after{content: "雨姐";}</style>
   <style id="chenghu1">.jie::after{content: "姐";}</style>
   </head>
-  <body onload="gengxin()">
+  <body onload="gengxin()" id="bd">
   <!-- 控制器-->
-  <div style="width:100%;height:33px;position: fixed;text-align: left;z-index:100" id="kongzhiqi">toRain | <span style="font-size:28px">
-    <a style="color:#ff0000;" id="ademingzi">Announce</a> <a href="B.html">B</a> <a href="C.html">C</a> | 控制：
+  <div style="width:100%;height:30px;position: fixed;text-align: left;z-index:100;font-size:25px" id="kongzhiqi">toRain | <span style="font-size:20px;display:none" id="kongzhiqi_no">
+    <a style="color:#ff0000;" id="ademingzi">Announce</a> <a href="B.html">Birthday</a> <a href="C.html">Cakeonly</a> | 控制：</span>
+    <span style="font-size: 20px;">
     <a onclick="mulu()">目录</a> 
     <a onclick="newbgm()">BGM</a> 
     <a onclick="chenghu()">称呼</a> 
@@ -349,7 +341,7 @@
   </div>
   <!-- 以下为主页面-->
   <div id="zongyemian">
-    <!-- 目录-->
+    <!--目录1-->
     <div class="fenye" id="fenye0" style="background-color: #ffcccc;">
       <div class="centre" style="transform: scale(0)" id="direction_yes">
         <a onclick="huanye(0)">目录(我愿意听)</a><br/><br/>
@@ -357,6 +349,7 @@
         <a onclick="huanye(2)">歌曲页</a>
         <a onclick="huanye(3)">情书页</a>
       </div>
+      <!--目录2-->
       <div class="centre" style="transform: scale(0)" id="direction_no">
         <a onclick="huanye(0)">目录(呃对不起)</a><br/><br/>
         <a onclick="huanye(2)">歌曲页</a>
@@ -366,10 +359,10 @@
     <!-- 小作文-->
     <div class="fenye" id="fenye1" style="background-color: #000000;top:100vh">
       <div id="xiaozuowen" class="centre" style="font-size:80px;width:90vw;">小作文</div>
-      <p id="fuyan1" style="width:100vw;color:#999999;font-size:13px;position:absolute;bottom:0"></p>
+      <p id="fuyan1" style="width:100vw;color:#999999;font-size:13px;position:absolute;bottom:2vh">注意！<br/>移动端:<br/>请上划至浏览器地址栏隐藏<br/><br/><br/></p>
       <div id="fanye1" class="centrex" style="position: absolute;bottom: 10vh;width:50vw;opacity:0">
         <div onclick="alert('因CSS语法不支持,无法展示完整动画\n您可以刷新页面重新进入以获取最佳效果');playxiaozuowen()" style="left:0;width: 22vw;" class="aixin">重新播放</div>
-        <div onclick="alert(xihuanshishenme)" style="right:0;width: 22vw;" class="aixin">查看小诗</div>
+        <div style="right:0;width: 22vw;" class="aixin"><a href="img/A/xhssm.png" target="_blank">查看本文</a></div>
       </div>
     </div>
     <!-- 音乐页-->
@@ -390,7 +383,7 @@
           <br/>因为考虑时间问题,本页未设置自动换页
           <br/>点击顶部控制-目录 返回目录
           <br/>点击本页右下角浮标 前往下一页
-          <br/><br/>A页面长达五百二十行两万余字
+          <br/><br/>A页面长达五百二十行两万一千余字
           <br/>是我花了两周制作而成
           <br/>没有照抄,没有模板,是纯手写的
           <br/><br/>所有音乐都是我用软件做的
@@ -439,8 +432,9 @@
           <br/><br/>其实这也许不是一件坏事呢
           <br/>不然出现对比多尴尬呢
           <br/><br/>话说姐貌似对我在空间的评论有意见
-          <br/>给张可欣评的那个"来大赛玩"纯粹是随意一句
-          <br/>我给别人的评论都经常不过脑子就说的……
+          <br/>那个"来大赛玩"就是随意一句
+          <br/>阿呼不是沾花惹草的人,
+          <br/>只是在空间的时候比较随意
         </div>
         <!--梦-->
         <div style="background-color:#00dd0090;left:410vw"><div class="changpian"><br/>超越<br/>梦想</div>
@@ -489,10 +483,17 @@
       <!--右下下一页浮钮-->
         <div style="width: 4vw;height:7vw;bottom:5vh;right:3vw;background-color: #ffcccc;font-size: 3vw;border-radius: 1vw;" id="fanye2" onclick="nobgm();huanye(3)">情<br/>书</div>
     </div>
+    <!--情书页-->
     <div class="fenye" id="fenye3" style="top:300vh">
-      <p class="centre">情书页到明天再写<br/>一定必须手写!
-      <br/><br/>姐,麻烦回复我一个明确的态度吧<br/>感谢了</p>
+      <div id="xf1" class="xinfeng centre" style="z-index:102;" onclick="ilikeu()"><div style="top:-33px">点击信封</div><img src="img/A/xf-guan.png" class="imgfull" /></div>
+      <div id="xf2" class="centre xinfeng" style="opacity: 0;z-index:100"><img src="img/A/xf-kai.png" class="imgfull" /></div>
+      <div id="xf3" class="centre xinfeng" style="opacity:0;z-index:99"><img src="img/A/xhssm.png" class="imgfull" /></div>
+      <div class="centre xinfeng" style="z-index:101">
+      <!--最后的情书图片-->
+        <a id="xf4" style="display:block;position:absolute;width:100%;height:100%;transform: scale(0)" href="img/A/qingshu.png" target="_blank"><img src="img/A/qingshu.png" class="imgfull" /></a>
+      </div>
     </div>
+    <!--道歉页-->
     <div class="fenye" id="fenye4" style="top:400vh;background-color: #000000;">
       <p class="centre"><span class="xiaoyu"></span>，对不起
       <br/>不合适地喜欢了你那么长时间
@@ -502,11 +503,10 @@
       <br/><br/>还有就是不想让这五百二十行代码废掉
       <br/><span class="xiaoyu"></span>还请看看那个音乐页罢
       <br/><br/><a class="jiazaizhong" style="position: static;font-size: 100px;width:300px;height:50px" onclick="huanye(2)">音乐页</a>
-      </p>
+    </p>
     </div>
   </div>
-  
-  
+  <!--音乐-->
   <div id="sorce" style="transform: scale(0);visibility: hidden;">
     <audio src="msc/A/风语雨曰段.mp3" id="msc0" class="msc" loop></audio>
     <audio src="msc/A/中国梦我们的梦段.mp3" id="msc1" class="msc" loop></audio>
