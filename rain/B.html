@@ -27,6 +27,7 @@
       //加载完成时执行日期函数并显示当前的情况
       function gengxin(){
         riqi();
+        if(navigator.userAgent.indexOf("MQQ") > -1){alert("请点击右上角使用浏览器打开！\n在qq中,动画完全显示错误\n控制选项的ui和16无法实现")}
         document.getElementById("container").style="width:300px;height:300px";
         if(yuqiyue!=12){
         document.getElementById("f1").style="width:200px;height:3px";
