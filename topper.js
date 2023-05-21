@@ -34,7 +34,7 @@ document.getElementById("footer").innerHTML=(document.getElementById("footer").i
 if(thehref.indexOf("rain")>0){
 footdone=1;
 document.getElementById("topper").innerHTML=(document.getElementById("topper").innerHTML+' &gt; <a href="/rain"><img src="/rain/img/bg1.png" style="width:16px;height:16px">toRain</a>');
-document.getElementById("page_error").innerHTML="<a href='/bin/rain'>前往新页面</a>";
+document.getElementById("page_error").innerHTML="<a href='/bin/rain'>本页已经更新<br/>前往新页面</a>";
 document.getElementById("footer").innerHTML=(document.getElementById("footer").innerHTML+' - 那些给小雨姐写的网页 - 是不是该反思一下你是怎么找进来的？');
 }
 //否则
