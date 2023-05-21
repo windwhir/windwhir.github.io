@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="img/bg1.png" rel="icon" />
+    <title id="title">雨姐生日快乐 - windwhir</title>
+    <link href="css/normalize.css" rel="stylesheet" />
+    <noscript>您的浏览器不支持JavaScript或屏蔽了JS，请升级浏览器或取消屏蔽后刷新页面重试  &#169;WindWhir 2023.4.29</noscript>
+    <script>
+      //年龄以及预期日期和年龄
+      var nianling,xinazaiyue,xianzairi;yuqiyue;yuqiri;yuqinian;
+      function riqi(){
+        yuqinian = (new Date().getFullYear());
+        xianzaiyue=new Date().getMonth();
+        xianzairi=(new Date().getDate())-9;
+        if(xianzaiyue<4){yuqiyue=3- xinazaiyue;}
+        if(xianzaiyue>4){yuqiyue=15- xinazaiyue;yuqinian=yuqinian+1;}
+        if(xianzaiyue==4){yuqiyue=12}
+        if([0,2,4,6,7,9,11].indexOf(xianzaiyue) >-1){yuqiri=31-xianzairi}
+        if([3,5,8,10].indexOf(xianzaiyue) >-1){yuqiri=30-xianzairi}
+        if(xianzaiyue==1){yuqiri=28-xianzairi}
+        nianling=yuqinian-2006;
+        if(xianzairi<0){xianzairi=xianzairi+30;xianzaiyue=xianzaiyue-1}
+        document.getElementById("fsui").innerHTML=nianling;
+        document.getElementById("dg5").innerHTML=nianling;
+      }
+      //加载完成时执行日期函数并显示当前的情况
+      function gengxin(){
+        riqi();
+        document.getElementById("container").style="width:300px;height:300px";
+        if(yuqiyue!=12){
+        document.getElementById("f1").style="width:200px;height:3px";
+        document.getElementById("f1").innerHTML="距离雨姐生日<br/>("+yuqinian+"/5/9)<br/>仍"+yuqiyue+"个月"+yuqiri+"天";}
+        if(yuqiyue==12){
+        document.getElementById("f1").style="width:200px;height:115px";
+        document.getElementById("f1").innerHTML="<a onclick='shengkuai()' style=‘text-decoration:underline;’>雨姐生日快乐<br/>"+yuqinian+"/5/9<br/>点击以开启</a>";}
+      }
+      //开始以后的网页动作
+      function shengkuai(){
+        document.getElementById('bgmusic').play();
+        document.getElementById('f1').style="opacity:0";
+        document.getElementById("container").style="width:460px;height:100px";
+        //Rain的相关动作
+        const sk1=setTimeout(function(){
+          document.getElementById("fR1").style="opacity:1;";
+          document.getElementById("fa").style="opacity:1;left:120px";
+          document.getElementById("fi").style="opacity:1;left:240px";
+          document.getElementById("fn").style="opacity:1;left:360px";
+        },1000)
+        const sk2=setTimeout(function(){
+          document.getElementById("fR1").style="opacity:1;background-color:#00000000";
+        },2000)
+        const sk3=setTimeout(function(){
+          document.getElementById("fa").style="opacity:1;left:120px;background-color:#00000000";
+        },3000)
+        const sk4=setTimeout(function(){
+          document.getElementById("fi").style="opacity:1;left:240px;background-color:#00000000";
+        },4000)
+        const sk5=setTimeout(function(){
+          document.getElementById("fn").style="opacity:1;left:360px;background-color:#00000000";
+        },5000)
+        //happy的相关动作
+        const sk6=setTimeout(function(){
+          document.getElementById("container").style="width:580px;height:100px";
+          document.getElementById("fR1").style="";
+          document.getElementById("fi").style="left:240px";
+          document.getElementById("fn").style="left:360px";
+          document.getElementById("fh").style="opacity:1;";
+          document.getElementById("fp1").style="opacity:1;left:240px";
+          document.getElementById("fp2").style="opacity:1;left:360px";
+          document.getElementById("fy").style="opacity:1;left:480px";
+        },6000)
+        const sk7=setTimeout(function(){
+          document.getElementById("fh").style="opacity:1;background-color:#00000000";
+        },7000)
+        const sk8=setTimeout(function(){
+          document.getElementById("fp1").style="left:240px;opacity:1;background-color:#00000000";
+        },8000)
+        const sk9=setTimeout(function(){
+          document.getElementById("fp2").style="left:360px;opacity:1;background-color:#00000000";
+        },9000)
+        const sk10=setTimeout(function(){
+          document.getElementById("fy").style="left:480px;opacity:1;background-color:#00000000";
+        },10000)
+        //birthday的相关动作
+        const sk11=setTimeout(function(){
+          document.getElementById("container").style="width:580px;height:220px";
+          document.getElementById("fa").style="opacity:1;transform:translate(120px,120px);left:120px;background-color:#00000000";
+          document.getElementById("fy").style="opacity:1;transform:translate(-120px,120px);left:480px;background-color:#00000000";
+          document.getElementById("fh").style="";
+          document.getElementById("fp1").style="left:240px";
+          document.getElementById("fp2").style="left:360px";
+          document.getElementById("fb").style="opacity:1;";
+          document.getElementById("fi").style="opacity:1;left:120px";
+          document.getElementById("fr2").style="opacity:1;left:240px";
+          document.getElementById("ft").style="opacity:1;left:360px";
+          document.getElementById("fh").style="opacity:1;left:480px";
+          document.getElementById("fd").style="opacity:1;left:120px;top:120px";
+        },11000)
+        const sk12=setTimeout(function(){
+          document.getElementById("fd").style="left:120px;top:120px;opacity:1;background-color:#00000000";
+        },12000)
+        const sk13=setTimeout(function(){
+          document.getElementById("fb").style="opacity:1;background-color:#00000000";
+        },13000)
+        const sk14=setTimeout(function(){
+          document.getElementById("fi").style="left:120px;opacity:1;background-color:#00000000";
+        },14000)
+        const sk15=setTimeout(function(){
+          document.getElementById("fr2").style="left:240px;opacity:1;background-color:#00000000";
+        },15000)
+        const sk16=setTimeout(function(){
+          document.getElementById("ft").style="left:360px;opacity:1;background-color:#00000000";
+        },16000)
+        const sk17=setTimeout(function(){
+          document.getElementById("fh").style="left:480px;opacity:1;background-color:#00000000";
+        },17000)
+        //王小雨年龄生日快乐的相关动作
+        const sk18=setTimeout(function(){
+          document.getElementById("fa").style="transform:translate(120px,120px);left:120px";
+          document.getElementById("fy").style="transform:translate(-120px,120px);left:480px";
+          document.getElementById("fb").style="";
+          document.getElementById("fi").style="left:120px";
+          document.getElementById("fr2").style="left:240px";
+          document.getElementById("ft").style="left:360px";
+          document.getElementById("fh").style="left:480px";
+          document.getElementById("fd").style="left:120px;top:120px";
+          document.getElementById("container").style="width:460px;height:340px"
+          document.getElementById("fwang").style="opacity:1;";
+          document.getElementById("fxiao").style="opacity:1;left:120px";
+          document.getElementById("fyu").style="opacity:1;left:240px";
+          document.getElementById("fsui").style="opacity:1;left:360px";
+        },18000)
+        const sk19=setTimeout(function(){
+          document.getElementById("fwang").style="opacity:1;background-color:#00000000";
+        },19000)
+        const sk20=setTimeout(function(){
+          document.getElementById("fxiao").style="left:120px;opacity:1;background-color:#00000000";
+        },20000)
+        const sk21=setTimeout(function(){
+          document.getElementById("fyu").style="left:240px;opacity:1;background-color:#00000000";
+        },21000)
+        const sk22=setTimeout(function(){
+          document.getElementById("fsui").style="left:360px;opacity:1;background-color:#00000000";
+        },22000)
+        const sk23=setTimeout(function(){
+          document.getElementById("fsheng").style="top:120px;opacity:1;background-color:#00000000";
+          document.getElementById("fri").style="left:120px;top:120px;opacity:1;background-color:#00000000";
+          document.getElementById("fkuai").style="left:240px;top:120px;opacity:1;background-color:#00000000";
+          document.getElementById("fle").style="left:360px;top:120px;opacity:1;background-color:#00000000";
+        },23000)
+        const sk24=setTimeout(function(){
+          document.getElementById("f1").innerHTML="<a onclick='zhufu()'>我要蛋糕</a>"
+          document.getElementById("f1").style="top:240px;right:50%;width:150px;height:35px;font-size:33px;opacity:1";
+        },24000)
+        const sk25=setTimeout(function(){
+          document.getElementById("wo").style="top:315px;right:0px;opacity:1;font-size:20px;sition:absolute";
+        },25000)
+      }
+      //我要蛋糕
+      function zhufu(){
+        document.getElementById("f1").style="opacity:0";
+        document.getElementById("container").style="width:460px;height:340px;top:0px;transform: translate(50%,50px);";
+        document.getElementById("wo").style="top:580px;right:0px;opacity:1;font-size:20px;";
+        document.getElementById("dg1").style="transform: scale(1)"
+        const dg1=setTimeout(function(){
+        document.getElementById("dg2").style="transform: scale(1)";
+        },1000)
+        const dg2=setTimeout(function(){
+        document.getElementById("dg3").style="transform: scale(1)"
+        },2000)
+        const dg3=setTimeout(function(){
+        document.getElementById("dg4").style="transform: scale(1)"
+        document.getElementById("dg5").style="transform: scale(1);top:0px;font-size: 130px;color:#ff7777;"
+        },3000)
+        const dg4=setTimeout(function(){
+        document.getElementById("dg5").style="transform: scale(1);top:230px;font-size:72px;animation: nianling 5s infinite;"
+        },4000)
+        const dg6=setTimeout(function(){
+        document.getElementById("say").style="top:600px;right:0px;transform:scale(1);font-size:20px;text-align:right;"
+        },7000)
+      }
+      //改变显示年龄
+      function shiliu(){
+        nianling=prompt("雨姐想要显示什么年龄？",16)
+        if(nianling==null){nianling=16}
+        document.getElementById('fsui').innerHTML=nianling;
+        document.getElementById('dg5').innerHTML=nianling;
+      }
+      //无奈的关闭ui，就是没有我windwhir的任何东西
+      var wunaia;
+      function wunai(){
+        wunaia=prompt("确定关闭ui吗？更改不为0可取消 \nui包括顶部控制选项所在块，标题和来源\n请注意，该过程不可逆，想要再次显示需要刷新网页",0)
+        if(wunaia==0||wunaia==null){
+          document.getElementById("style").innerHTML=document.getElementById("style").innerHTML+".yu{display:none}";
+          document.getElementById("kongzhiqi").style="display:none";
+          document.getElementById("title").innerHTML="雨姐生日快乐";
+        }
+      }
+    </script>
+    <style id="style">
+      /*背景图*/
+      @keyframes beijingtu {
+        0%{background-image: url('img/bg1.png');}
+        33%{background-image: url('img/bg2.png');}
+        66%{background-image: url('img/bg3.png');}
+        100%{background-image: url('img/bg1.png');}}
+      /*加载中*/
+      @keyframes jiazaizhong{
+        0%{background-color:#ff0000;}
+        50%{background-color:#ffaaaa;}
+        100%{background-color:#ff0000;}}
+      /*年龄变色*/
+      @keyframes nianling {
+      0%{color:#fffdfd;}
+      20%{color:#ffffff}
+      50%{color:#ffffff}
+      80%{color:#ffffff}
+      100%{color:#fffdfd}
+      }
+      /*通用选择器*/
+      *{
+        color:#ffffff;
+        transition: all 500ms;
+      }
+      /*页面背景*/
+      body{animation: beijingtu 5s infinite;
+        background-color:#ffcccc;
+      }
+      /*div通选*/
+      div{position: absolute;
+        text-align: center;
+        font-size: 33px;
+      }
+      /*加载中那个小方块*/
+      div.jiazaizhong{animation: jiazaizhong 2s infinite;
+        bottom: 50%;
+        right: 50%;
+        width: 100px;
+        height: 100px;
+        transform: translate(50%,50%);
+        background-color: #ffbbbb;
+        border-radius: 10px;
+      }
+      /*容器，主要的方形*/
+      div.container {bottom: 50%;
+        right: 50%;
+        width: 100px;
+        height: 100px;
+        transform: translate(50%,50%);
+        border: 3px solid #ff555540;
+        background-color: #ffbbbb;
+      }
+      /*那些单个的字符*/
+      div.f{width:98px;
+        height: 98px;
+        background-color: #ff7777;
+        color:#ff7777;
+        border-radius: 20px;
+        border: 3px solid #ff7777;
+        opacity:0;
+        font-size: 90px;
+      }
+      /*图片，蛋糕*/
+      div.tu{
+        width: 460px;
+        height:460px;
+        top:150px;
+        transform: scale(0);
+        transition:3s;
+      }
+      /*控制器*/
+      img.ck{
+        width:25px;
+        height: 25px;
+      }
+    </style>
+  </head>
+  <body onload="gengxin()">
+    <div style="width:100%;background-color: #ffbbbb;height:33px;position: sticky;text-align: left;" id="kongzhiqi">toRain | <span style="font-size:28px"><a href="A.html">Announce</a> <a style="color:#ff0000;text-decoration: underline;">Birthday</a> <a href="C.html">Cakeonly</a> | 控制选项：</span><img class="ck" src="img/bmusic.png" onclick="document.getElementById('bgmusic').play()"/> <img src="img/bui.png" class="ck" onclick="wunai()"/> <img class="ck" src="img/b16.png" onclick="shiliu()"/></div>
+    <div class="container" id="container">
+      <div class="jiazaizhong" style="height:100px;width:100px" id="f1">加载中</div>
+      <div class="f" id="fa">a</div>
+      <div class="f" id="fh">h</div>
+      <div class="f" id="fi">i</div>
+      <div class="f" id="fy">y</div>
+      <div class="f" id="fR1">R</div>
+      <div class="f" id="fn">n</div>
+      <div class="f" id="fp1">p</div>
+      <div class="f" id="fp2">p</div>
+      <div class="f" id="fb">b</div>
+      <div class="f" id="fr2">r</div>
+      <div class="f" id="ft">t</div>
+      <div class="f" id="fd">d</div>
+      <div class="f" id="fwang">王</div>
+      <div class="f" id="fxiao">小</div>
+      <div class="f" id="fyu">雨</div>
+      <div class="f" id="fsheng">生</div>
+      <div class="f" id="fri">日</div>
+      <div class="f" id="fkuai">快</div>
+      <div class="f" id="fle">乐</div>
+      <div class="f" id="fsui"></div>
+      <div style="opacity:0;" id="wo" class="yu">from 风吹呼呼</div>
+      <div style="transform: scale(0);" id="say" class="yu"><br/>在最上方控制选项<br/>16：显示的年龄，姐永远年轻<br/>ui：不显示ui和此版块便于截图和欣赏<br/><br/>熬三天了敲的这三百多行代码<br/>做的差强人意的蛋糕和音乐<br/>勉强能算得上是给姐的生日礼物吧<br/><br/>虽然不知道合适不合适<br/>虽然不知道有没有意义<br/>但希望喜欢，祝生日快乐！<br/><br/>更多想说的话：<a href="A.html">Announce</a><br/>关闭ui：<img src="img/bui.png" class="ck" onclick="wunai()"/><br/>B页可在每年5/9前后14天访问<br/>C页随时可以访问<br/><br/>风吹呼呼<br/>2023/5/8</div>
+      <div class="tu" id="dg1"><img style="height: 460px;width: 460px;" src="img/dg1.png"></div>
+      <div class="tu" id="dg2"><img style="height: 460px;width: 460px;" src="img/dg2.png"></div>
+      <div class="tu" id="dg3"><img style="height: 460px;width: 460px;" src="img/dg3.png"></div>
+      <div class="tu" id="dg4"><img style="height: 460px;width: 460px;" src="img/dg4.png"></div>
+      <div class="tu" id="dg5"></div>
+    </div>
+    <div style="transform: scale(0);"><audio loop="true" src="msc/生日快乐歌.mp3" id="bgmusic"></audio><img src="img/bg1.png"><img src="img/bg2.png"><img src="img/bg3.png"></div>
+  </body>
+</html>
