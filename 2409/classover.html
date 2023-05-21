@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/ahu.css" ></head>
+<body>
+<p id="topper"></p>
+<hr/>
+<p id="debug"></p>
+<hr/>
+
+<p class="m" id="most">ZYZ下课提醒器
+</p>
+
+<p class="a"><a href="https://windwhir.lanzouw.com/iB7EN0wsxknc">下载/更新</a></p>
+<p>最新版本:<span style="color:#ffff00">v3(2023.5.21)</span> <a onclick="gengxinxinxi()">更新信息</a></p><br/>
+<p>为郑州一中拖堂老师量身定制的脚本<br/>在下课3分钟和5分钟时自动报时提醒下课</p><br/>
+<p>基础使用方法:<br/>0.推荐把该文件拷贝到教师文件夹<br/>1.双击对应年级的下课提醒器以打开<br/>2.弹出更新页时点击"取消"<br/>3.播报"下课提醒服务已开启"即运行成功</p><br/>
+<p>开机自动启动:<br/>0.该方法在某些班可能不成功<br/>1.打开附赠的快捷方式"拷贝到此，开机启动"<br/>2.将对应年级的下课提醒器复制到弹出的文件夹<br/>(注意:请提供管理员权限;请允许掉火绒弹出的页面)<br/>3.关机重启，重启并等待一会儿后弹出更新页即为成功</p><br/>
+<p>友情提醒:<br/>本脚本自带阻止白板休眠的功能<br/>依赖教学机和其外放声音运行<br/>当教学机开启、投影关闭时可正常运行<br/>所以，您可以把白板的投影关闭来不让老师发现</p>
+<script>
+  var gengxin=["更新信息\n","v1(2023.2.19)\n基本功能\n","v2(2023.3.12)\n加入阻止白板休眠服务\n","v3(2023.5.21)\n更新提示\n加入了开机自启的步骤提示\n自动转跳到更新页面"]
+  function gengxinxinxi(){
+    w=prompt("您要查看哪个版本的更新信息？",3)
+    if(w>0&&w<4){alert(gengxin[w])}
+    if(w==0){alert(...gengxin)}
+  }
+</script>
+<hr/><hr/>
+<footer id="footer"></footer>
+<script src="/topper.js"></script>
+</body>
+</html>
