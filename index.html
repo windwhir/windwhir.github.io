@@ -6,18 +6,37 @@
 <hr/>
 <p id="debug"></p>
 <hr/>
-
+<style>
+.al{display: none}
+</style>
 <p class="m" id="most">空间主页
 </p>
 <p class="a"><a href="/music">琴&风 Music</a></p>
 <p class="a"><a href="/2409">2409篇章</a></p>
 <p class="a"><a href="/wjym">味界一梦</a></p>
-<p style="text-align:right"><a href="/old">old大文件夹</a></p>
+<p style="text-align:right" id="key" onclick="k4l()">查看锁定部分</p>
+<p class="a al" id="l0" ><a href="/lock">锁定页主页</a></p>
+<p class="a al" id="l1"><a href="/lock/rain">toRain</a></p>
 <hr/>
 <p><a href="https://space.bilibili.com/347752142"><img src="res/ovo.png" style="text-align:center" /></a></p>
-<p><img src="/windwhir.ico" />风吹呼呼，现就读于郑州市第一中学2409<br/>热爱音乐，喜欢前端(网页啊，脚本啊)
+<p><img src="/windwhir.ico" />风吹呼呼，现就读于郑州市第一中学2409<br/>热爱音乐，喜欢前端(网页啊，脚本啊)</p>
 <hr/><hr/>
 <footer id="footer"></footer>
 <script src="/topper.js"></script>
+<script>
+  var t4l;
+  var y4l=false;
+  function k4l(){
+    const j4l=["风吹呼呼吹尽尘埃","0509"]
+    t4l=prompt("请输入对应文件夹的对应密码","输入密码");
+    for(i=0;i<j4l.length;i++){
+      if(t4l==j4l[i]){
+        document.getElementById("l"+i).style.display="block";
+        y4l=true;
+      }
+    }
+    if(y4l==false){alert("请检查所输入密码是否正确(区分大小写)")}else{alert("已显示对应内容")}
+  }
+</script>
 </body>
 </html>
