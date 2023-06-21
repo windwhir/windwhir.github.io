@@ -43,3 +43,5 @@ document.getElementById("head").innerHTML=(document.getElementById("head").inner
 }
 
 document.getElementById("footer").innerHTML=(document.getElementById("footer").innerHTML+' - html/script by WindWhir , hosted by <a href="https://windwhir.4everland.app">4everland(推荐)</a> / <a href="https://windwhir.neocities.org">neocities</a> / <a href="https://windwhir.github.io">github</a> - <b style="color:white">当访问速度慢时，建议您点击前方白色链接更换访问方式</b>')
+
+function urlrel(release){let params=new URLSearchParams(window.location.href.split('?')[1]);return params.get(release);}
