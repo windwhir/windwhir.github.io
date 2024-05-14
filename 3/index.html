@@ -10,7 +10,9 @@
 <script src="1.js"></script>
 <!--
 <script src="2.js"></script>
+-->
 <script src="3.js"></script>
+<!--
 <script src="4.js"></script>
 <script src="5.js"></script>
 <script src="6.js"></script>
@@ -39,7 +41,7 @@ function mian(alistnum){
     if(name==alist[i][0]){
       alert("即将填入："+alist[i][1]+"同学的"+b+"成绩【需求算力较高，载入较慢】");
       b=0;inner("p","项目：得分 (名次)<br/>")
-      for(f=0;f<2;f++){
+      for(f=0;f==2;f++){
         adder("p",alist[0][f]+"："+alist[i][f]+"<br/>")
       }
       for(f=2;alist[0][f];f++){
@@ -62,7 +64,7 @@ function mian(alistnum){
   <div style="position: fixed;bottom: 0;right: 0;z-index: -1000;color: #00000010;">©WindWhir</div><div style="position: fixed;bottom: 0;left: 0;z-index: -1000;color: #00000010;">2409+x </div><div style="position: fixed;bottom: 4vw;right: 0;z-index: 1000;"><a href="#name">↑</a></div>
   <div style="font-size: 5vw;">当前同学：<a id="name" href="javascript:location.href=location.href">姓名</a><br/>当前科目：<span id="kemu">科目</span></div>
   <div><a href="javascript:mian(1)">语文</a> <!--
-<a href="javascript:mian(2)">数学</a> <a href="javascript:mian(3)">英语</a> <a href="javascript:mian(4)">物理</a> <a href="javascript:mian(5)">化学</a> <a href="javascript:mian(6)">生物</a> <a href="javascript:mian(7)">理综</a> <a href="javascript:mian(8)">总分</a><br/>建议先看最下面</div>
+<a href="javascript:mian(2)">数学</a>--> <a href="javascript:mian(3)">英语</a><!-- <a href="javascript:mian(4)">物理</a> <a href="javascript:mian(5)">化学</a> <a href="javascript:mian(6)">生物</a> <a href="javascript:mian(7)">理综</a> <a href="javascript:mian(8)">总分</a><br/>建议先看最下面</div>
 -->
 <hr/>
   <p></p>
