@@ -1,42 +1,72 @@
-<!doctype html>
+<!Doctype HTML>
 <html>
-<head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/ahu.css" /></head>
-<body>
-<p id="topper"></p>
-<hr/>
-<p id="debug"></p>
-<hr/>
+<head>
+<title>2409三模细分及年级排名查询</title>
 <style>
-.al{display: none}
+  *{transition:all 1000ms;scroll-behavior: smooth;}
+  body{background-color: #cfc;font-size: 3vw;text-align: center;}
+  a{color:#000}
 </style>
-<p class="m" id="most">空间主页
-</p>
-<p class="a"><a href="/music">琴&风 Music</a></p>
-<p class="a"><a href="/2409">2409篇章</a></p>
-<p class="a"><a href="/wjym">味界一梦</a></p>
-<p style="text-align:right" id="key" onclick="k4l()">查看锁定部分</p>
-<p class="a al" id="l0" ><a href="/lock">锁定页主页</a></p>
-<p class="a al" id="l1"><a href="/lock/rain">toRain</a></p>
-<hr/>
-<p><a href="https://space.bilibili.com/347752142"><img src="res/ovo.png" style="text-align:center" /></a></p>
-<p><img src="/windwhir.ico" />风吹呼呼，现就读于郑州市第一中学2409<br/>热爱音乐，喜欢前端(网页啊，脚本啊)</p>
-<hr/><hr/>
-<footer id="footer"></footer>
-<script src="/topper.js"></script>
+<script src="1.js"></script>
+<!--
+<script src="2.js"></script>
+-->
+<script src="3.js"></script>
+<!--
+<script src="4.js"></script>
+<script src="5.js"></script>
+<script src="6.js"></script>
+<script src="7.js"></script>
+<script src="8.js"></script>
+-->
 <script>
-  var t4l;
-  var y4l=false;
-  function k4l(){
-    const j4l=["风吹呼呼吹尽尘埃","0509"]
-    t4l=prompt("请输入对应文件夹的对应密码","输入密码");
-    for(i=0;i<j4l.length;i++){
-      if(t4l==j4l[i]){
-        document.getElementById("l"+i).style.display="block";
-        y4l=true;
+var t
+var alist=[]
+function inner(query,inner){document.querySelector(query).innerHTML=inner}
+function adder(query,adder){document.querySelector(query).innerHTML+=adder}
+function namego(){name=Number(prompt("请输入四位考场座号【需求算力较高，载入较慢】"));mian(1)}
+function mian(alistnum){
+  if(alistnum==1){alist=yuwen;b="语文"}
+  if(alistnum==2){alist=shuxue;b="数学"}
+  if(alistnum==3){alist=yingyu;b="英语"}
+  if(alistnum==4){alist=wuli;b="物理"}
+  if(alistnum==5){alist=huaxue;b="化学"}
+  if(alistnum==6){alist=shengwu;b="生物"}
+  if(alistnum==7){alist=lizong;b="理综"}
+  if(alistnum==8){alist=zongfen;b="总分"}
+  inner("#name",name)
+  inner("#kemu",b)
+  for(i=0;alist[i];i++)
+  {
+    if(name==alist[i][0]){
+      alert("即将填入："+alist[i][1]+"同学的"+b+"成绩【需求算力较高，载入较慢】");
+      b=0;inner("p","项目：得分 (名次)<br/>")
+      for(f=0;f==2;f++){
+        adder("p",alist[0][f]+"："+alist[i][f]+"<br/>")
+      }
+      for(f=2;alist[0][f];f++){
+        adder("p",alist[0][f]+"："+alist[i][f]+" ")
+        t=1
+        for(g=0;alist[g];g++){
+          if(alist[g][f]>alist[i][f]){
+            t+=1
+          }
+        }
+        adder("p","("+t+")<br/>")
       }
     }
-    if(y4l==false){alert("请检查所输入密码是否正确(区分大小写)")}else{alert("已显示对应内容")}
   }
+  if(b!=0){alert("未找到您！请检查考场座号和学科")}
+}
 </script>
+</head>
+<body onload="namego()">
+  <div style="position: fixed;bottom: 0;right: 0;z-index: -1000;color: #00000010;">©WindWhir</div><div style="position: fixed;bottom: 0;left: 0;z-index: -1000;color: #00000010;">2409+x </div><div style="position: fixed;bottom: 4vw;right: 0;z-index: 1000;"><a href="#name">↑</a></div>
+  <div style="font-size: 5vw;">当前同学：<a id="name" href="javascript:location.href=location.href">姓名</a><br/>当前科目：<span id="kemu">科目</span></div>
+  <div><a href="javascript:mian(1)">语文</a> <!--
+<a href="javascript:mian(2)">数学</a>--> <a href="javascript:mian(3)">英语</a><!-- <a href="javascript:mian(4)">物理</a> <a href="javascript:mian(5)">化学</a> <a href="javascript:mian(6)">生物</a> <a href="javascript:mian(7)">理综</a> <a href="javascript:mian(8)">总分</a><br/>建议先看最下面</div>
+-->
+<hr/>
+  <p></p>
 </body>
 </html>
