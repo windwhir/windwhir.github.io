@@ -20,8 +20,8 @@ var alist=[]
 function inner(query,inner){document.querySelector(query).innerHTML=inner}
 function adder(query,adder){document.querySelector(query).innerHTML+=adder}
 function namego(){
-  if(navigator.userAgent.indexOf("qq")){alert("请点击右上角三点选择浏览器打开")}
-  if(navigator.userAgent.indexOf("WeChat")){alert("请在下次弹窗时点击横线并输入四位考场座号，若忘记请输入0后点击“忘记考场座号”，文科生请输入0后点击”切换到文科“")}
+  if(navigator.userAgent.indexOf("qq")>0){alert("请点击右上角三点选择浏览器打开")}
+  if(navigator.userAgent.indexOf("WeChat")>0){alert("请在下次弹窗时点击横线并输入四位考场座号，若忘记请输入0后点击“忘记考场座号”，文科生请输入0后点击”切换到文科“")}
   name=Number(prompt("请输入四位考场座号，若忘记请输入0后点击“忘记考场座号”，文科生请输入0后点击”切换到文科“【需求算力较高，载入较慢】"));mian(1)
   }
 function mian(alistnum){
