@@ -8,25 +8,18 @@
   a{color:#000}
 </style>
 <script src="1.js"></script>
-<!--
 <script src="2.js"></script>
--->
 <script src="3.js"></script>
 <script src="4.js"></script>
-<!--
 <script src="5.js"></script>
--->
 <script src="6.js"></script>
-<!--
-<script src="7.js"></script>
 <script src="8.js"></script>
--->
 <script>
 var t
 var alist=[]
 function inner(query,inner){document.querySelector(query).innerHTML=inner}
 function adder(query,adder){document.querySelector(query).innerHTML+=adder}
-function namego(){name=Number(prompt("请输入四位考场座号，若忘记请填入0进入查询【需求算力较高，载入较慢】"));if(name==0){location.href="number.html"};mian(1)}
+function namego(){name=Number(prompt("请输入四位考场座号，若忘记请输入0后点击“忘记考场座号”【需求算力较高，载入较慢】"));mian(1)}
 function mian(alistnum){
   if(alistnum==1){alist=yuwen;b="语文"}
   if(alistnum==2){alist=shuxue;b="数学"}
@@ -65,9 +58,7 @@ function mian(alistnum){
 <body onload="namego()">
   <div style="position: fixed;bottom: 0;right: 0;z-index: -1000;color: #00000010;">©WindWhir</div><div style="position: fixed;bottom: 0;left: 0;z-index: -1000;color: #00000010;">2409+x </div><div style="position: fixed;bottom: 4vw;right: 0;z-index: 1000;"><a href="#name">↑</a></div>
   <div style="font-size: 5vw;">当前同学：<a id="name" href="javascript:location.href=location.href">姓名</a><br/>当前科目：<span id="kemu">科目</span></div><div><a href="number.html">忘记考场座号</div>
-  <div><a href="javascript:mian(1)">语文</a> <!--
-<a href="javascript:mian(2)">数学</a>--> <a href="javascript:mian(3)">英语</a> <a href="javascript:mian(4)">物理</a> <!--<a href="javascript:mian(5)">化学</a>--> <a href="javascript:mian(6)">生物</a> <!--<a href="javascript:mian(7)">理综</a> <a href="javascript:mian(8)">总分</a></div>
--->
+  <div><a href="javascript:mian(1)">语文</a> <a href="javascript:mian(2)">数学</a> <a href="javascript:mian(3)">英语</a> <a href="javascript:mian(4)">物理</a> <a href="javascript:mian(5)">化学</a> <a href="javascript:mian(6)">生物</a> <!--<a href="javascript:mian(7)">理综</a>--> <a href="javascript:mian(8)">总分(含理综)</a></div>
 <hr/>
   <p></p>
 </body>

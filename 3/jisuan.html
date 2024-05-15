@@ -15,7 +15,6 @@
 <script src="4.js"></script>
 <script src="5.js"></script>
 <script src="6.js"></script>
-<script src="7.js"></script>
 <script>
 var mianlist=[]
 alert(document.querySelector("p").innerHTML)
@@ -57,12 +56,12 @@ for(i=1;huaxue[i];i++){
    mianlist[i][9]=shengwu[f][2]
   }
  }
- for(f=1;lizong[f];f++){
-  if(lizong[f][0]==mianlist[i][0]){
-   mianlist[i][10]=lizong[f][2]
+ for(f=1;shengwu[f];f++){
+  if(shengwu[f][0]==mianlist[i][0]){
+   mianlist[i][10]=(wuli[f][2]+huaxue[f][2]+shengwu[f][2])
   }
  }
- mianlist[i][11]=mianlist[i][4]+mianlist[i][5]+(mianlist[i][6]*1.25)+mianlist[i][10]
+ mianlist[i][11]=mianlist[i][4]+mianlist[i][5]+mianlist[i][6]+mianlist[i][10]
  adder("p","],<br/>["+mianlist[i])
 }
 }
