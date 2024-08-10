@@ -26,7 +26,7 @@ document.getElementById("footer").innerHTML+=' - 2409大文件内，蓝奏云密
 //dq大文件夹
 if(thehref.indexOf("dq")>0){
 document.querySelector("title").innerHTML+=" - 电气101"
-document.getElementById("topper").innerHTML+=' &gt; <a href="/DQ">电气101</a>'
+document.getElementById("topper").innerHTML+=' &gt; <a href="/dq">电气101</a>'
 document.getElementById("footer").innerHTML+=' - 电气101大文件内，蓝奏云密码均为0101'
 }
 //最终
