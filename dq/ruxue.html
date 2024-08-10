@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" href="/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="/ahu.css" />
+    <script src="/motion.js"></script>
+    <script src="res/ruxue/ruxuequn.js"></script>
+    <style>
+      *{transition: all 1000ms;}
+      html,body{width: 100vw;height: 100vh;overflow:hidden;}
+      #daohang div{position:unset;border-radius: 1px;flex:1;text-align: center;font-size: 2vh;overflow: hidden;}
+      #daohang div:hover{flex:2;font-size: 3.4vh;overflow: visible}
+      .pg{position:absolute;top: 10vh;height: 89vh;left:5vw;width:90vw;overflow-y: scroll;overflow-x: hidden;font-size: 3vw;}
+    </style>
+    <script>
+      function turnto(num){
+        alert("敬请期待")
+      }
+    </script>
+ </head>
+  <body>
+    <!--拦截页-->
+    <div id="prevent" onclick="document.querySelector('audio').play();buxianshi3('#prevent',1000);setTimeout(()=>{xianshi1('#main')},1000)" style="position:absolute;width:96vw;height:96vh;top:2vh;left:2vw;background-color: #ff999933;border: solid #00000000 0px;border-radius: 1vh;z-index: 10086;">
+      <p id="topper"></p>
+      <hr/>
+      <p id="debug"></p>
+      <hr/>
+      <p class="m" id="most">花园周边(非官方)</p>
+      <p class="m">
+        已了解非官方性质<br/>
+        点击任意处以继续
+      <p class="a"><a href="index.html">网址导览</a></p>
+      </p>
+      <hr/>
+      <footer id="footer"></footer>
+    </div>
+    <!--以下为主页-->
+    <div id="main" style="opacity: 0;"> 
+      <!--导航栏-->
+      <div style="position:absolute;height:4vh;width: 90vw;top:5vh;right:5vw;display:flex;z-index: 101;border: #ffffff50 solid 0.1vh;border-radius: 0.5vh;" id="daohang">
+        <div onclick="turnto(1)" style="background-color: #FF000080" id="pd1">信息</div>
+        <div onclick="turnto(2)" style="background-color: #FF7D0080" id="pd2">军训</div>  
+        <div onclick="turnto(3)" style="background-color: #dddd0090" id="pd3">美食</div>
+        <div onclick="turnto(4)" style="background-color: #00dd0090" id="pd4">附近</div>
+        <div onclick="turnto(5)" style="background-color: #0000FF80" id="pd5">旅游</div>
+        <div onclick="turnto(6)" style="background-color: #FF00FF80" id="pd6">来校</div>
+      </div>
+      <!--信息-->
+      <div class="pg" id="pg1" style="background-color: #FF000060">
+        <a href="javascript:qun()">点击此处查询班级群</a><br/>
+        已收录101,102,104至107,109,111至115。
+        <hr/>
+        <a href="https://yx.ncwu.edu.cn/webarticle.do?articleId=2023073011483556466">入学须知(官方文档)</a>
+        <hr/>
+        1.   报到步骤<br/>
+        &#10148;8月31日前：完成线上工作，其中军训服10日开启，缴费18日开启，选床租空调21日开启。 ——<a href="https://yx.ncwu.edu.cn">智慧迎新官网</a><br/>
+        &#10148;8月31日至9月1日：到郑州市北环路36号报到。<hr/>
+        2.   信息整理<br/>
+        &#10148;我院报到负责人为：魏然18638663892。<br/>
+        &#10148;我院常驻在花园校区一号教学楼。<br/>
+        &#10148;我院宿舍楼号待定。<br/>
+        &#10148;我院新生迎接地点位于地铁2/4号线沙门站。<br/>
+        &#10148;华小水报名已截止。 ——<a href="https://yx.ncwu.edu.cn/webarticle.do?articleId=2023080210521020617">华小水</a><br/>
+        &#10148;军训服装预定入口截至目前指针仍为登录页面。<br/>
+        &#10148;校园卡使用校园网必须办理，联通可通过智慧迎新，移动电信可到校办理。<br/>
+      </div>
+    </div>
+    <!--音乐部分-->
+    <audio src="msc/ww.mp3" id="msc" loop></audio>
+    <script src="/topper.js"></script>
+    </body>
+  </html>
+  <a href="https://yx.ncwu.edu.cn">智慧迎新官网yx.ncwu.edu.cn</a>
