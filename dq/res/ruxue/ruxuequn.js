@@ -12,7 +12,7 @@ function qun(){
    case 107:qr();break;
    case 109:qr();break;
    case 111:qr();break;
-   case 112:wr(7938458967);break;
+   case 112:wr(793845897);break;
    case 113:wr(812027664);break;
    case 114:wr(991267195);break;
    case 115:wr(1001898484);qr();
