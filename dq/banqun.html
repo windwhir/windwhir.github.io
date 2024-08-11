@@ -18,8 +18,8 @@
 </div><hr/>
 <div style="text-align: center;">显示区<br/>
 班级:<span id="cl"></span><br/>
-qq群:<span id="qq"></span><br/>
-微信群:<br/><a id="tp" href=""><img id="vx" src="res/ruxue/none.png" /></a><br/>
+qq群:<br/><a id="q" href=""><img id="qq" src="res/ruxue/q/none.png" /></a><br/>
+微信群:<br/><a id="v" href=""><img id="vx" src="res/ruxue/v/none.png" /></a><br/>
 其他:<span id="qt"></span>
 </div>
 <hr/>
@@ -34,12 +34,13 @@ qq群:<span id="qq"></span><br/>
     banji[i].href="javascript:go("+i+")"
   }
   function go(num){
-    document.querySelector("#qq").innerHTML=qq[num]
     document.querySelector("#qt").innerHTML=qt[num]
     if(num<10){num="0"+num}
     document.querySelector("#cl").innerHTML="1"+num
-    document.querySelector("#vx").src="res/ruxue/1"+num+".png"
-    document.querySelector("#tp").href="res/ruxue/1"+num+".png"
+    document.querySelector("#vx").src="res/ruxue/v/1"+num+".png"
+    document.querySelector("#v").href="res/ruxue/v/1"+num+".png"
+    document.querySelector("#qq").src="res/ruxue/q/1"+num+".png"
+    document.querySelector("#q").href="res/ruxue/q/1"+num+".png"
   }
 </script>
 </body>
