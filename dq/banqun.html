@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/ahu.css" >
-<style>del{color:#888}div{font-size: 5.5vw}</style>
+<style>del{color:#888}div{font-size: 5.5vw}img{width:40vw;height:auto}</style>
 </head>
 <body onload="onload()">
 <div>&lt;--<a href="ruxue.html">返回花园周边</a></div>
@@ -11,8 +11,8 @@
 
 <p class="m" id="most">班级群收录
 </p>
-<div class="m"> 请点击班号</div>
-<div id="banhao">电气：<a>100</a>,<a>101</a>,<a>102</a>,<a>103</a>,<a>104</a>,<a>105</a>,<a>106</a>,<a>107</a><br/>
+<div id="m"> 请点击班号</div>
+<div>电气：<a>100</a>,<a>101</a>,<a>102</a>,<a>103</a>,<a>104</a>,<a>105</a>,<a>106</a>,<a>107</a><br/>
 自动化：<a>108</a>,<a>109</a>,<a>110</a>,<a>111</a>,<a>112</a>,<a>113</a><br/>
 智慧能源：<a>114</a>,<a>115</a>
 </div><hr/>
@@ -20,6 +20,7 @@
 班级:<span id="cl"></span><br/>
 qq群:<br/><a id="q" href=""><img id="qq" src="res/ruxue/q/none.png" /></a><br/>
 微信群:<br/><a id="v" href=""><img id="vx" src="res/ruxue/v/none.png" /></a><br/>
+钉钉群:<br/><a id="d" href=""><img id="dd" src="res/ruxue/d/none.png" /></a><br/>
 其他:<span id="qt"></span>
 </div>
 <hr/>
@@ -41,6 +42,8 @@ qq群:<br/><a id="q" href=""><img id="qq" src="res/ruxue/q/none.png" /></a><br/>
     document.querySelector("#v").href="res/ruxue/v/1"+num+".png"
     document.querySelector("#qq").src="res/ruxue/q/1"+num+".png"
     document.querySelector("#q").href="res/ruxue/q/1"+num+".png"
+    document.querySelector("#d").href="res/ruxue/d/1"+num+".png"
+    document.querySelector("#dd").src="res/ruxue/d/1"+num+".png"
   }
 </script>
 </body>
