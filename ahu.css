@@ -54,4 +54,4 @@ border:0;
 background-color:transparent;
 }
 /*图片*/
-img:hover{transform:scale(1.05)}
+a>img:hover{transform:scale(1.05)}
