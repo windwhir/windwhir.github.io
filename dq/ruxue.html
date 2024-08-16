@@ -31,6 +31,9 @@
       function onload(){
         if(urlrel('page')){
           startpage=Number(urlrel('page'))
+          if(startpage=2){
+            document.querySelector("#dt").innerHTML='<img class="imgw" id="dtimg" src="img/ruxue/map.jpg" alt="请点击上方导航栏的地图按钮" />'
+          }
         }
         buxianshi3('#prevent',1000);turnto(startpage);document.querySelector('#daohang').style.transform='translate(0,0)'
       }
@@ -41,16 +44,23 @@
           case 1:document.querySelector("#dtimg").classList.add('imgw');document.querySelector("#dtimg").classList.remove('imgh');document.querySelector("#dt").style.height="auto";map=0
         }
       }
+      function c2c(text) {
+        navigator.clipboard.writeText(text)
+          .then(() => {
+            alert("已复制到剪切板！")
+          })
+          .catch((error) => {
+            alert("未成功，请手动复制！错误码："+error)
+          });
+      }
     </script>
  </head>
   <body onload="onload()">
     <!--加载中页-->
     <div id="prevent" onclick="buxianshi3('#prevent',1000);turnto(startpage);document.querySelector('#daohang').style.transform='translate(0,0)'" style="position:absolute;width:96vw;height:96vh;top:2vh;left:2vw;background-color: #ff999933;border: solid #00000000 0px;border-radius: 1vh;z-index: 10086;">
-      <div style="display:none">
       <p id="topper"></p>
       <p id="debug"></p>
-      </div>
-      <p class="m" id="most">花园周边(非官方)</p>
+      <p class="m" id="most">电气入学导航(非官方)</p>
       <p class="m">
         加载中...
       </p>
@@ -59,7 +69,7 @@
     </div>
     <!--以下为主页-->
     <a style="font-size:3vh;display: block;position: absolute;right:0;top:1vh" href="https://yx.ncwu.edu.cn">链接：智慧迎新</a>
-    <div style="font-size:2.8vh">花园周边(非官方)</div>
+    <div style="font-size:2.8vh">电气入学导航(非官方)</div>
     <div style="font-size:1vh">windwhir.github.io/dq/ruxue.html</div>
     <div id="main"> 
       <!--导航栏-->
@@ -93,12 +103,12 @@
             <tr><td>费用准备</td><td>学费：电气专业￥5500/生.年，其他￥5000/生.年<br/>住宿费：六人￥800/生.年，四人￥1000/生.年<br/>军训服装：￥100/生<br/>体检：￥30/生<br/><b>以下为自愿缴费</b><br/>空调租赁：￥420/间.年<br/>医保：￥350/生.年<br/>三位一体：￥360/生<br/>爱心互助基金：￥12/生<br/><a href="http://cwwx.ncwu.edu.cn/xysf/aAppPage/index.aspx?mac=DF4028A3A1782C3567A20D0AA88B108C#/loginTemp/loginIng">缴费地址</a></td></tr>
             <tr><td>物品准备</td>
             <td><b>报到用品：</b><br/>高中毕业证，高考准考证，身份证，录取通知书，<br/>身份证(正反)和户口本复印件，<br/>一寸照片蓝底8张，二寸蓝底红底各4张(社团用)，<br/>学生档案(若自带)，团员档案(若自带)。<br/><b>
-            生活用品：</b><br/>0.9x2.0m床具，衣物，拖鞋，书包，洗漱用品，<br/>日常药品，抹布，电脑，手机，U盘，充电宝，钱。<br/><b>
+            生活用品：</b><br/>0.9x2.0m床具，衣物，拖鞋，书包，洗漱具，文具<br/>药品，抹布，电脑手机，耳机，U盘，充电宝&线，钱。<br/><b>
             军训用品：</b><br/>军训服装，纯黑色中短袜，皮筋(女生)，纸巾湿巾，<br/>防晒霜，水杯，日常药品，腰带，<br/>县及以上医院证明(若申请免训)。</td></tr>
         </table>
         <hr/>
         即时消息(“——”后为超链接)<br/>
-        &#10148;华小水：8.14欢迎为我院我院7张锦添、15张家诚、21朱俊泉、36孔惟正投票！ ——<a href="https://mp.weixin.qq.com/s/cDyDCSlHVVT6M_Xut52dag">华小水投票</a><br/>
+        &#10148;华小水：8.14欢迎为我院7张锦添、15张家诚、21朱俊泉、36孔惟正投票！ ——<a href="https://mp.weixin.qq.com/s/cDyDCSlHVVT6M_Xut52dag">华小水投票</a><br/>
         &#10148;迎新页：8.15缴费已开启；军训时间已延后。<br/>
         &#10148;学号：8.11已分配，手机端智慧迎新可查看。 ——<a href="https://yx.ncwu.edu.cn/webPhoneIndex.do">智慧迎新m</a><br/>
         &#10148;课表：可在小喇叭查询。 ——<a href="https://mp.weixin.qq.com/s/P51dhW2ARgoAzl-jxw5aXQ">华水小喇叭</a><br/>
@@ -106,12 +116,20 @@
         &#10148;团关系：暂未开始对接。 ——<a  href="https://mp.weixin.qq.com/s/QSh_N6og0y-Sfz2LaL71Bw">华水小喇叭</a><br/>
         &#10148;银行卡：学校将统一发建行卡。<br/>
         &#10148;档案相关：档案绝对不可拆封！！！<br/>
-        &#10148;军训：9月4日至9月24日。 ——<a href="https://mp.weixin.qq.com/s/rkZg6OW9suKjl3UH5G3uGg">华水小喇叭</a><br/>
+        &#10148;军训：9月4日至9月24日，周末不放假。 ——<a href="https://mp.weixin.qq.com/s/rkZg6OW9suKjl3UH5G3uGg">华水小喇叭</a><br/>
+        <hr/>
+        温馨提醒<br/>
+        &#10148;地铁相关：<br/>1.郑州地铁已接入支付宝出行，请提前进入其界面做好实名认证，在乘车时刷码进站；<br/>2.保护好物品，女孩子在扶梯、地铁等时保护好隐私；<br/>3.在黄灯闪烁时请勿硬挤，行李箱平着拉靠近身体，安全第一；<br/>4.地铁1.2.5号线为我市主干线；早7-9点，晚17-20点为我市通勤高峰。<br/>
+        &#10148;自驾相关：<br/>1.水科路极度拥挤不建议驶入；<br/>2.校外车辆入校需在南门登记；<br/>3.早7-9点，晚17-20点为我市通勤高峰；<br/>4.北三环高架在花园路出口下高架，西向东需下桥后立即驶入主道，在花园路立交走剪刀形掉头。 ——<a href="https://b23.tv/WpkyXTh">查看实拍视频</a><br/>
+        &#10148;飞机相关：<br/>1.飞机上凉，记得放厚衣服在身边；<br/>2.机场到达后行至-1楼，有城郊县地铁口，坐贾河为终点站的列车可直达学校。<br/>
+        &#10148;高铁相关：<br/>高铁到达后按站内指引乘坐地铁，建议转车时优先选择4号线。<br/>
+        &#10148;火车/巴士相关：<br/>找带有学校标志的大巴，早8-晚6，人满即走。<br/>
+        &#10148;携带物品：<br/>1.建议盆、衣架、小灯等到校再买，也可直接网购发至菜鸟驿站以减轻携带压力。 ——<a href="javascript:turnto(2);">查看学校地图</a><br/>2.别急着挂遮光帘！至少等到军训后。
       </div>
       <!--地图-->
       <div class="pg" id="pg2" style="background-color: #0000FF60">
         &#10148;详细地图(↓图片加载较慢)
-        <div style="width: 88vw;height:auto;text-align:center" id="dt"><img class="imgw" id="dtimg" src="none" alt="请点击上方导航栏的'地图'"></div><a href="javascript:rotatemap()">旋转地图</a><hr/>
+        <div style="width: 88vw;height:auto;text-align:center" id="dt"><img class="imgw" id="dtimg" src="none" alt="请点击上方导航栏的地图按钮" /></div><a href="javascript:rotatemap()">旋转地图</a><hr/>
         &#10148;<a href="https://www.amap.com/place/B01730IAES">高德地图</a><br/>
         &#10148;<a href="https://www.720yun.com/t/4ddrr6nweosrlmw20w?pano_id=yLuAErvorBbXmrIA">校园全景</a><br/>手机端点击右上角从上往下第四个按钮取消视角摇晃。<br/>
         &#10148;<a href="https://mp.weixin.qq.com/s/DfWqykemYO2P4Os9x9LVRw">校区介绍-小喇叭</a><br/>我院和能源与动力学院的前身为电力学院<br/>
@@ -163,7 +181,7 @@
         地质博物馆：“了解脚下的大地。”<br/>
         黄河博物馆：“治黄展览会”<br/>
         郑州市科技馆：“科技从未如此快乐。”<br/>
-        其他建议去：大河村遗址博物馆；商城遗址博物馆；雪花洞（荥阳）；园博园（港区）；绿博园（中牟）；奥体中心
+        其他建议去：大河村遗址博物馆；商城遗址博物馆；雪花洞（荥阳）；园博园（港区）；绿博园（中牟）；奥体中心<br/>
         <b style="color:red;">不建议去</b>：二七塔，中原福塔，花园口纪念碑，紫荆山公园，西流湖公园，植物园<hr/>
         &#10148;开封<br/>
         清明上河园<span style="color:red">[推荐]</span>：“当清明上河图照进现实”<br/>
