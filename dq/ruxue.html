@@ -14,8 +14,8 @@
       #daohang div.pdhover{flex:2;font-size: 3.4vh;overflow: visible;}
       #daohang div.pdhover::before{content:"-"}
       #daohang div.pdhover::after{content:"-"}
-      .pg{position:absolute;top: 10vh;height: 89vh;left:5vw;width:90.2vw;overflow-y: scroll;overflow-x: hidden;font-size: 3vw;border: #ffffff50 solid 0.1vh;border-radius: 0.5vh;transform: translate(0,100vh);}
-      table, th, td {border: 0.1vw solid #aaa;}
+      .pg{position:absolute;top: 10vh;height: 89vh;left:5vw;width:90.2vw;overflow-y: auto;overflow-x: hidden;font-size: 3vw;border: #ffffff50 solid 0.1vh;border-radius: 0.5vh;transform: translate(0,100vh);}
+      table, th, td {border: 0.1vw solid #ccc;}
       .imgw{transform: rotate(0deg) translate(0,0);width:100%;}
       .imgh{transform:rotate(90deg) translate(15vw,15vw);width:120vw;}
     </style>
@@ -36,7 +36,6 @@
             document.querySelector("#dt").innerHTML='<img class="imgw" id="dtimg" src="img/ruxue/map-dq1.jpg" alt="请点击上方导航栏的地图按钮" />'
           }
         }
-        buxianshi3('#prevent',1000);turnto(startpage);document.querySelector('#daohang').style.transform='translate(0,0)'
       }
       var map=0
       function rotatemap(){
@@ -45,56 +44,129 @@
           case 1:document.querySelector("#dtimg").classList.add('imgw');document.querySelector("#dtimg").classList.remove('imgh');document.querySelector("#dt").style.height="auto";map=0
         }
       }
-      function c2c(text) {
-        navigator.clipboard.writeText(text)
-          .then(() => {
-            alert("已复制到剪切板！")
-          })
-          .catch((error) => {
-            alert("未成功，请手动复制！错误码："+error)
-          });
-      }
     </script>
  </head>
   <body onload="onload()">
-    <!--加载中页-->
-    <div id="prevent" onclick="buxianshi3('#prevent',1000);turnto(startpage);document.querySelector('#daohang').style.transform='translate(0,0)'" style="position:absolute;width:96vw;height:96vh;top:2vh;left:2vw;background-color: #ff999933;border: solid #00000000 0px;border-radius: 1vh;z-index: 10086;">
-      <p id="topper" style="display:none"></p>
-      <p class="m">本页由电气2024101张家诚整理</p>
-      <p id="debug"></p>
+    <!--加载页-->
+    <div id="prevent" onclick="buxianshi3('#prevent',1000);turnto(startpage);document.querySelector('#daohang').style.transform='translate(0,0)';xianshi1('#tou')" style="position:absolute;width:96vw;height:96vh;top:2vh;left:2vw;background-color: #ff999933;border: solid #00000000 0px;border-radius: 1vh;z-index: 10086;">
+      <div style="display:none">
+        <p id="topper"></p>
+        <p id="debug"></p>
+      </div>
       <p class="m" id="most">电气入学整合</p>
-      <p class="m">
-        加载中...
-      </p>
+      <div>
+        点击任意处以进入。<hr/>
+        本页由2024101张家诚整理。<br/>&#10148;所有消息均来源于官方，小喇叭或学长学姐分享。<br/>&#10148;本页中“——”后为超链接，点击以进入来源网页。
+        <hr/>
+        目录介绍(<span style="color:#f00">首次请全部阅读</span>)<br/>
+        即时：收录最重要的即时消息。实时更新，建议收藏网址。<br/>
+        地图：2024年最新花园校区地图。(高德地图不准确，以此图为准)<br/>
+        整理：我院基本信息和入学准备需要整理成的表格。<br/>
+        提醒：交通、住宿相关的温馨提醒等。<br/>
+        <b style="color:#f00">第一次阅读时请全部阅读。</b>后三页有更新会在即时页阐述。
+      </div>
       <hr/>
       <footer id="footer"></footer>
     </div>
+    
+    
+    
+    
+    
+    
+    
+    
     <!--以下为主页-->
-    <a style="font-size:3vh;display: block;position: absolute;right:0;top:1vh" href="https://yx.ncwu.edu.cn">链接：智慧迎新</a>
-    <div style="font-size:2.8vh">电气入学整合</div>
-    <div style="font-size:1vh">windwhir.github.io/dq/ruxue.html</div>
+    <div id="tou" style="opacity: 0;">
+      <div style="text-align: right;font-size:1vh;display: block;position: absolute;right:0;top:0vh">
+        <a href="https://yx.ncwu.edu.cn">智慧迎新官网--&gt;</a><br/>
+        <a href="banqun.html">电气班群收录--&gt;</a><br/>
+        <a href="zhoubian.html">花园周边--&gt;</a><br/>
+      </div>
+      <div style="font-size:2.8vh">电气入学整合</div>
+      <div style="font-size:1vh">windwhir.github.io/dq/ruxue.html</div>
+    </div>
     <div id="main"> 
       <!--导航栏-->
       <div style="position:absolute;height:4vh;width: 90vw;top:5vh;right:5vw;display:flex;z-index: 101;border: #ffffff50 solid 0.1vh;border-radius: 0.5vh;transform: translate(0,-20vh);" id="daohang">
-        <div onclick="turnto(1)" style="background-color: #FF000080" id="pd1">信息</div>
+        <div onclick="turnto(1)" style="background-color: #FF000080" id="pd1">即时</div>
         <div onclick="turnto(2);document.querySelector('#dtimg').src='img/ruxue/map-dq1.jpg'" style="background-color: #0000FF80" id="pd2">地图</div>
-        <div onclick="turnto(3)" style="background-color: #00dd0080" id="pd3">美食</div>  
-        <div onclick="turnto(4)" style="background-color: #FF00FF80" id="pd4">旅游</div>
+        <div onclick="turnto(3)" style="background-color: #00dd0080" id="pd3">整理</div>  
+        <div onclick="turnto(4)" style="background-color: #FF00FF80" id="pd4">提醒</div>
       </div>
-      <!--信息-->
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!--即时-->
       <div class="pg" id="pg1" style="background-color: #FF000060">
-        本页由2024101张家诚整理，所有消息均为官方来源或小喇叭/学长学姐分享。
-        <hr/>
+        主体页面<hr/>
         <a href="banqun.html">点击此处查看班级群收录<br/>
         所有的班级群二维码均已收录</a>
         <hr/>
-        <a href="https://yx.ncwu.edu.cn/webarticle.do?articleId=2023073011483556466">入学须知(官方文档)</a>
+        &#10148;缴费已开启，<b style="font-size:150%">选床租空调21日14:00开启</b>，军训服装24日开启，31日至1日报到。 ——<a href="https://yx.ncwu.edu.cn">智慧迎新官网</a>
         <hr/>
-        &#10148;缴费已开启，选床租空调21日开启，军训服装24日开启，31日至1日报到。 ——<a href="https://yx.ncwu.edu.cn">智慧迎新官网</a>
+        即时消息(“——”后为超链接)<br/>
+        &#10148;选床租空调：8.21-14:00开启于智慧迎新。 ——<a href="https://yx.ncwu.edu.cn">智慧迎新</a><br/>
+        &#10148;军训：9.4至9.24，周末不放假。 ——<a href="https://mp.weixin.qq.com/s/rkZg6OW9suKjl3UH5G3uGg">华水小喇叭</a><br/>
+        &#10148;校园sim卡：以使用校园网，联通49使用智慧迎新，移动电信29到校办理。 ——<a href="https://mp.weixin.qq.com/s/4O1z-94ZXHo71MNmWGQctw">华水小喇叭</a><br/>
+        &#10148;团关系：暂未开始对接。 ——<a  href="https://mp.weixin.qq.com/s/QSh_N6og0y-Sfz2LaL71Bw">华水小喇叭</a>；<a href="javascript:alert('qq群:792037479')">官方解惑群</a><br/>
+        &#10148;银行卡：学校将统一发建行卡。<br/>
+        &#10148;档案相关：档案绝对不可拆封！！！<br/>
+        &#10148;学号：8.11已分配，手机端智慧迎新可查看。 ——<a href="https://yx.ncwu.edu.cn/webPhoneIndex.do">智慧迎新m</a><br/>
+        &#10148;课表：8.10已可在小喇叭查询。 ——<a href="https://mp.weixin.qq.com/s/P51dhW2ARgoAzl-jxw5aXQ">华水小喇叭</a><br/>
+        &#10148;入学考试：9.12-15:00~16:00字迹检测考试(暂定)。 ——<a href="https://www2.ncwu.edu.cn/jiaowu/info/1008/2214.htm">教务处</a><br/>
+        &#10148;四六级考试：口试11月开始，笔试12月开始。<br/>
+        &#10148;选课：9.20-8:00开始。 ——<a href="https://www2.ncwu.edu.cn/jiaowu/info/1008/2214.htm">教务处</a><br/>
+        &#10148;教材：需自费，发书时间未定。<br/>
+        &#10148;华小水：8.22在桨声发布最终录取名单。 ——<a href="https://mp.weixin.qq.com/s/cDyDCSlHVVT6M_Xut52dag">华小水投票</a><br/>
         <hr/>
-        信息整合<br/>
-        <table style="width:95%;border-collapse: collapse;">
-            <tr><th>项目</th><th>内容(地址等多为超链接可点击)</th></tr>
+        <a href="zhoubian.html">花园周边</a>：美食、住宿与旅游。
+        <hr/>
+        本页不显著的更新<br/>
+        8.20拆分本页为电气入学整合和花园周边，调整了网站逻辑。<br/>
+        8.21更新<a href="javascript:turnto(2)">电气地图</a>，新增了宿舍楼标注。班群页微信群续时期。(将在当日晚实装)
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!--地图-->
+      <div class="pg" id="pg2" style="background-color: #0000FF60">
+        花园地图<hr/>
+        &#10148;详细地图(↓图片加载较慢)
+        <div style="width: 88vw;height:auto;text-align:center" id="dt"><img class="imgw" id="dtimg" src="none" alt="请点击上方导航栏的地图按钮" /></div>地图操作：<a href="javascript:rotatemap()">旋转地图</a> / <a onclick="document.querySelector('#dtimg').src='img/ruxue/map.jpg'">纯净版(不可逆)</a><hr/>
+        &#10148;<a href="https://www.amap.com/place/B01730IAES">高德地图</a><br/>
+        &#10148;<a href="https://www.720yun.com/t/4ddrr6nweosrlmw20w?pano_id=yLuAErvorBbXmrIA">校园全景</a><br/>手机端点击右上角从上往下第四个按钮取消视角摇晃。<br/>
+        &#10148;<a href="https://mp.weixin.qq.com/s/DfWqykemYO2P4Os9x9LVRw">校区介绍-小喇叭</a><br/>我院和能源与动力学院的前身为电力学院<br/>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!--整理-->
+      <div class="pg" id="pg3" style="background-color: #00dd0080">
+        信息整理(地址等多为超链接可点击)<hr/>
+        <table style="width:98%;border-collapse: collapse;">
+            <tr><th>项目</th><th>内容</th></tr>
             <tr><td>报到负责</td><td>魏然老师18638663892</td></tr>
             <tr><td>校区地址</td><td><a href="https://www.amap.com/place/B01730IAES">金水区北环路36号(花园南区)</a><br/><a href="https://www.amap.com/place/B017307G1K">金水区水科路20号(花园北区)</a></td></tr>
             <tr><td>我院地址</td><td>院楼：<a href="https://www.amap.com/place/B0FFL06JTF">花园校区1号教学楼</a><br/>基础课常在<a href="https://www.amap.com/place/B0HKM7C2XX">5</a>、<a href="https://www.amap.com/place/B0FFL06U4J">6</a>号教学楼<br/>宿舍楼待定</td></tr>
@@ -104,133 +176,33 @@
             <tr><td>公交站</td><td><a href="https://www.amap.com/place/BV10419155">北三环徐寨</a> G29,185,186,Y55<br/><a href="https://www.amap.com/place/BV09009441">BRT金台路站</a> B3,B52,B302,G69<br/><a href="https://www.amap.com/place/BV10942605">华水北区</a> S157</td></tr>
             <tr><td>学校发布</td><td><a href="https://www.ncwu.edu.cn">校官网</a> | <a href="https://mp.weixin.qq.com/s/rKHIhbjenftA-P7989HLSQ">校公众号</a> | <a href="https://mp.weixin.qq.com/s/OAoDGY2IKnPYBewNXdOhww">华水桨声</a> | <a href="https://mp.weixin.qq.com/s/cb19g6kI-JCtkYo3NpK-7A">华水小喇叭</a><br/><a href="https://www2.ncwu.edu.cn/zhaoshengwang/">招生办官网</a> | <a href="https://mp.weixin.qq.com/s/Gk77ll_QpCJT2ngA4QA3pw">招生办公众号</a></td></tr>
             <tr><td>我院发布</td><td><a href="https://www2.ncwu.edu.cn/dianqi">学院官网</a> | <a href="https://mp.weixin.qq.com/s/gGjXQuS2AMgBpZQ-30mcvg">学院公众号</a></td></tr>
-            <tr><td>费用准备</td><td>学费：电气专业￥5500/生.年，其他￥5000/生.年<br/>住宿费：六人￥800/生.年，四人￥1000/生.年<br/>军训服装：￥100/生<br/>体检：￥30/生<br/><b>以下为自愿缴费</b><br/>空调租赁：￥420/间.年<br/>医保：￥350/生.年<br/>三位一体：￥360/生<br/>爱心互助基金：￥12/生<br/><a href="http://cwwx.ncwu.edu.cn/xysf/aAppPage/index.aspx?mac=DF4028A3A1782C3567A20D0AA88B108C#/loginTemp/loginIng">缴费地址</a></td></tr>
+            <tr><td>费用准备</td><td>学费：电气专业￥5500/生.年，其他￥5000/生.年<br/>住宿费：六人￥800/生.年，四人￥1000/生.年<br/>军训服装：￥100/生<br/>体检：￥30/生<br/><b>以下为自愿缴费</b><br/>空调租赁：￥420/间.年<br/>医保：￥350/生.年<br/>三位一体：￥360/生<br/>爱心互助基金：￥12/生<br/><a href="https://yx.ncwu.edu.cn">缴费地址</a></td></tr>
             <tr><td>物品准备</td>
             <td><b>报到用品：</b><br/>高中毕业证，高考准考证，身份证，录取通知书，<br/>身份证(正反)和户口本复印件，<br/>一寸照片蓝底8张，二寸蓝底红底各4张(社团用)，<br/>学生档案(若自带)，团员档案(若自带)。<br/><b>
             生活用品：</b><br/>0.9x2.0m床具，衣物，拖鞋，书包，洗漱具，文具，<br/>药，抹布，电脑手机，耳机，U盘，充电宝&线，钱。<br/><b>
             军训用品：</b><br/>军训服装，纯黑色中短袜，皮筋(女生)，纸巾湿巾，<br/>防晒霜，水杯，日常药品，腰带，<br/>县及以上医院证明(若申请免训)。</td></tr>
         </table>
         <hr/>
-        即时消息(“——”后为超链接)<br/>
-        &#10148;华小水：8.17投票已截至。 ——<a href="https://mp.weixin.qq.com/s/cDyDCSlHVVT6M_Xut52dag">华小水投票</a><br/>
-        &#10148;迎新页：8.15缴费已开启；军训时间已延后。<br/>
-        &#10148;学号：8.11已分配，手机端智慧迎新可查看。 ——<a href="https://yx.ncwu.edu.cn/webPhoneIndex.do">智慧迎新m</a><br/>
-        &#10148;课表：可在小喇叭查询。 ——<a href="https://mp.weixin.qq.com/s/P51dhW2ARgoAzl-jxw5aXQ">华水小喇叭</a><br/>
-        &#10148;校园卡：校园网必备，联通使用智慧迎新，移动电信到校办理。 ——<a href="https://mp.weixin.qq.com/s/4O1z-94ZXHo71MNmWGQctw">华水小喇叭</a><br/>
-        &#10148;团关系：暂未开始对接。 ——<a  href="https://mp.weixin.qq.com/s/QSh_N6og0y-Sfz2LaL71Bw">华水小喇叭</a><br/>
-        &#10148;银行卡：学校将统一发建行卡。<br/>
-        &#10148;档案相关：档案绝对不可拆封！！！<br/>
-        &#10148;军训：9月4日至9月24日，周末不放假。 ——<a href="https://mp.weixin.qq.com/s/rkZg6OW9suKjl3UH5G3uGg">华水小喇叭</a><br/>
-        <hr/>
-        温馨提醒<br/>
-        &#10148;地铁相关：<br/>1.郑州地铁已接入支付宝出行，请提前进入其界面做好实名认证，在乘车时刷码进站；<br/>2.保护好物品，女孩子在扶梯、地铁等时保护好隐私；<br/>3.在黄灯闪烁时请勿硬挤，行李箱平着拉靠近身体，安全第一；<br/>4.地铁1.2.5号线为我市主干线；早7-9点，晚17-20点为我市通勤高峰。<br/>
-        &#10148;自驾相关：<br/>1.水科路极度拥挤不建议驶入；<br/>2.校外车辆入校需在南门登记；<br/>3.早7-9点，晚17-20点为我市通勤高峰；<br/>4.北三环高架在花园路出口下高架，西向东需下桥后立即驶入主道，在花园路立交走剪刀形掉头。 ——<a href="https://b23.tv/WpkyXTh">查看实拍视频</a><br/>
-        &#10148;飞机相关：<br/>1.飞机上凉，记得放厚衣服在身边；<br/>2.机场到达后行至-1楼，有城郊县地铁口，坐贾河为终点站的列车可直达学校。<br/>
-        &#10148;高铁相关：<br/>1.七五折票指南 ——<a href="https://mp.weixin.qq.com/s/FWuzlX73mWy4rYsCFDhSsQ">华水小喇叭</a><br/>2.高铁到达后按站内指引乘坐地铁，建议转车时优先选择4号线。<br/>
-        &#10148;火车/巴士相关：<br/>1.半价票指南 ——<a href="https://mp.weixin.qq.com/s/FWuzlX73mWy4rYsCFDhSsQ">华水小喇叭</a><br/>2.到站后找带有学校标志的大巴，早8-晚6，人满即走。<br/>
-        &#10148;携带物品：<br/>1.建议盆、衣架、小灯等到校再买，也可直接网购发至菜鸟驿站以减轻携带压力。 ——<a href="javascript:turnto(2);">查看学校地图</a><br/>2.别急着挂遮光帘！至少等到军训后。
+        &#10148;<a href="https://yx.ncwu.edu.cn/webarticle.do?articleId=2023073011483556466">入学须知(官方文档)</a>
       </div>
-      <!--地图-->
-      <div class="pg" id="pg2" style="background-color: #0000FF60">
-        &#10148;详细地图(↓图片加载较慢)
-        <div style="width: 88vw;height:auto;text-align:center" id="dt"><img class="imgw" id="dtimg" src="none" alt="请点击上方导航栏的地图按钮" /></div>地图操作：<a href="javascript:rotatemap()">旋转地图</a> / <a onclick="document.querySelector('#dtimg').src='img/ruxue/map.jpg'">纯净版(不可逆)</a><hr/>
-        &#10148;<a href="https://www.amap.com/place/B01730IAES">高德地图</a><br/>
-        &#10148;<a href="https://www.720yun.com/t/4ddrr6nweosrlmw20w?pano_id=yLuAErvorBbXmrIA">校园全景</a><br/>手机端点击右上角从上往下第四个按钮取消视角摇晃。<br/>
-        &#10148;<a href="https://mp.weixin.qq.com/s/DfWqykemYO2P4Os9x9LVRw">校区介绍-小喇叭</a><br/>我院和能源与动力学院的前身为电力学院<br/>
-      </div>
-      <!--美食-->
-      <div class="pg" id="pg3" style="background-color: #00dd0080">
-        以下菜名/店名大多为超链接可点击<hr/>
-        &#10148;河南名吃(到处都有)：<br/>
-        <a href="https://baike.sogou.com/v465727.htm">逍遥镇胡辣汤</a>：醒酒提神，开胃健脾，香辣醇郁，汤香扑鼻。<br/>
-        <a href="https://baike.baidu.com/item/%E7%83%A9%E9%9D%A2/637578">河南烩面</a>：汤鲜香美味、筋韧有弹性。<br/>
-        <a href="https://baike.baidu.com/item/%E9%81%93%E5%8F%A3%E7%83%A7%E9%B8%A1/1003987">道口烧鸡</a>：酥香软烂、肥而不腻，中华第一鸡。<br/>
-        <a href="https://baike.baidu.com/item/%E6%A1%B6%E5%AD%90%E9%B8%A1/3710867">开封桶子鸡</a>：色泽鲜黄，咸香嫩脆，肥而不腻，越嚼越香。<br/>
-        <a href="https://baike.baidu.com/item/%E5%9B%BA%E5%A7%8B%E9%B9%85%E5%9D%97/0">信阳鹅块</a>：口味咸辣，汤色鲜美，肉质鲜嫩。<br/>
-        <a href="https://baike.baidu.com/item/%E9%83%8F%E5%8E%BF%E9%A5%B8%E9%A5%B9%E9%9D%A2">郏县饸饹面</a>：暖胃去寒，滋阴壮阳，保健防病，养生至宝。<br/>
-        <a href="https://baike.baidu.com/item/%E7%81%B5%E5%AE%9D%E8%82%89%E5%A4%B9%E9%A6%8D/14919996">灵宝肉夹馍</a>：螺旋花纹、酥脆焦香、内嫩劲道，促肠健胃。<br/>
-        <a href="https://baike.baidu.com/item/%E5%AF%BA%E6%B2%B3%E5%B1%B1%E8%8B%B9%E6%9E%9C/10443433">三门峡苹果</a>：天下苹果属灵宝，灵宝苹果属寺河。<br/>
-        <a href="https://baike.baidu.com/item/%E6%B4%9B%E9%98%B3%E6%B5%86%E9%9D%A2%E6%9D%A1">洛阳浆面条</a>：余香满口，回味无穷。<br/>
-        <a href="https://baike.baidu.com/item/%E8%A5%BF%E5%B3%A1%E9%A6%99%E8%8F%87?fromModule=lemma_search-box">西峡香菇</a>：菇质肉厚，花纹自然，脆嫩爽滑，气味芳香。(参考仲景香菇酱)<br/>
-        周口牛肉：咸香丰富，肉韵无穷(马五、马头等品牌皆可)。<br/>
-        信阳毛尖：十大名茶之一，“豫毛峰”，香高味鲜，回甘生津。
-        <hr/>
-        &#10148;河南名吃(大饭店或专程前往)：<br/>
-        豫式黄河大鲤鱼：烹饪方法多样，肉质鲜美、营养丰富。<br/>
-        <a href="https://baike.baidu.com/item/%E9%B2%A4%E9%B1%BC%E7%84%99%E9%9D%A2/2245633">开封鲤鱼焙面</a>：色泽枣红，鲜嫩鲜香，甜中透酸，酸中微咸。<br/>
-        <a href="https://baike.baidu.com/item/%E6%89%92%E5%B9%BF%E8%82%9A/2423992">扒广肚</a>：柔、嫩、醇、美。<br/>
-        <a href="https://baike.baidu.com/item/%E5%BC%80%E5%B0%81%E7%81%8C%E6%B1%A4%E5%8C%85/7683790">开封灌汤包</a>：面筋味浓、汤汁鲜香、风味独特、回味无穷。<br/>
-        <a href="https://baike.baidu.com/item/%E6%B1%B4%E4%BA%AC%E7%83%A4%E9%B8%AD/808712">汴京(开封)烤鸭</a>：传承北宋，色泽红润、皮脆肉嫩、丰腴醇香、肥而不腻。<br/>
-        <a href="https://baike.baidu.com/item/%E6%AD%A6%E9%99%9F%E6%B2%B9%E8%8C%B6/3667753">武陟油茶</a>：秦称甘缪膏汤，汉称膏汤积壳茶，土贡珍品。<br/>
-        <a href="https://baike.baidu.com/item/%E9%99%95%E5%B7%9E%E7%B3%9F%E8%9B%8B/1423702">陕州糟蛋</a>：风味独特，营养丰富，品质醇厚，具有酒香，促进消化。<br/>
-        <a href="https://baike.baidu.com/item/%E7%82%B8%E5%85%AB%E5%9D%97/1336654">炸八块</a>：干搂炸酱不要芡，一只鸡子剁八瓣。<br/>
-        <a href="https://baike.baidu.com/item/%E7%82%B8%E7%B4%AB%E9%85%A5%E8%82%89/7964712">开封炸紫酥肉</a>：“赛烤鸭”，棕黄发紫、外焦里嫩、肥而不腻。<br/>
-        <a href="https://baike.baidu.com/item/%E7%89%A1%E4%B8%B9%E7%87%95%E8%8F%9C/5328814">洛阳水席·牡丹燕菜</a>：“洛阳牡丹甲天下，菜中开出牡丹花。”<br/>
-        <a href="https://baike.baidu.com/item/%E8%BF%9E%E6%B1%A4%E8%82%89%E7%89%87/2738876">洛阳水席·连汤肉片</a>：肉片滑嫩，微酸利口。<br/>
-        <a href="https://baike.baidu.com/item/%E7%85%8E%E6%89%92%E9%B2%AD%E9%B1%BC%E5%A4%B4%E5%B0%BE/8817427">煎扒鲭鱼头尾</a>：“味烹侯鲭”，色泽柿红，香浓鲜嫩，滑润爽口。
-        <hr/>
-        &#10148;学校周边：<br/>
-        <del>江河宾馆</del>：曾经最好吃的地方已经关门(伤心ing...)<br/>
-        国基路唐河王记：快餐式经营，地道南阳菜。<br/>
-        水科路逍遥镇胡辣汤：超好吃的早餐！<br/>
-        另外，学校食堂可以用微信支付宝付款可以没卡直接去吃。<br/>
-      </div>
-      <!--旅游-->
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!--提醒-->
       <div class="pg" id="pg4" style="background-color: #FF00FF60">
-        &#10148;郑州<br/>
-        河南省博物院<span style="color:red">[必去]</span>：“一部河南史，半部中国史。”<br/>
-        黄帝故里（新郑）：“三月三，拜轩辕”，“人文始祖”，“寻根之地”<br/>
-        嵩山少林寺（登封）：“天下武功出少林。”<br/>
-        东区CBD 千玺广场：“你爬过玉米吗？”<br/>
-        地质博物馆：“了解脚下的大地。”<br/>
-        黄河博物馆：“治黄展览会”<br/>
-        郑州市科技馆：“科技从未如此快乐。”<br/>
-        其他建议去：大河村遗址博物馆；商城遗址博物馆；雪花洞（荥阳）；园博园（港区）；绿博园（中牟）；奥体中心<br/>
-        <b style="color:red;">不建议去</b>：二七塔，中原福塔，花园口纪念碑，紫荆山公园，西流湖公园，植物园<hr/>
-        &#10148;开封<br/>
-        清明上河园<span style="color:red">[推荐]</span>：“当清明上河图照进现实”<br/>
-        大宋武侠城；包公祠；开封府；天波杨府；大相国寺；龙亭公园<br/>
-        &#10148;洛阳<br/>
-        龙门石窟：“四大石窟。”<br/>
-        牡丹园：“洛阳牡丹甲天下”<br/>
-        白马寺；老君山(5A)；隋唐洛阳城国家遗址公园；应天门遗址；龙潭大峡谷(5A)；白云山(5A)；洛邑古城<br/>
-        &#10148;平顶山<br/>
-        尧山(5A)；中原大佛；白龟湖；九峰山<br/>
-        &#10148;安阳<br/>
-        中国文字博物馆<span style="color:red">[必去]</span>：“文字，文化的映射，文明的载体。”<br/>
-        殷墟；红旗渠；太行大峡谷；文峰塔；林州一中<br/>
-        &#10148;鹤壁<br/>
-        云梦山；淇河<br/>
-        &#10148;新乡<br/>
-        万仙山：“山之奇，宛有仙人在。”<br/>
-        京华园：“五十六族兄弟姐妹是一家。”<br/>
-        郭亮村壁公路：“凿壁开路，人力的伟大。”<br/>
-        八里沟；宝泉<br/>
-        &#10148;焦作<br/>
-        云台山(5A)；嘉应观；陈家沟太极拳；韩愈墓；天宁寺<br/>
-        &#10148;濮阳<br/>
-        戚城文物景区；中华第一龙；<br/>
-        &#10148;许昌<br/>
-        胖东来；曹丞相府；春秋楼；鄢陵湖<br/>
-        &#10148;漯河<br/>
-        沙河国家湿地公园；南街村；漯湾古镇<br/>
-        &#10148;三门峡<br/>
-        函谷关<span style="color:red">[推荐]</span>：“古关、老子、道德经”<br/>
-        三门峡大坝；天鹅湖；函谷关；豫西大峡谷<br/>
-        &#10148;南阳<br/>
-        武侯祠；医圣祠；南阳府衙；西峡恐龙遗迹园<br/>
-        &#10148;商丘<br/>
-        商丘古城；应天书院；芒砀山<br/>
-        &#10148;信阳<br/>
-        鄂豫皖苏区首府革命博物馆；鸡公山；西九华山；文新茶村；<br/>
-        &#10148;周口<br/>
-        太昊陵：“人祖太昊伏羲氏”<br/>
-        老子故里；郸城一高<br/>
-        &#10148;驻马店<br/>
-        嵖岈山；杨靖宇纪念馆；竹沟革命文化馆<br/>
-        &#10148;济源<br/>
-        小浪底：“黄河三峡，大型水利工程”
-        王屋山；五龙口
+        温馨提醒(“——”后为超链接)<hr/>
+        &#10148;地铁相关：<br/>1.郑州地铁已接入支付宝出行，请提前进入其界面做好实名认证，在乘车时刷码进站；<br/>2.保护好物品，女孩子在扶梯、地铁等时保护好隐私；<br/>3.在黄灯闪烁时请勿硬挤，行李箱平着拉靠近身体，安全第一；<br/>4.地铁1.2.5号线为我市主干线；早7-9点，晚17-20点为我市通勤高峰。<hr/>
+        &#10148;自驾相关：<br/>1.水科路极度拥挤不建议驶入；<br/>2.校外车辆入校需在南门登记；<br/>3.早7-9点，晚17-20点为我市通勤高峰；<br/>4.北三环高架在花园路出口下高架，西向东需下桥后立即驶入主道，在花园路立交走剪刀形掉头。 ——<a href="https://b23.tv/WpkyXTh">查看实拍视频</a><hr/>
+        &#10148;飞机相关：<br/>1.飞机上凉，记得放厚衣服在身边；<br/>2.机场到达后行至-1楼，有城郊县地铁口，坐贾河为终点站的列车可直达学校。<hr/>
+        &#10148;高铁相关：<br/>1.七五折票指南 ——<a href="https://mp.weixin.qq.com/s/FWuzlX73mWy4rYsCFDhSsQ">华水小喇叭</a><br/>2.高铁到达后按站内指引乘坐地铁，建议转车时优先选择4号线。<hr/>
+        &#10148;火车/巴士相关：<br/>1.半价票指南 ——<a href="https://mp.weixin.qq.com/s/FWuzlX73mWy4rYsCFDhSsQ">华水小喇叭</a><br/>2.到站后找带有学校标志的大巴，早8-晚6，人满即走。<hr/>
+        &#10148;携带物品：<br/>1.建议盆、衣架、小灯等到校再买，也可直接网购发至菜鸟驿站以减轻携带压力。 ——<a href="javascript:turnto(2);">查看学校地图</a><br/>2.别急着挂遮光帘！至少等到军训后。
       </div>
     </div>
     <script src="/topper.js"></script>
