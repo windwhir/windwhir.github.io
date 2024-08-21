@@ -14,7 +14,6 @@
 <script>
   function xym(){document.querySelector("#alert").innerHTML="正在重新导向新页面..."}
   if(location.href.endsWith('htm')){location.href+='l';xym()}
-  if(location.href.indexOf(".")<0){location.href+='.html';xym()}
   var tm=10;
   setInterval(()=>{tm-=1;document.querySelector(".flynum").innerHTML=tm},1000)
   setTimeout(()=>{location.href="/";xym()},10000)
