@@ -39,6 +39,7 @@ qq群:<br/><a id="q" href=""><img id="qq" src="res/ruxue/q/none.png" alt="小导
     let banji=document.querySelectorAll("#banhao a")
     for(i=0;i<16;i++)
     banji[i].href="javascript:go("+i+")"
+    alert("本页已停止维护。\r微信码过期失效，qq码钉钉码不会过期。")
   }
   function go(num){
     document.querySelector("#qt").innerHTML=qt[num]
