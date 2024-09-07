@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" /><link rel="stylesheet" href="/normalize.css" ><title>19.4 or 19.5</title>
+  <style>
+    html,body{width:100vw;height:100vh;background-color: #000;color:#fff}
+    a{color:#fff}
+    .most{position:absolute;width: 95vw;left:2vw}
+    .mo{position:absolute;width: 46.5vw;height:6vh;font-size: 5vh;border:solid 0.1vh #000;text-align: center;}
+  </style>
+  <script>
+    window.onbeforeunload=function(e){var e=window.event ||e;e.returnValue="想关掉？你确定？"}
+    var namelist=[]
+    var name194=['<a href="javascript:turnto(1)">19.4</a>',"闫荣钊","何佳磊","张衡","李杰","李金星","李锐博","李鹏举","郑富元","姜仕明","姜亚东","徐晨曦","高锦东","常玉辉","彭习恒","董子能","董浩杰","睢露月","樊昌圣","魏新岩","白然锋","刘浩洋","吕冠新","米晨熙","张子恒","李亚勋","李鑫赫","苏家乐","陈孟阳","单梦飞","林昱成","罗昊","郑凯元","袁浩杰","徐运彤","高梦琦","程前磊","王子博","王硕","王鑫磊","刘千睿","刘宝","张家诚","李鑫涛","杨天翔","汪嘉豪","陈逸飞","段超琦","赵恒","殷粤新","郭洋男","黄钧","谢金诚","丁艺蕾","马晓阳","王自豪","张炜杰","张涵钦","李宇昊","李佳兴","林壮歆","赵君康","赵明岩","赵鹤","谢一硕","韩冲","韩贵兴","王得懿","王奥博","王敬濠","刘昌旭","何云硕","张天赐","李宇森","李阳","陈旭",'<span style="color:#aaa">点完了</span>']
+    var name195=['<a href="javascript:turnto(1)">19.5</a>',"袁啟竣","郭仕琦","曾德铨","谢志远","薛润晖","于园喆","王梓鉴","许家臻","张敬源","李兆国","杨雪峰","周思远","苑晨伟","范昌世","徐汶浩","郭张昊","鲁汶宣","鲍文超","牛宇森","王成","王续栋","龙飞洋","刘子龙","吴观育","张锦添","李乾","杜俊懿","罗明辉","殷钰良","谢荣威","裴峰炜","马嘉豪","司高峰","张亚旭","张登浩","张耀扬","时宇飞","芦浩然","陈一丁","房春毅","赵广政","秦籍汛","黄未锋","谭澄新","叶松霖","孙逍遥","陈家乐","陈浩楠","陈嘉禄","周睿凡","施向阳","段昕嘉","徐浩轩","黄文轩","敬玉川","焦玉宽","韩迎卓","万有名","于航","邓渝洪","王国琪","叶绍成","白明泽","冯兆如","刘博华","孙宇晨","宋懿轩","张宇轩","张明洋","张羿杰","杨邓一","辛赛赛","陈剑桥","哈生龙","胡江涛","徐弘杰",'<span style="color:#aaa">点完了</span>']
+    var lb=0
+    var nb=0
+    function turnto(label){
+      if(namelist[label]){
+        lb=label
+        document.querySelector("#name").innerHTML=namelist[lb]
+      }
+      else{alert("前面的区域，以后再来探索吧！")}
+    }
+    function kaishi(lp){
+      switch(lp){
+        case 194 :namelist=name194;break;
+        case 195 :namelist=name195;
+      }
+      turnto(1)
+    }
+    function rm(num){
+      document.querySelector("#d"+num).style.color="#000"
+      //if(document.querySelector("#d"+num).style.color=="#fff"){document.querySelector("#d"+num).style.color="#000"}
+      //if(document.querySelector("#d"+num).style.color=="#000"){document.querySelector("#d"+num).style.color="#fff"}
+    }
+    function putin(bloom){
+      nb+=1
+      if(bloom){document.querySelector("#chidao").innerHTML+="<span id='d"+nb+"' onclick='rm("+nb+")' style='color:#fff'>"+namelist[lb]+"</span><br/>"}
+      else{document.querySelector("#qingjia").innerHTML+="<span id='d"+nb+"' onclick='rm("+nb+")' style='color:#fff'>"+namelist[lb]+"</span><br/>"}
+      turnto(lb+1)
+    }
+  </script>
+</head>
+<body>
+  <div class="most" id="name" style="font-size: 30vw;text-align: center;"><span style="font-size:70%"><a href="javascript:kaishi(194);">19.4</a>|<a href="javascript:kaishi(195);">19.5</a></span></div>
+  <!--此为公示栏-->
+  <div class="mo" style="left:2vw;bottom:36vh;font-size: 4vh;height:36vh;background: #ff000080;overflow-y: scroll;" id="chidao">迟到<br/></div>
+  <div class="mo" style="left:50.5vw;bottom:36vh;font-size: 4vh;height:36vh;background: #0000ff80;overflow-y: scroll;" id="qingjia">请假<br/></div>
+  <!--此为操作栏-->
+  <div class="most" style="height:12vh;font-size: 10.5vh;border:solid 0.1vh green;text-align: center;bottom:23vh;background: #fff;color:#000;" onclick="turnto(lb+1)">下一个</div>
+  <div class="most" style="height:6vh;font-size: 5vh;border:solid 0.1vh green;text-align: center;bottom:16vh;background: #ff000080" onclick="putin(true)">标记为【迟到】</div>
+  <div class="most" style="height:6vh;font-size: 5vh;border:solid 0.1vh green;text-align: center;bottom:9vh;background: #0000ff80" onclick="putin(false)">标记为【请假】</div>
+  <div class="mo" style="left:2vw;bottom:2vh;background: #fff;color:#000" onclick="turnto(lb-1)">上一个</div>
+  <div class="mo" style="left:50.5vw;bottom:2vh;background: #fff;color:#000" onclick="turnto1()">转跳到</div>
+</body>
+</html>
