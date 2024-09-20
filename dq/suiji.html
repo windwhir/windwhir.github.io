@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      *{transition: all 3s ease-in-out;text-align: center;}
+      div{font-size: 5vh;position:absolute;width: 100%;}
+      body{background-color: #cfc;}
+      #flexdiv span{flex:1;border: #000 solid 0.1vw;line-height:50vh}
+    </style>
+    <title>随机抽取101同志</title>
+  </head>
+  <body>
+    <div style="heigh:10vh">抽取你的帅哥美女</div>
+    <div style="height: 54vh;top:8vh;left: 50vw;width: 0.1vw;border: solid #fcc;background-color: red;"></div>
+    <div id="fuckman" style="height: 50vh;width:2200vw;top:10vh;left: 50vw;">
+      <div style="height:100%;width:100%;display: flex;" id="flexdiv">
+<span>王子博</span><span>王硕</span><span>王鑫磊</span><span>刘千睿</span><span>刘宝</span><span>江敏</span><span>张家诚</span><span>李鑫涛</span><span>杨天翔</span><span>杨晓蝶</span><span>汪嘉豪</span><span>陈逸飞</span><span>段超琦</span><span>赵凯歌</span><span>赵恒</span><span>殷粤新</span><span>郭洋男</span><span>黄钧</span><span>谢金诚</span>
+<span>王子博</span><span>王硕</span><span>王鑫磊</span><span>刘千睿</span><span>刘宝</span><span>江敏</span><span>张家诚</span><span>李鑫涛</span><span>杨天翔</span><span>杨晓蝶</span><span>汪嘉豪</span><span>陈逸飞</span><span>段超琦</span><span>赵凯歌</span><span>赵恒</span><span>殷粤新</span><span>郭洋男</span><span>黄钧</span><span>谢金诚</span>
+<span>王子博</span><span>王硕</span><span>王鑫磊</span><span>刘千睿</span><span>刘宝</span><span>江敏</span><span>张家诚</span><span>李鑫涛</span><span>杨天翔</span><span>杨晓蝶</span><span>汪嘉豪</span><span>陈逸飞</span><span>段超琦</span><span>赵凯歌</span><span>赵恒</span><span>殷粤新</span><span>郭洋男</span><span>黄钧</span><span>谢金诚</span>
+<span>王子博</span><span>王硕</span><span>王鑫磊</span><span>刘千睿</span><span>刘宝</span><span>江敏</span><span>张家诚</span><span>李鑫涛</span><span>杨天翔</span><span>杨晓蝶</span><span>汪嘉豪</span><span>陈逸飞</span><span>段超琦</span><span>赵凯歌</span><span>赵恒</span><span>殷粤新</span><span>郭洋男</span><span>黄钧</span><span>谢金诚</span>
+      </div>
+    </div>
+    <div style="border: 1px solid #000;font-size: 8vh;height: 10vh;top:65vh" onclick="go()">抽取</div>
+    <div onclick="location.href=location.href" style="top:75vh">刷新网页</div>
+    <script>
+      function go(){
+        document.querySelector("#fuckman").style.transition="all 500ms ease-in-out"
+        document.querySelector("#fuckman").style.transform="translate(0vw,0)"
+        setTimeout(()=>{
+        var rd = Math.floor(Math.random() * 2200);
+        document.querySelector("#fuckman").style.transition="all 3s ease-in-out"
+        document.querySelector("#fuckman").style.transform="translate(-"+rd+"vw,0)"
+        },500)
+      }
+    </script>
+  </body>
+</html>
