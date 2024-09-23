@@ -67,7 +67,7 @@ function ww_speak(utter_text){
     speechSynthesis.speak(speech_text)
   }catch(err){
     if(ww_speak_alert_variate==0){
-      alert("如果您想要正常使用朗读功能，请下载firefox浏览器。")
+      if(confirm("如果您想要正常使用朗读功能，请下载firefox浏览器。点击确认以前往下载。")){alert("确认后请允许浏览器弹出窗口！");window.open("https://mozilla.org")}
       ww_speak_alert_variate=1
     }
   }
