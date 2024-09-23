@@ -61,7 +61,6 @@
 var ww_speak_alert_variate=0
 function ww_speak(utter_text){
   try{
-    speechSynthesis.getVoices()
     speechSynthesis.cancel()
     let speech_text = new SpeechSynthesisUtterance(utter_text)
     speechSynthesis.speak(speech_text)
