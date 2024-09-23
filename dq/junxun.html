@@ -27,8 +27,7 @@
       if(namelist[label]){
         lb=label
         document.querySelector("#name").innerHTML=namelist[lb]
-        let speech_text = new SpeechSynthesisUtterance(namelist[lb])
-        speechSynthesis.speak(speech_text)
+        ww_speak(namelist[lb])
       }
       else{alert("前面的区域，以后再来探索吧！(没了)")}
     }
@@ -58,6 +57,18 @@
       if(bloom){document.querySelector("#chidao").innerHTML+="<span id='d"+nb+"' onclick='rm("+nb+")' style='color:#fff'>"+namelist[lb]+"</span><br/>"}
       else{document.querySelector("#qingjia").innerHTML+="<span id='d"+nb+"' onclick='rm("+nb+")' style='color:#fff'>"+namelist[lb]+"</span><br/>"}
       turnto(lb+1)
+    }
+    function ww_speak(utter_text){
+      try{
+        speechSynthesis.cancel()
+        let speech_text = new SpeechSynthesisUtterance(utter_text)
+        speechSynthesis.speak(speech_text)
+      }catch(err){
+        if(ww_speak_alert_variate==0){
+        alert("如果您想要正常使用朗读功能，请下载firefox浏览器。")
+        ww_speak_alert_variate=1
+        }
+      }
     }
   </script>
 </head>
