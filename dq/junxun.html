@@ -58,17 +58,20 @@
       else{document.querySelector("#qingjia").innerHTML+="<span id='d"+nb+"' onclick='rm("+nb+")' style='color:#fff'>"+namelist[lb]+"</span><br/>"}
       turnto(lb+1)
     }
-    var ww_speak_alert_variate=0
-    function ww_speak(utter_text){
-      try{
-        speechSynthesis.cancel()
-        let speech_text = new SpeechSynthesisUtterance(utter_text)
-        speechSynthesis.speak(speech_text)
-      }catch(err){
-        if(ww_speak_alert_variate==0){
-        alert("如果您想要正常使用朗读功能，请下载firefox浏览器。")
-        ww_speak_alert_variate=1
-        }
+var ww_speak_alert_variate=0
+function ww_speak(utter_text){
+  try{
+    speechSynthesis.getVoices()
+    speechSynthesis.cancel()
+    let speech_text = new SpeechSynthesisUtterance(utter_text)
+    speechSynthesis.speak(speech_text)
+  }catch(err){
+    if(ww_speak_alert_variate==0){
+      alert("如果您想要正常使用朗读功能，请下载firefox浏览器。")
+      ww_speak_alert_variate=1
+    }
+  }
+}
       }
     }
   </script>
