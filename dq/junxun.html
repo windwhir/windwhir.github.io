@@ -27,7 +27,7 @@
       if(namelist[label]){
         lb=label
         document.querySelector("#name").innerHTML=namelist[lb]
-        SpeechSynthesis.speak(namelist[lb])
+        speechSynthesis.speak(namelist[lb])
       }
       else{alert("前面的区域，以后再来探索吧！(没了)")}
     }
