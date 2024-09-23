@@ -66,7 +66,19 @@ function ww_speak(utter_text){
     speechSynthesis.speak(speech_text)
   }catch(err){
     if(ww_speak_alert_variate==0){
-      if(confirm("如果您想要正常使用朗读功能，请下载firefox浏览器。点击确认以前往下载。")){alert("确认后请允许浏览器弹出窗口！");window.open("https://mozilla.org")}
+      var ww_speak_alert_variate=0
+function ww_speak(utter_text){
+  try{
+    speechSynthesis.cancel()
+    let speech_text = new SpeechSynthesisUtterance(utter_text)
+    speechSynthesis.speak(speech_text)
+  }catch(err){
+    if(ww_speak_alert_variate==0){
+      if(confirm("如果您想要正常使用朗读功能，请下载firefox浏览器。点击确认以前往下载。")){alert("确认后请允许浏览器弹出窗口！");window.open("https://www.32r.com/app/132224.html")}
+      ww_speak_alert_variate=1
+    }
+  }
+}
       ww_speak_alert_variate=1
     }
   }
