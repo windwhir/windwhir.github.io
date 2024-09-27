@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/_img/windwhir.ico">
+    <script src="/_js/ww.js"></script>
+    <link rel="stylesheet" href="/_css/normalize.css">
+    <title>单辩论计时 - WindWhir</title>
+    <style>
+        html,body{
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        .top{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            width: 100vw;
+            overflow: hidden;
+            background-color: #f0fff0;
+            font-size: 20vw;
+        }
+        .bottom{
+            position:absolute;
+            top:80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vh;
+            width: 100vw;
+            overflow: hidden;
+            background-color: #fff0f0;
+            font-size: 5vw;
+        }
+    </style>
+  </head>
+  <body onload="t_update()">
+    <div class="top">
+      <div class="timer" id="timer">LOAD</div>
+    </div>
+    <div class="bottom" onclick="t_switch()">点此开始</div>
+    <script>
+        // 倒计时时间/秒
+        var t_time=Number(ww_urlrel("tm"))==0?location.href="index.html":Number(ww_urlrel("tm"));
+        var t_element = document.getElementById('timer');
+        var t_control = document.querySelector('.bottom');
+        var t_interval = false
+        // 更新计时器
+        function t_update() {
+          let minutes = Math.floor(t_time/60);
+          let seconds = t_time%60;
+          minutes = minutes < 10 ? '0' + minutes : minutes;
+          seconds = seconds < 10 ? '0' + seconds : seconds;
+          t_element.textContent =minutes + ':' + seconds;
+          if (t_time<= 0) {
+            clearInterval(t_interval);
+            t_element.textContent = 'OVER';
+            t_control.innerHTML = '已结束 - <a href="javascript:location.reload()">点此重启</a>';
+            t_control.onclick="???"
+            ww_speak("时间到！请立即停止！")
+          } else {
+            t_time--;
+          }
+        }
+        // 每秒更新一次计时器
+        function t_switch(){
+          if(t_interval){
+            clearInterval(t_interval)
+            t_interval = false
+            t_control.textContent = '已暂停 - 点此继续';
+            ww_speak("已暂停")
+          }else{
+            t_interval = setInterval(t_update,1000);
+            t_control.textContent = '点此暂停';
+            ww_speak("请开始")
+          }
+        }
+    </script>
+  </body>
+</html>
