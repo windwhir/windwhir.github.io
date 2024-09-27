@@ -5,7 +5,7 @@
     <link rel="icon" href="/_img/windwhir.ico">
     <script src="/_js/ww.js"></script>
     <link rel="stylesheet" href="/_css/normalize.css">
-    <title>单辩论计时 - WindWhir</title>
+    <title>单倒计时 - WindWhir</title>
     <style>
         html,body{
             height: 100vh;
@@ -57,7 +57,7 @@
           if (t_time<= 0) {
             clearInterval(t_interval);
             t_element.textContent = 'OVER';
-            t_control.innerHTML = '已结束 - <a href="javascript:location.reload()">点此重启</a>';
+            t_control.innerHTML = '已结束 - <a href="javascript:location.reload()">重启</a> - <a href="index.html">新建</a>';
             t_control.onclick="???"
             ww_speak("时间到！请立即停止！")
           } else {
