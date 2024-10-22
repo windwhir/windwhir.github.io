@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" /><link rel="stylesheet" href="/normalize.css" ><title>电气专业点名</title>
+  <style>
+    *{transition:all 250ms}
+    html,body{width:100vw;height:100vh;background-color: #000;color:#fff}
+    #kaishi a{text-decoration: underline;}
+    .most{position:absolute;width: 95vw;left:2vw;}
+    .mo{position:absolute;width: 46.5vw;height:4vh;font-size: 5vh;border:solid 0.1vh #000;text-align: center;}
+    #chidao:hover,#qingjia:hover{height:60vh}
+  </style>
+  <script>
+    window.onbeforeunload=function(e){var e=window.event ||e;e.returnValue="想关掉？你确定？"}
+    var xuehao="kaishi 202410001 202410002 202410003 202410004 202410005 202410006 202410007 202410008 202410009 202410010 202410011 202410012 202410013 202410014 202410015 202410016 202410017 202410018 202410019 202410020 202309707 202410101 202410102 202410103 202410104 202410105 202410106 202410108 202410109 202410110 202410111 202410112 202410113 202410114 202410115 202410116 202410117 202410118 202410119 202410120 202410201 202410202 202410203 202410204 202410205 202410206 202410207 202410208 202410209 202410210 202410211 202410212 202410213 202410214 202410215 202410216 202410217 202410218 202410219 202410301 202410302 202410303 202410304 202410305 202410306 202410307 202410308 202410309 202410310 202410311 202410312 202410313 202410314 202410315 202410316 202410317 202410318 202410401 202410402 202410403 202410404 202410405 202410406 202410407 202410409 202410410 202410411 202410412 202410413 202410414 202410415 202410416 202410417 202410418 202410501 202410502 202410503 202410504 202410505 202410506 202410507 202410508 202410509 202410510 202410511 202410512 202410513 202410514 202410515 202410516 202410517 202107523 202410601 202410602 202410603 202410604 202410605 202410606 202410607 202410608 202410609 202410610 202410611 202410613 202410614 202410615 202410616 202410617 202410701 202410702 202410703 202410704 202410705 202410706 202410707 202410708 202410709 202410710 202410711 202410712 202410713 202410714 202410715 202410716"
+    var xuehaolist=xuehao.split(" ")
+    var name1="开始 白然锋 刘浩洋 吕冠新 米晨熙 张子恒 李亚勋 李鑫赫 苏家乐 陈孟阳 单梦飞 林昱成 罗昊 郑凯元 胡亚宁 袁浩杰 徐运彤 高梦琦 彭铂言 程前磊 董珂羽 岳一达 王子博 王硕 王鑫磊 刘千睿 刘宝 江敏 张家诚 李鑫涛 杨天翔 杨晓蝶 汪嘉豪 陈逸飞 段超琦 赵凯歌 赵恒 殷粤新 郭洋男 黄钧 谢金诚 丁艺蕾 马晓阳 王自豪 田嘉依 张炜杰 张涵钦 李宇昊 李佳兴 杨伟丽 林壮歆 赵君康 赵明岩 赵凌萱 赵鹤 黄帅 董家秀 谢一硕 韩冲 韩贵兴 马梦霖 王得懿 王奥博 王敬濠 刘昌旭 何云硕 张天赐 李宇森 李阳 陈旭 陈博文 袁啟竣 夏妍 贾梦涵 郭仕琦 曾德铨 谢志远 薛润晖 于园喆 王悦 王梓鉴 许家臻 张敬源 李子君 李兆国 杨雪峰 周思远 苑晨伟 范昌世 金海心 赵娜 徐汶浩 郭张昊 鲁汶宣 鲍文超 牛宇森 王成 王卓佳 王哲 王续栋 龙飞洋 刘子龙 吴观育 张锦添 李乾 杜俊懿 陈梦祎 罗明辉 赵家语 殷钰良 谢荣威 裴峰炜 晏寿峰 马芳园 马若涵 马嘉豪 司高峰 牟虹亿 张亚旭 张登浩 张耀扬 时宇飞 杨芳 芦浩然 房春毅 赵广政 秦籍汛 黄未锋 谭澄新 马淑宁 叶松霖 孙逍遥 杨家琦 陈家乐 陈浩楠 陈嘉禄 周睿凡 施向阳 段昕嘉 赵小小 徐浩轩 黄文轩 敬玉川 焦玉宽 韩迎卓"
+    var namelist=name1.split(" ")
+    var lb=0
+    var nb=0
+    function turnto(label){
+      if(namelist[label]){
+        lb=label
+        document.querySelector("#xuehao").innerHTML=xuehaolist[lb]
+        document.querySelector("#name").innerHTML=namelist[lb]
+        ww_speak(namelist[lb])
+      }
+      else{alert("前面的区域，以后再来探索吧！(没了)")}
+    }
+    function rm(num){
+      document.querySelector("#d"+num).style.color="#000"
+      //if(document.querySelector("#d"+num).style.color=="#fff"){document.querySelector("#d"+num).style.color="#000"}
+      //if(document.querySelector("#d"+num).style.color=="#000"){document.querySelector("#d"+num).style.color="#fff"}
+      //妈的为啥实现不了啊
+    }
+    function putin(bloom){
+      nb+=1
+      if(bloom){document.querySelector("#chidao").innerHTML+="<span id='d"+nb+"' onclick='rm("+nb+")' style='color:#fff'>"+xuehaolist[lb]+namelist[lb]+"</span><br/>"}
+      else{document.querySelector("#qingjia").innerHTML+="<span id='d"+nb+"' onclick='rm("+nb+")' style='color:#fff'>"+xuehaolist[lb]+namelist[lb]+"</span><br/>"}
+      turnto(lb+1)
+    }
+    var ww_speak_alert_variate=0
+    function ww_speak(utter_text){
+      try{
+         speechSynthesis.cancel()
+         let speech_text = new SpeechSynthesisUtterance(utter_text)
+         speech_text.rate=3
+         speechSynthesis.speak(speech_text)
+      }catch(err){
+         if(ww_speak_alert_variate==0){
+           if(confirm("如果您想要正常使用朗读功能，请下载firefox浏览器。点击确认以前往下载。")){alert("确认后请允许浏览器弹出窗口！");window.open("https://www.32r.com/app/132224.html")}
+         ww_speak_alert_variate=1
+        }
+      }
+    }
+  </script>
+</head>
+<body onload="turnto(0)">
+  <!--此为姓名栏-->
+  <div class="most" id="name" style="font-size: 23vw;text-align: center;width:100%;left:0" onclick="ww_speak(document.querySelector('#name').textContent)"><a href="javascript:location.reload()">重开</a></div>
+  <!--此为学号栏-->
+  <div class="most" id="xuehao" style="font-size: 3vw;text-align: center;width:100%;left:0" onclick="ww_speak(document.querySelector('#xuehao').textContent)"><a href="javascript:location.reload()">重开</a></div>
+  <!--此为公示栏-->
+  <div class="mo" style="left:2vw;bottom:36vh;font-size: 3vh;background: #ff000080;overflow-y: scroll;" id="chidao">迟到<br/></div>
+  <div class="mo" style="left:50.5vw;bottom:36vh;font-size: 3vh;background: #0000ff80;overflow-y: scroll;" id="qingjia">请假<br/></div>
+  <!--此为操作栏-->
+  <div class="most" style="height:12vh;font-size: 10.5vh;border:solid 0.1vh green;text-align: center;bottom:23vh;background: #fff;color:#000;" onclick="turnto(lb+1)" accesskey="a">下一个</div>
+  <div class="most" style="font-size: 5vh;height:6vh;border:solid 0.1vh green;text-align: center;bottom:16vh;background: #ff000080" onclick="putin(true)">标记为【迟到】</div>
+  <div class="most" style="font-size: 5vh;height:6vh;border:solid 0.1vh green;text-align: center;bottom:9vh;background: #0000ff80" onclick="putin(false)">标记为【请假】</div>
+  <div class="mo" style="height:6vh;left:2vw;bottom:2vh;background: #fff;color:#000" onclick="turnto(lb-1)">上一个</div>
+  <div class="mo" style="height:6vh;left:50.5vw;bottom:2vh;background: #00ff0080" onclick="alert('迟到和请假栏可以上下滑动，点名字变黑就相当于划掉了。但是黑了以后就恢复不了白了，我也不知道为啥，回头看看能不能调')">指南</div>
+</body>
+</html>
