@@ -44,7 +44,7 @@
       try{
          speechSynthesis.cancel()
          let speech_text = new SpeechSynthesisUtterance(utter_text)
-         speech_text.rate=3
+         speech_text.rate=2
          speechSynthesis.speak(speech_text)
       }catch(err){
          if(ww_speak_alert_variate==0){
