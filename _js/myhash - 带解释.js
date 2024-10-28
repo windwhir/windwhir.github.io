@@ -6,8 +6,8 @@ function myhash(input) {
   
     // 定义一些常量，用于在哈希过程中进行运算  
     // 这些常量是随机选择的，仅用于示例  
-    const primes = [2,0,2,4,1,0,1,2,3,1,5];  
-    const rotations = [1,1,4,5,1,4,1,0,0,8,6];   
+const primes = [20,24,101,08,23,15];
+const rotations = [86,152,90,86,40,88]  
   
     // 将输入字符串转换为UTF-8编码的字节数组  
     let inputBytes = new TextEncoder().encode(input);  
