@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <title>那点事情</title>
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link href="img/bg1.png" rel="icon" />
+    <script>
+      function kai(aidi){
+        document.querySelector("#"+aidi).classList.add("kai")
+        document.querySelector("#"+aidi).classList.remove("guan")
+        document.getElementById(aidi).onclick="guan(this.id)"
+      }
+      function guan(aidi){
+        document.querySelector("#"+aidi).classList.add("guan")
+        document.querySelector("#"+aidi).classList.remove("kai")
+        document.getElementById(aidi).onclick="kai(this.id)"
+      }
+    </script>
+    <style>
+      /*通用选择器*/
+      *{
+        color:#ffffff;
+        transition: all 1s;
+      }
+      /*页面背景*/
+      html,body{width: 100vw;height: 100vh;overflow:hidden;background-color:#77ff99;}
+      /*开关内容*/
+      .guan , .kai{
+        margin: 2vw;
+        border-radius: 30px;
+        border:5px solid #338800;
+        font-size: 35px;
+        text-align: center;
+        padding-top: 10px;
+      }
+      .guan{
+        border-bottom-style:double;
+      }
+      .guan > p{
+        font-size: 0%;
+      }
+      .kai > p{
+        font-size: 28px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <!--控制器-->
+    <div style="width:100%;height:30px;position: fixed;text-align: left;z-index:100;font-size:33px;" id="kongzhiqi">toRain | <span style="font-size:25px"><a onclick="kaiall()">显示所有</a> <a onclick="guanall()">关闭所有</a> <a onclick="document.getElementById('msc').play()">音乐</a></span></div>
+    <div class="guan" id="d1" onclick="kai(this.id)">2023/5/28周日
+      <p>我真的不知道这是什么情况</p>
+    </div>
+  </body>
+</html>

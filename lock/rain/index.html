@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>toRain - windwhir</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" href="img/背景图1.png" />
+  </head>
+  <body>
+    <div>
+    <p class="m">toRain</p>
+    <hr/><br/>
+    <p>把人类存在过的痕迹刻印在石头上</p><p>把阿呼存在过的痕迹记录在屏幕上</p><p>石头可能磨损，但，屏幕永远闪亮</p>
+    <p class="m" onclick="jiance()">显示A页入口</p>
+    <p class="a" id="l1"  style="display: none;"><a href="A-20230521.html">Announce/Apologize</a></p>
+    <p class="a"><a href="B.html">Birthday</a></p>
+    <p class="a"><a href="C.html">CakeOnly</a></p>
+    <p class="a"><a href="D.html">Diary</a></p>
+    <hr/>
+    <p>现在不知道是什么样子<br/>但我仍然把这些保留下来<br/>虽然不知道为什么<br/>是惋惜还是回忆呢<br/><br/>风吹呼呼<br/>2023/5/21</p>
+    </div>
+    <script>
+      function jiance(){
+        var a=prompt("输入密码:四位生日")
+        if(a=="0509"){
+          document.getElementById("l1").style.display="block"
+        }
+      }
+    </script>
+  </body>
+</html>
