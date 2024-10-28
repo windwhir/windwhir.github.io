@@ -1,0 +1,57 @@
+/*基础要素*/
+*{color:#ffffff;  transition:all 450ms;}
+body{
+  background-color:#993333;
+  background-image:linear-gradient(#C99,#933);
+  background-repeat:no-repeat;background-attachment:fixed;background-size:100% 100%; 
+}
+p{
+  color:#ffffff;
+  text-align:center;
+  font-size:200%;
+}
+/*链接*/
+a{
+  color:#ffffff;
+  text-decoration:underline;
+  cursor: pointer;
+}
+a:hover { color:#ff9999;}
+a:active { color:#ff0000;}
+/*大选项*/
+.a{
+  text-align:center;
+  font-size:400%;
+  border: 2px solid #993333;
+  border-radius: 8px;
+  background-image:linear-gradient(to right,#ffffff00,#ffffff40,#ffffff00);
+  background-repeat:no-repeat;background-attachment:fixed;background-size:100% 100%;
+}
+.a:hover{border: 3px solid #ff9999; border-radius: 15px;transform:scale(1.01);background-image:radial-gradient(#ffffff40,#ff999940)}
+/*警告*/
+.warn{
+  border: 5px solid #ff0000;
+  border-radius: 10px;
+  text-align:center;
+  color:red;
+  font-size:500%;
+}
+/*页标题*/
+.m{
+  text-align:center;
+  font-size:300%
+}
+/*文章页*/
+.t{
+  text-indent:3px;
+  text-align:left;
+  font-size:150%
+}
+/*iframe*/
+iframe{
+frameborder:no;
+border:0;
+background-color:transparent;
+}
+/*图片*/
+a>img:hover{transform:scale(1.05)}
