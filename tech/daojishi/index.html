@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/_css/main.css" >
+<script>
+  function CreateDan(){
+    let a=prompt("创建多少秒的计时器？(阿拉伯数字)")
+    if(Number(a)){location.href="dan.html?tm="+a}else{alert("别乱填")}
+  }
+  function CreateShuang(){
+    let a=prompt("甲方创建多少秒的计时器？(阿拉伯数字)")
+    let b=prompt("乙方创建多少秒的计时器？(阿拉伯数字)")
+    if(Number(a)&&Number(b)){location.href="shuang.html?tm1="+a+"&tm2="+b}else{alert("别乱填")}
+  }
+</script>
+</head>
+<body>
+<p id="topper"></p>
+<hr/>
+<p id="debug"></p>
+<hr/>
+
+<p class="m" id="most">倒计时计时器
+</p>
+<p class="a"><a href="javascript:CreateDan()">创建单人计时器</a></p>
+<p class="a"><a href="javascript:CreateShuang()">创建对抗计时器</a></p>
+
+<hr/><hr/>
+<footer id="footer"></footer>
+<script src="/_js/topper.js"></script>
+</body>
+</html>
