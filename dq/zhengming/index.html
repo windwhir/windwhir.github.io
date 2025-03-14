@@ -148,7 +148,6 @@
       }
       updateOrientation();
       window.addEventListener('orientationchange', updateOrientation);
-      window.addEventListener('resize', () => {setTimeout(updateOrientation, 5000);});
       //应对离谱的聊条软件
       if(navigator.userAgent.indexOf("DingTalk") > -1||navigator.userAgent.indexOf("MQQ") > -1||navigator.userAgent.indexOf("WeChat") > -1){alert("你现在的聊天软件影响到了正常使用，请右上角用外部浏览器打开")}
       bianti()
