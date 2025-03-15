@@ -26,8 +26,8 @@
       <hr/>
     </div>
     <div style="top:10vh;left:0;width:100vw;height:20vh;position:fixed;">
-      <div style="position:absolute;top:0;left:4vw;width:43vw;height:100%;font-size: 6vh;" id="zheng">输入正方论题</div>
-      <div style="position:absolute;top:0;left:54vw;width:43vw;height:100%;font-size: 6vh;" id="fan">输入反方论题</div>
+      <div style="position:absolute;top:0;left:4vw;width:43vw;height:100%;font-size: 6vh;" id="zheng">输入正方论题换行会自动被替换为换行符</div>
+      <div style="position:absolute;top:0;left:54vw;width:43vw;height:100%;font-size: 6vh;" id="fan">输入反方论题换行会自动被替换为换行符</div>
     </div>
     <div id="d0" style="position:fixed;top:40vh;left:0;width:100vw;height:55vh;opacity:0.3">
       <img src="bgimg.png" style="swidth: 100%;height:100%" />
@@ -37,7 +37,7 @@
       <span id="xiaoshi">
         <br/><br/><a href="javascript:bianti()">更改辩题</a>
         <br/><br/><a href="javascript:document.querySelector('body').requestFullscreen()">请求全屏</a>
-        <br/><br/><div style="font-size:2vh">编写 / coding :<br/>2024101张+x / WindWhir<br/><br/><a href="争鸣杯.zip" download="争鸣杯.zip">下载线下版(推荐)</a></div>
+        <br/><br/><div style="font-size:2vh">编写 / coding :<br/>2024101张+x / WindWhir<br/><br/>如果想实现开始就自带辩题，<br/>需要在网址后面加上：<br/>?bt1=正方辩题内容&bt2=反方辩题内容</div>
       </span>
     </div>
     <div id="d1" style="position:fixed;top:50vh;left:0;width:100vw;height:55vh;display:none">
@@ -53,10 +53,8 @@
     </div>
     <script>
       var step=0;var tm=[0,0,0];var itv=[false,false,false];
-      //步骤和动作
-      var menu=["零：双方介绍","一：正方立论","二：反方质询","三：反方立论","四：正方质询","五：反方质询小结","六：正方质疑小结","七：对辩","八：正方盘问","九：反方盘问","十：正方盘问小结","十一：反方盘问小结","十二：自由辩论","十三：反方总结陈词","十四：正方总结陈词","辩论结束，感谢观看","<a href=''>重置网页，再来一场</a>"];
-      var action=[[0,60],[1,180],[1,90],[1,180],[1,90],[1,150],[1,150],[2,90],[1,150],[1,150],[1,90],[1,90],[2,240],[1,180],[1,180],[0,60]];
-      //主函数
+      var menu=["点开始就自动全屏<br/>点这里进入下一环节","在结束后会有长哨声","三十秒会响起警告声","一方结束后响哨声<br/>哨声响完自动另一方","对辩环节也正常警告<br/>点更换计时方时不会开始停止","辩论结束的时候自动退出全屏<br/>再点一下可以弹出重置","<a href=''>重置网页，再来一场</a>"];
+      var action=[[0,60],[1,3],[1,33],[2,3],[2,33],[0,60]];
       function main(){
         document.querySelector("#menu").innerHTML=menu[step];
         cd(action[step][0]);
@@ -71,32 +69,28 @@
         if(step==0){
           document.querySelector("body").requestFullscreen();
           document.querySelector("#xiaoshi").innerHTML="";
-        }else if(step==15){
+        }else if(step==5){
           document.exitFullscreen()
         }
         step++;
       }
-      //changedisplay
-      function cd(num){
+      function cd(num){//ChageDisplay
         document.querySelector("#d0").style.opacity="0.1";
         document.querySelector("#d1").style.display="none";
         document.querySelector("#d2").style.display="none";
         document.querySelector("#d"+num).style.display="block";
         document.querySelector("#d"+num).style.opacity="1";
       }
-      //更换辩题
-      function bianti(){
+      function bianti(){//更换辩题
         document.querySelector("#zheng").innerHTML=prompt("请输入正方辩题\n换行：输入“换行”会自动转化为换行符",document.querySelector("#zheng").innerHTML).replaceAll("换行","<br>");
         document.querySelector("#fan").innerHTML=prompt("请输入反方辩题\n换行：输入“换行”会自动转化为换行符",document.querySelector("#fan").innerHTML).replaceAll("换行","<br>");
       }
-      //时间格式转化
-      function xianshi(time){
+      function xianshi(time){//时间转化为显示
         let minutes = Math.floor(time/60);
         let seconds = time%60;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         return (minutes + ':' + seconds)
       }
-      //每次时间闪烁
       function gundong(xuhao){
         if(tm[xuhao]>0){
           tm[xuhao]--;
@@ -111,7 +105,6 @@
         }else if(tm[xuhao]==0)
           document.querySelector("#finish").play()
       }
-      //开关计时器
       function kaiguan(xuhao){
         if(itv[xuhao]&&tm[xuhao]>0){
           clearInterval(itv[xuhao]);
@@ -120,7 +113,6 @@
           itv[xuhao]=setInterval(()=>{gundong(xuhao)},1000);
         }
       }
-      //切换计时方
       var muqian=1;
       function qiehuan(){
         switch(muqian){
@@ -145,7 +137,6 @@
           }
         },1000)
       }
-      //应对竖屏
       var isLandscape = false;
       function updateOrientation() {
         let width = window.innerWidth;
@@ -161,16 +152,14 @@
       function urlrel(release){
         let params=new URLSearchParams(window.location.href.split('?')[1]);return params.get(release);
       }
-      var bt1=urlrel('bt1');var bt2=urlrel('bt2')
+      let bt1=urlrel('bt1');let bt2=urlrel('bt2')
       if(bt1){
         document.querySelector("#zheng").innerHTML=bt1.replaceAll("换行","<br>");
       }
       if(bt2){
         document.querySelector("#fan").innerHTML=bt2.replaceAll("换行","<br>");
       }
-      if(!(bt1&&bt2)){
-        bianti()
-      }
+      bianti()
     </script>
     <audio src="warn.mp3" id="warn"></audio>
     <audio src="finish.mp3" id="finish"></audio>
