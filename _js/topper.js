@@ -15,31 +15,26 @@ if(!document.querySelector("title")){document.querySelector("head").innerHTML+=(
 if(thehref.indexOf("music")>0){
 document.querySelector("title").innerHTML+=" - music"
 document.getElementById("topper").innerHTML+=' &gt; <a href="/music">琴&风[Music]</a>'
-document.getElementById("footer").innerHTML+='- music大文件内，蓝奏云密码均为whir'
 }
 //2409大文件夹
 if(thehref.indexOf("2409")>0){
 document.querySelector("title").innerHTML+=" - 2409"
 document.getElementById("topper").innerHTML+=' &gt; <a href="/2409">高中篇[2409]</a>'
-document.getElementById("footer").innerHTML+=' - 2409大文件内，蓝奏云密码均为2409'
 }
 //dq大文件夹
 if(thehref.indexOf("dq")>0){
 document.querySelector("title").innerHTML+=" - dq"
 document.getElementById("topper").innerHTML+=' &gt; <a href="/dq">大学篇[dq]</a>'
-document.getElementById("footer").innerHTML+=' - 电气101大文件内，蓝奏云密码均为0101'
 }
 //tech大文件夹
 if(thehref.indexOf("tech")>0){
 document.querySelector("title").innerHTML+=" - tech"
 document.getElementById("topper").innerHTML+=' &gt; <a href="/tech">前端呼呼[tech]</a>'
-document.getElementById("footer").innerHTML+='- tech大文件内，蓝奏云密码均为whir'
 }
 //van大文件夹
 if(thehref.indexOf("van")>0){
 document.querySelector("title").innerHTML+=" - van"
 document.getElementById("topper").innerHTML+=' &gt; <a href="/van">玩[van]</a>'
-document.getElementById("footer").innerHTML+='- van大文件内，蓝奏云密码均为whir'
 }
 //最终
-document.querySelector("title").innerHTML+=" - WindWhir"
+document.getElementById("footer").innerHTML+=' - 蓝奏云密码均为whir - WindWhir'
