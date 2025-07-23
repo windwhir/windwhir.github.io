@@ -22,16 +22,21 @@
 var pgid_menu=["https://windwhir.github.io",pgid_tech,pgid_music,pgid_2409,pgid_dq]
 
 function pgid(id /* x_xx_xx，Number类型 */ ){
-  if(id/10000>=2){alert("目前pageid还在试验阶段，\n仅tech大文件夹开放。");return 0;}
-  let finalURL=pgid_menu[0];
-  let s1=id/10000-id%10000/10000;
-  let s3=id%100;
-  let s2=(id-s1*10000-s3)/100;
-  console.log(""+s1+s2+s3)
-  if(s1!=0)finalURL+="/"+pgid_menu[s1][0];
-  if(s2!=0)finalURL+="/"+pgid_menu[s1][s2][0];
-  if(s3!=0)finalURL+="/"+pgid_menu[s1][s2][s3];
-  return finalURL;
+  try{
+    if(id/10000>=2){alert("目前pageid还在试验阶段，\n仅tech大文件夹开放。");return false;}
+    let finalURL=pgid_menu[0];
+    let s1=id/10000-id%10000/10000;
+    let s3=id%100;
+    let s2=(id-s1*10000-s3)/100;
+    console.log(""+s1+s2+s3)
+    if(s1!=0)finalURL+="/"+pgid_menu[s1][0];
+    if(s2!=0)finalURL+="/"+pgid_menu[s1][s2][0];
+    if(s3!=0)finalURL+="/"+pgid_menu[s1][s2][s3];
+    return finalURL;
+  }catch(e){
+    console.log("PageId转网址失败，请检查是否为标准五位数字")
+    return false;
+  }
 }
 
 function pgid_inURL(){
@@ -41,6 +46,10 @@ function pgid_inURL(){
   if(url.indexOf('#')>0){urlin[0]=0;url2="#"+url.split('#')[1];url=url.split('#')[0];}
   if(url.indexOf('?')>0){urlin[0]=0;url2="?"+url.split('?')[1]+url2;url=url.split('?')[0];}
   url=url.endsWith('/') ? url.slice(0, -1) : url ;
-  url2=pgid(url.slice(-5))+url2;
-  return url2;
+  if(pgid(url.slice(-5))){
+    url2=pgid(url.slice(-5))+url2
+    return url2;
+  }else{
+    return false;
+  }
 }
