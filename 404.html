@@ -1,26 +1,28 @@
 <!doctype html>
 <html>
-<head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/_css/main.css" /></head>
+<head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/_css/main.css" />
+  <script src="/_js/pageidx.js"></script>
+  <script>
+    var turn2=pgid_inURL()
+    if(turn2){location.href=turn2}      
+  </script>
+</head>
 <body>
 <p id="topper"></p>
 <hr/>
 <p id="debug"></p>
 <hr/>
 
-<p class="m"><span id="most">404_notfound</span><br/>
-该页未定义或无内容
+<p class="m" id="most">404_notfound
 </p>
 <hr/>
-<p class="m"><span class="flynum" style="color:red">10</span>秒后将自动</p>
-<p id="alert" class="a"><a onclick="history.back()">回到上一页</a></p>
-<p class="m">您也可以选择</p>
-<p class="a"><a onclick="location.href='/'">回到主页</a></p>
+<p id="alert">您可以<a onclick="history.back()">点击此处回到上一页</a><br/><span class="flynum" style="color:red">10</span>秒后自动或<a onclick="location.href='/'">点击此处回到主页</a></p>
 <script>
   function xym(){document.querySelector("#alert").innerHTML="正在重新导向新页面..."}
   if(location.href.endsWith('htm')){location.href+='l';xym()}
   var tm=10;
   setInterval(()=>{tm-=1;document.querySelector(".flynum").innerHTML=tm},1000)
-  setTimeout(()=>{history.back();xym()},10000)
+  setTimeout(()=>{location.href="/";xym()},10000)
 </script>
 <hr/><hr/>
 <footer id="footer"></footer>
