@@ -9,7 +9,7 @@ if(ua.indexOf("MQQ") > -1){document.getElementById("debug").innerHTML=("<p style
 if(ua.indexOf("WeChat") > -1){document.getElementById("debug").innerHTML=("<p style='font-size:300%;color:#ff0000;text-align:right;'>微信有诸多限制建议用浏览器打开↑↑↑</p>");}
 //首尾，样式，图标
 document.getElementById("topper").innerHTML=('<a href="/"><img src="/_img/windwhir.ico" />风吹呼呼WindWhir</a>')
-document.getElementById("footer").innerHTML=('copyright 风吹呼呼WindWhir | +x '+document.getElementById("footer").innerHTML)
+document.getElementById("footer").innerHTML=('<img src="/_img/windwhir.ico" />风吹呼呼WindWhir | +x '+document.getElementById("footer").innerHTML)
 if(!document.querySelector("title")){document.querySelector("head").innerHTML+=('<title>'+document.querySelector("#most").innerHTML+'</title><link rel="icon" href="/_img/windwhir.ico" />')}
 //music大文件夹
 if(thehref.indexOf("music")>0){
@@ -31,10 +31,5 @@ if(thehref.indexOf("tech")>0){
 document.querySelector("title").innerHTML+=" - tech"
 document.getElementById("topper").innerHTML+=' &gt; <a href="/tech">前端呼呼[tech]</a>'
 }
-//van大文件夹
-if(thehref.indexOf("van")>0){
-document.querySelector("title").innerHTML+=" - van"
-document.getElementById("topper").innerHTML+=' &gt; <a href="/van">玩[van]</a>'
-}
 //最终
-document.getElementById("footer").innerHTML+=' - 蓝奏云密码均为whir - WindWhir'
+document.getElementById("footer").innerHTML+=' - 蓝奏云密码均为whir'

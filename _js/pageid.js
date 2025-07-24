@@ -29,9 +29,9 @@ function pgid(id /* x_xx_xx，Number类型 */ ){
     let s3=id%100;
     let s2=(id-s1*10000-s3)/100;
     console.log(""+s1+s2+s3)
-    if(s1!=0)finalURL+="/"+pgid_menu[s1][0];
-    if(s2!=0)finalURL+="/"+pgid_menu[s1][s2][0];
-    if(s3!=0)finalURL+="/"+pgid_menu[s1][s2][s3];
+    if(s1==0){return finalURL}else{finalURL+="/"+pgid_menu[s1][0];}
+    if(s2==0){return finalURL}else{finalURL+="/"+pgid_menu[s1][s2][0];}
+    if(s3==0){return finalURL}else{finalURL+="/"+pgid_menu[s1][s2][s3];}
     return finalURL;
   }catch(e){
     console.log("PageId转网址失败，请检查是否为标准五位数字")
