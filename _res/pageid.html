@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/_css/main.css" >
+<style>
+  .p4example{text-align:center;border: 2px solid #993333;border-radius: 8px;padding:20px;background-color: #ffffff20;word-wrap:break-word}
+  input{font-size: 200%;width:90%;height:100%;color:#f92;margin-bottom: 10px;border-radius: 50px}
+</style>
+</head>
+<body>
+<p id="topper"></p>
+<hr/>
+<p id="debug"></p>
+<hr/>
+
+<p class="m" id="most">PageId详情
+</p>
+<hr/>
+<p class="n">一、PageId有什么优势</p>
+<div class="t">PageId系统旨在简化网址地址，由完整网址转为短网址，方便输入和分享。</div>
+<br/>
+<div class="t">以行列式计算器为例，完整网址：</div>
+<p class="p4example"><a href="https://windwhir.github.io/tech/math/determinant">https://windwhir.github.io/tech/math/determinant</a></p>
+<div class="t">经过PageId系统简化的短网址：</div>
+<p class="p4example"><a href="https://windwhir.github.io/10201">https://windwhir.github.io/10201</a></p>
+<div class="t">两者等价。其原理为：短网址会抛出404，在404.html中解析五位PageId，用js转换为完整网址，并转跳。</div><br/>
+<hr/>
+<p class="n">二、如何找到PageId</p>
+<div class="t">部分页面有PageId，在Topper部分展示。PageId在末尾，点击可以复制访问地址。</div>
+<p class="p4example"><a href="/"><img src="/_img/windwhir.ico" />风吹呼呼WindWhir</a> &gt; <a href="/tech">前端呼呼[tech]</a> - [<a style="border:solid #f00 5px" href="javascript:topperJs_pageId()">10400</a>] <a style="font-size:70%" href="/_res/pageid.html">?(点击问号获得PageId使用帮助)</a></p>
+<div class="t">此处的<span style="border:solid #f00 5px">10400</span>即为PageId。点击超链接处可以直接复制该页短网址。</div>
+<br/>
+<div class="t">请注意，PageId仅适配了部分网页，如tech大文件夹下的辩论赛、数学、点名宝盒信息考试等部分。</div>
+<br/>
+<hr/>
+<p class="n">三、如何使用PageId</p>
+<div class="t">您可以直接输入带PageId的短网址，直接访问对应页面。需要提到的是，短网址可以带参数（?后的部分或#后的部分）。</div>
+<br/>
+<div class="t">您可以在下方input控件中直接输入PageId，查看转跳效果。</div>
+<br/>
+<div class="t">可供实验的PageId：00000-主页，10000-tech页，10101-辩论赛，10201-行列式，10400-信息考试。</div>
+<br/>
+https://windwhir.github.io/<br/>
+<input id="changeiframe404" onblur="changeiframe404()" />
+<iframe id="iframe404" class="p4example" src="/" style="width:80vw;height:66vh"></iframe>
+<br/>
+<div class="t">您也可以在 空间主页&gt;使用PageId访问 ，即<a href="https://windwhir.github.io/d">https://windwhir.github.io/d</a>查看PageId对应的完整网址，并转跳或复制。</div>
+<br/>
+<iframe class="p4example" src="/d.html" style="width:80vw;height:66vh"></iframe>
+<br/>
+<hr/>
+<p class="m">阿呼祝您使用愉快哦<br/>OvO</p>
+<p class="a"><a href="javascript:history.back()">返回上一页</a></p>
+<hr/><hr/>
+<footer id="footer"></footer>
+<script src="/_js/topper.js"></script>
+<script>
+  function changeiframe404(){document.querySelector("#iframe404").src="https://windwhir.github.io/"+document.querySelector("#changeiframe404").value;}
+</script>
+</body>
+</html>
