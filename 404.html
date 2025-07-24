@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/_css/main.css" />
-  <script src="/_js/pageidx.js"></script>
+  <script src="/_js/pageid.js"></script>
   <script>
     var turn2=pgid_inURL()
     if(turn2){location.href=turn2}      
@@ -21,7 +21,7 @@
   function xym(){document.querySelector("#alert").innerHTML="正在重新导向新页面..."}
   if(location.href.endsWith('htm')){location.href+='l';xym()}
   var tm=10;
-  setInterval(()=>{tm-=1;document.querySelector(".flynum").innerHTML=tm;if(tm==0){xyz()}},1000)
+  setInterval(()=>{tm-=1;document.querySelector(".flynum").innerHTML=tm;if(tm==0){xym()}},1000)
 </script>
 <hr/><hr/>
 <footer id="footer"></footer>
