@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/_css/main.css" ></head><script src="/_js/pageid.js"></script>
+<style>
+  input{font-size: 150%;width:95%;height:100%;text-align: center;color:#f92;margin-bottom: 10px;border-radius: 50px}
+</style>
+<body>
+<p id="topper"></p>
+<hr/>
+<p id="debug"></p>
+<hr/>
+
+<p class="m" id="most">PageId转网址
+</p>
+
+<p>
+  请输入五位PageId<br/>
+  <input id="getpgid" type="text" /><br/>
+  <a style="text-decoration: none;" onclick="document.querySelector('#getQS').style.display='inline'">添加参数(高级)</a>
+  <input id="getQS" style="display: none;" type="text" />
+</p>
+<p style="word-wrap:break-word">- 对应网址 -<br/>
+  <a href="javascript:location.href=tourl" id="toUrl">请于上方键入</a>
+  <span id="act" style="display:none"><br/>- <a href="javascript:location.href=tourl">前往</a> | <a href="javascript:navigator.clipboard.writeText(tourl)">复制</a> -</span>
+</p>
+<p><a href="">如何使用?</a></p>
+<hr/><hr/>
+<footer id="footer"></footer>
+<script src="/_js/topper.js"></script>
+<script>
+  var qs;
+  var tourl;
+  function refreshurl(){
+    tourl=pgid(Number(document.querySelector("#getpgid").value));
+    if(tourl){
+      document.querySelector("#act").style.display="inline";
+      if(qs)tourl+=qs;
+      document.querySelector("#toUrl").innerHTML=tourl;
+    }else{
+      document.querySelector("#act").style.display="none";
+      document.querySelector("#toUrl").innerHTML="PageId错误";
+    }
+  }
+  document.querySelector("#getpgid").addEventListener('input', ()=>{
+    refreshurl();
+  })
+  document.querySelector("#getQS").addEventListener('input', ()=>{
+    qs=document.querySelector("#getQS").value;
+    refreshurl();
+  })
+  </script>
+</body>
+</html>
