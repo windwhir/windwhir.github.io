@@ -19,7 +19,7 @@
   var pgid_dq=[]
   
 //总页
-var pgid_menu=["https://windwhir.github.io",pgid_tech,pgid_music,pgid_2409,pgid_dq]
+var pgid_menu=[location.hostname,pgid_tech,pgid_music,pgid_2409,pgid_dq]
 
 function pgid(id /* x_xx_xx，Number类型 */ ){
   try{
