@@ -28,28 +28,12 @@ function pgid(id /* x_xx_xx，Number类型 */ ){
     let s1=id/10000-id%10000/10000;
     let s3=id%100;
     let s2=(id-s1*10000-s3)/100;
-    console.log(""+s1+s2+s3)
     if(s1==0){return finalURL}else{finalURL+="/"+pgid_menu[s1][0];}
     if(s2==0){return finalURL}else{finalURL+="/"+pgid_menu[s1][s2][0];}
     if(s3==0){return finalURL}else{finalURL+="/"+pgid_menu[s1][s2][s3];}
     return finalURL;
   }catch(e){
     console.log("PageId转网址失败，请检查是否为标准五位数字")
-    return false;
-  }
-}
-
-function pgid_inURL(){
-  let url=location.href;
-  let urlin=[0,0];
-  let url2="";
-  if(url.indexOf('#')>0){urlin[0]=0;url2="#"+url.split('#')[1];url=url.split('#')[0];}
-  if(url.indexOf('?')>0){urlin[0]=0;url2="?"+url.split('?')[1]+url2;url=url.split('?')[0];}
-  url=url.endsWith('/') ? url.slice(0, -1) : url ;
-  if(pgid(url.slice(-5))){
-    url2=pgid(url.slice(-5))+url2
-    return url2;
-  }else{
     return false;
   }
 }
