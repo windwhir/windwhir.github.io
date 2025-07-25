@@ -1,5 +1,6 @@
-var thehref=window.location.href
-var ua=navigator.userAgent
+var pageId=document.getElementById("topper").textContent;
+var thehref=window.location.href;
+var ua=navigator.userAgent;
 //head和debug
 //应对钉钉
 if(ua.indexOf("DingTalk") > -1){document.getElementById("debug").innerHTML=("<p style='font-size:300%;color:#ff0000;text-align:right;'>钉钉对超链接有限制建议用浏览器打开↑↑↑</p>");}
@@ -32,4 +33,7 @@ document.querySelector("title").innerHTML+=" - tech"
 document.getElementById("topper").innerHTML+=' &gt; <a href="/tech">前端呼呼[tech]</a>'
 }
 //最终
+function topperJs_pageId(neihan){navigator.clipboard.writeText("https://windwhir.github.io/"+neihan)}
+if(pageId)document.getElementById("topper").innerHTML+=' - [<a href="javascript:topperJs_pageId(pageId)">'+pageId+'</a>] <a style="font-size:70%" href="/_res/pageid.html">?</a>';
 document.getElementById("footer").innerHTML+=' - 蓝奏云密码均为whir'
+document.querySelector("title").innerHTML+=" - WindWhir"
