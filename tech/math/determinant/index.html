@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/_img/windwhir.ico" rel="icon" />
   <title>行列式学习 - 风吹呼呼WindWhir</title>
   <style>
     * {
@@ -24,7 +25,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: all 0.3s ease;
+      overflow: auto;
     }
     .section-left {
       background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -38,48 +39,209 @@
       max-width: 90%;
       text-align: center;
     }
+    table{
+      border-left:#000 solid 2px ;
+      border-right:#000 solid 2px ;
+      padding-left:15px;
+      padding-right:15px;
+    }
+    .matrix-cell {
+        padding: 8px 15px;
+        text-align: center;
+        width: 55px;
+        height: 40px;
+    }
+    
+    input {
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        font-size: 16px;
+        color:#000;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 2px;
+    }
     /* 横屏样式 (左右分布) */
     @media (orientation: landscape) {
       main {
         flex-direction: row !important;
+        font-size: 180% !important;
       }
-    }
-    /* 平板和桌面设备的优化 */
-    @media (min-width: 768px) {
-      .section {
-        padding: 50px;
-      }
-      h2 {
-        font-size: 32px;
-      }
+      #guanggao{font-size: 200%;}
     }
   </style>
+  <script>
+    function copyURL(){
+      try{
+        navigator.clipboard.writeText('https://windwhir.github.io/10201')
+      }catch(e){
+        alert("复制遇到错误，错误码"+e+"\n接下来请您手动复制。")
+        prompt("https://windwhir.github.io/10201","https://windwhir.github.io/10201")
+      }
+    }
+    let gglist=[[10101,"辩论赛PPT"],[10201,"数学(主页)"],[10300,"<span style='color:#999'>点名宝盒</span>"],[10000,"tech页主页"]];
+    var ggnum=0;
+    function guanggao(){
+      document.querySelector("#guanggaohref").href="/"+gglist[ggnum%4][0];
+      document.querySelector("#guanggaohref").innerHTML=gglist[ggnum%4][1];
+      ggnum++;
+    }
+  </script>
 </head>
 <body>
   <header style="height:10vh">
+    <div id="guanggao" style="z-index: 10000;position: fixed;right: 1vw;top: 0;"><a id="guanggaohref" href="/10000">广告：空间主页</a> <a style="color:#f00" onclick="document.querySelector('#guanggao').style.display='none'">x</a></div>
     <h1 style="font-size: 4vh;">
       行列式学习与计算
     </h1>
     <div style="font-size: 2vh">
-      https://windwhir.github.io/10201 (<a href="javascript:navigator.clipboard.writeText('https://windwhir.github.io/00201')">复制</a>)
+      https://windwhir.github.io/10201 (<a href="javascript:copyURL()">复制</a>)
     </div>
   </header>
-  <main style="display: flex;height: 84vh;border-radius: 10px;overflow: hidden;box-shadow: 0 4px 12px rgba(0,0,0,0.1);flex-direction: column;">
+  <main style="display: flex;height: 84vh;border-radius: 10px;overflow: hidden;box-shadow: 0 4px 12px rgba(0,0,0,0.1);flex-direction: column;font-size: 150%;">
     <section style="background: linear-gradient(45deg, #f65, #fb9);color:#000">
       <div class="content">
-        <h2>占位符：行列式</h2>
-        <p>对不起，本页未完成，请等待上传</p>
+        <table id="matrix" class="matrix"></table>
       </div>
     </section>
     <section style="background: linear-gradient(45deg, #11e, #39f);color:#fff">
       <div class="content">
-        <h2>占位符：操作</h2>
-        <p>对不起，本页未完成，请等待上传</p>
+        <span style="font-size: 150%;">计算结果：<b style="font-size: 150%;">--</b></span>
+        <span id="xingzhi"></span><hr/>
+        行列式阶数：
+        <select id="matrixSize" style="background-color: #00f;font-size:90%;text-align: center;">
+          <option value="2">2 x 2</option>
+          <option value="3" selected>3 x 3</option>
+          <option value="4">4 x 4</option>
+          <option value="5">5 x 5</option>
+          <option value="more" disabled="disabled">更高阶</option>
+        </select>
+        <br/>
+        - <a>快速填写</a> - <a onclick="location.reload()">重置全0</a> -
       </div>
     </section>
   </main>
-  <footer style="height:5vh">
-    
+  <footer style="height:5vh;margin: 1vh;font-size: 2vh;">
+    <img src="/_img/windwhir.ico" />风吹呼呼WindWhir | +x - <a href="/">空间主页</a> - <a href="../">数学</a>
   </footer>
+  <script>
+    setInterval(guanggao,5000);
+    
+    const matrixSizeSelect = document.getElementById('matrixSize');
+    let size = 3;
+    
+    // 根据尺寸创建矩阵输入
+    function createMatrixInputs() {
+        size = parseInt(matrixSizeSelect.value);
+        createMatrix('matrix', size);
+    }
+    
+    // 创建单个矩阵输入表
+    function createMatrix(matrixId, size) {
+        const table = document.getElementById(matrixId);
+        table.innerHTML = '';
+        
+        for (let i = 0; i < size; i++) {
+            const row = document.createElement('tr');
+            
+            for (let j = 0; j < size; j++) {
+                const cell = document.createElement('td');
+                cell.className = 'matrix-cell';
+                
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.value = (i === j) ? '1' : '0'; // 默认生成单位矩阵
+                input.addEventListener('input',determinant)
+                input.dataset.row = i;
+                input.dataset.col = j;
+                
+                cell.appendChild(input);
+                row.appendChild(cell);
+            }
+            
+            table.appendChild(row);
+        }
+        determinant()
+    }
+    
+    // 获取矩阵输入值
+    function getMatrixValues(matrixId, size) {
+        const matrix = [];
+        
+        for (let i = 0; i < size; i++) {
+            const row = [];
+            
+            for (let j = 0; j < size; j++) {
+                const input = document.querySelector(`#${matrixId} input[data-row="${i}"][data-col="${j}"]`);
+                let value = parseFloat(input.value) || 0;
+                row.push(value);
+            }
+            
+            matrix.push(row);
+        }
+        
+        return matrix;
+    }
+    
+    // 计算行列式
+function determinant() {
+  let matrix= getMatrixValues("matrix", size);
+  switch(matrix.length){
+    case 1:document.querySelector("b").innerHTML= matrix[0][0];break; // 1x1矩阵
+    case 2:document.querySelector("b").innerHTML= matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];break;
+    default:
+  let det = 0;
+    // 创建矩阵副本，避免修改原始数组
+    const mat = matrix.map(row => row.slice());
+    let sign = 1; // 记录行交换导致的符号变化
+    
+    // 使用部分主元消元法
+    for (let i = 0; i < size; i++) {
+      // 寻找当前列的最大主元（从第i行开始）
+      let maxRow = i;
+      for (let j = i + 1; j < size; j++) {
+        if (Math.abs(mat[j][i]) > Math.abs(mat[maxRow][i])) {
+          maxRow = j;
+        }
+      }
+      
+      // 交换行（如果找到更大主元）
+      if (maxRow !== i) {
+        [mat[i], mat[maxRow]] = [mat[maxRow], mat[i]];
+        sign *= -1; // 行交换改变行列式符号
+      }
+      
+      // 如果主元接近0，行列式为0
+      if (Math.abs(mat[i][i]) < 1e-10) {
+        document.querySelector("b").innerHTML=0
+      }
+      
+      // 使用高斯消元法消除下方行
+      for (let j = i + 1; j < size; j++) {
+        const factor = mat[j][i] / mat[i][i];
+        for (let k = i; k < size; k++) {
+          mat[j][k] -= factor * mat[i][k];
+        }
+      }
+    }
+    
+    // 计算对角线元素的乘积
+    let result = sign;
+    for (let i = 0; i < size; i++) {
+      result *= mat[i][i];
+    }
+    
+    // 处理浮点误差（保留10位小数精度
+  document.querySelector("b").innerHTML=parseFloat(result.toFixed(10))
+  }
+}
+    
+    // 初始化
+    document.addEventListener('DOMContentLoaded', function() {
+        createMatrixInputs();
+        matrixSizeSelect.addEventListener('change', createMatrixInputs);
+    })
+  </script>
 </body>
 </html>
