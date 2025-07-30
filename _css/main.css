@@ -4,11 +4,12 @@ body{
   background-color:#993333;
   background-image:linear-gradient(#C99,#933);
   background-repeat:no-repeat;background-attachment:fixed;background-size:100% 100%; 
+  font-size:16px
 }
 p{
   color:#ffffff;
   text-align:center;
-  font-size:200%;
+  font-size: 2rem;
 }
 /*链接*/
 a{
@@ -20,8 +21,11 @@ a:hover { color:#ff9999;}
 a:active { color:#ff0000;}
 /*大选项*/
 .a{
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   text-align:center;
-  font-size:400%;
+  font-size:4rem;
   border: 2px solid #993333;
   border-radius: 8px;
   background-image:linear-gradient(to right,#ffffff00,#ffffff40,#ffffff00);
@@ -34,18 +38,35 @@ a:active { color:#ff0000;}
   border-radius: 10px;
   text-align:center;
   color:red;
-  font-size:500%;
+  font-size:4rem;
 }
 /*页标题*/
-.m{
+h1,.m{
   text-align:center;
-  font-size:300%
+  font-size:3rem;
+  font-weight: normal;
 }
-/*文章页*/
+h2,.n{
+  text-align:center;
+  font-size:2rem;
+  font-weight: normal;
+}
+nav-debug{
+  font-size:5rem
+}
+header{
+  font-size: 2rem;
+  text-align: center;
+  margin:1rem
+}
+footer{
+  font-size:1rem;
+}
+/*文章*/
 .t{
-  text-indent:3px;
+  text-indent:2rem;
   text-align:left;
-  font-size:150%
+  font-size:1.5rem
 }
 /*iframe*/
 iframe{

@@ -1,17 +1,19 @@
 <!doctype html>
 <html>
-<head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/_css/main.css" ></head><script src="/_js/pageid.js"></script>
-<style>
-  input{font-size: 150%;width:95%;height:100%;text-align: center;color:#f92;margin-bottom: 10px;border-radius: 50px}
-</style>
-<body>
-<p id="topper"></p>
-<hr/>
-<p id="debug"></p>
-<hr/>
+  <head>
+    <script src="/q.js"></script>
+    <script>_js(["topper","pageId"]);_css()</script>
+    <style>
+    input{font-size: 150%;width:95%;height:100%;text-align: center;color:#f92;margin-bottom: 10px;border-radius: 50px}
+    </style>
+  </head>
+  <body>
+    <header></header>
+    <hr/>
+    <nav-debug></nav-debug>
+    <hr/>
 
-<p class="m" id="most">PageId转网址
-</p>
+    <h1>PageId转网址</h1>
 
 <p>
   请输入五位PageId<br/>
@@ -23,10 +25,9 @@
   <a href="javascript:location.href=tourl" id="toUrl">请于上方键入</a>
   <span id="act" style="display:none"><br/>- <a href="javascript:location.href=tourl">前往</a> | <a href="javascript:navigator.clipboard.writeText(tourl)">复制</a> -</span>
 </p>
-<p><a href="/_res/pageid.html">如何使用?</a></p>
+<p><a href="/_res/pageid">如何使用?</a></p>
 <hr/><hr/>
 <footer id="footer"></footer>
-<script src="/_js/topper.js"></script>
 <script>
   var qs;
   var tourl;

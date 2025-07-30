@@ -1,0 +1,1 @@
+function noexit(string="您确定要退出吗？我们不会保存已有内容。"){window.onbeforeunload=()=>{return string}}

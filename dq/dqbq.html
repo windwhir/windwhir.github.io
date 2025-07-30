@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<title>转专业班群收录</title>
+<head><meta charset="UTF-8" /><link rel="stylesheet" href="/_css/main.css" ><link rel="icon" href="/_img/windwhir.ico">
+<style>
+  *{text-align: center;}
+  div{font-size: 5.5vw}
+  img{width:40vw;height:auto}
+  /*换班*/
+  #banhao a{
+    position:unset;
+    border-radius: 1px;
+    flex:1;
+  }
+  #banhao a:hover{font-size: 6vw;}
+</style>
+<script>
+function onload(){
+  for(i=0;i<8;i++){
+    banji[i].href="javascript:go("+i+")"
+  }
+}
+function go(num){
+  for(i=0;i<8;i++){
+    banji[i].style.flex="1"
+  }
+  banji[num].style.flex="2"
+  num="0"+num
+  document.querySelector("#cl").innerHTML="1"+num
+  document.querySelector("#qq").src="_res/ruxue/q/1"+num+".png"
+  document.querySelector("#vx").src="_res/ruxue/v/1"+num+".png"
+  document.querySelector("#dd").src="_res/ruxue/d/1"+num+".png"
+}
+</script>
+</head>
+<body onload="banji=document.querySelectorAll('#banhao a');onload()">
+<p id="topper" style="display:none"></p>
+<div id="debug" style="display:none"></div>
+<h1 style="margin:0">电院电气专业<br/>转专业班群收录</h1>
+<hr/>
+<!--换班-->
+<div id="banhao" style="height: 7vw;width: 98vw;display:flex;z-index: 101;">
+<a style="background-color: #FF000080">100</a>
+<a style="background-color: #FF7D0080">101</a>
+<a style="background-color: #dddd0090">102</a>
+<a style="background-color: #00dd0090">103</a>
+<a style="background-color: #0000FF80">104</a>
+<a style="background-color: #FF00FF80">105</a>
+<a style="background-color: #00999999">106</a>
+<a style="background-color: #eeee0080">107</a>
+</div>
+<hr/>
+<div>
+班级:<span id="cl"><span style="color:red;border: #fff solid 0.3vw;">👆请点班号</span></span><br/>
+qq群:<br/><a id="q" href=""><img id="qq" src="_res/ruxue/q/none.png" alt="无"/></a><br/>
+微信群:<br/><a id="v" href=""><img id="vx" src="_res/ruxue/q/none.png" alt="无"/></a><br/>
+钉钉群:<br/><a id="d" href=""><img id="dd" src="_res/ruxue/d/none.png" alt="无"/></a><br/>
+</div>
+<hr/>
+<footer id="footer">—— 辅导员 ——<br/>王嘉傲15093366753<br/>—— 编写 ——<br/>101张家诚<br/>—— 鸣谢班长 ——<br/>100徐运彤 101张家诚 102赵明岩 103张天赐<br/>104范昌世 105殷钰良 106赵广政 107周睿凡</footer>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" href="/_css/normalize.css"/>
+    <link rel="stylesheet" href="/_css/main.css"/>
+    <script src="/_js/ww.js"></script>
+    <title>电气入学整合</title>
+    <style>
+      *{transition: all 1000ms;}
+      html,body{width: 100vw;height: 100vh;overflow:hidden;}
+      #daohang div{position:unset;border-radius: 1px;flex:1;text-align: center;font-size: 2vh;overflow: hidden;}
+      #daohang div:hover{flex:2;font-size: 3.4vh;overflow: visible}
+      #daohang div.pdhover{flex:2;font-size: 3.4vh;overflow: visible;}
+      #daohang div.pdhover::before{content:"-"}
+      #daohang div.pdhover::after{content:"-"}
+      .pg{position:absolute;top: 10vh;height: 89vh;left:5vw;width:90.2vw;overflow-y: auto;overflow-x: hidden;font-size: 3vw;border: #ffffff50 solid 0.1vh;border-radius: 0.5vh;transform: translate(0,100vh);}
+      table, th, td {border: 0.1vw solid #ccc;}
+      .imgw{transform: rotate(0deg) translate(0,0);width:100%;}
+      .imgh{transform:rotate(90deg) translate(15vw,15vw);width:120vw;}
+    </style>
+    <script>
+      function turnto(num){
+        for(i=1;i<5;i++){
+          document.querySelector(("#pg"+i)).style.transform="translate(0,100vh)"
+          document.querySelector(("#pd"+i)).classList.remove('pdhover')
+        }
+        document.querySelector(("#pg"+num)).style.transform="translate(0,0)"
+        document.querySelector(("#pd"+num)).classList.add('pdhover')
+      }
+      var startpage=1
+      function onload(){
+        if(urlrel('page')){
+          startpage=Number(urlrel('page'))
+        }
+      }
+      var map=0
+      function rotatemap(){
+        switch(map){
+          case 0:document.querySelector("#dtimg").classList.add('imgh');document.querySelector("#dtimg").classList.remove('imgw');document.querySelector("#dt").style.height="121vw";map=1;break;
+          case 1:document.querySelector("#dtimg").classList.add('imgw');document.querySelector("#dtimg").classList.remove('imgh');document.querySelector("#dt").style.height="auto";map=0
+        }
+      }
+    </script>
+ </head>
+  <body onload="onload()">
+    <!--加载页-->
+    <div id="prevent" onclick="document.querySelector('#prevent').style.display='none';turnto(startpage);document.querySelector('#daohang').style.transform='translate(0,0)';document.querySelector('#tou').style.opacity=1" style="position:absolute;width:96vw;height:96vh;top:2vh;left:2vw;background-color: #ff999933;border: solid #00000000 0px;border-radius: 1vh;z-index: 10086;">
+      <div style="display:none">
+        <p id="topper"></p>
+        <p id="debug"></p>
+      </div>
+      <h1>电气入学整合<h1>
+      <div class="warn">本页已<br/>停止维护</div>
+      <div style="font-size:3vw">
+        点击任意处以进入。<hr/>
+        本页由2024101张家诚整理。<br/>&#10148;所有消息均来源于官方，小喇叭或学长学姐分享。<br/>&#10148;本页中“——”后为超链接，点击以进入来源网页。
+        <hr/>
+        目录介绍(<span style="color:#f00">首次请全部阅读</span>)<br/>
+        即时：收录最重要的即时消息。实时更新，建议收藏网址。<br/>
+        地图：2024年最新花园校区地图。(高德地图不准确，以此图为准)<br/>
+        整理：我院基本信息和入学准备需要整理成的表格。<br/>
+        提醒：交通、住宿相关的温馨提醒等。<br/>
+        <b style="color:#f00">第一次阅读时请全部阅读。</b>后三页有更新会在即时页阐述。
+      </div>
+      <hr/>
+      <footer id="footer"></footer>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--以下为主页-->
+    <div id="tou" style="opacity: 0;">
+      <div style="text-align: right;font-size:2.3vh;display: block;position: absolute;right:0;top:1.5vh">
+        链接:<a href="index.html">大学页[dq]</a>|<a href="https://yx.ncwu.edu.cn">智慧迎新</a>|<a href="zhoubian.html">周边</a> </div>
+      <div style="font-size:2.8vh">电气入学整合</div>
+      <div style="font-size:1vh">windwhir.github.io/dq/ruxue.html</div>
+    </div>
+    <div id="main"> 
+      <!--导航栏-->
+      <div style="position:absolute;height:4vh;width: 90vw;top:5vh;right:5vw;display:flex;z-index: 101;border: #ffffff50 solid 0.1vh;border-radius: 0.5vh;transform: translate(0,-20vh);" id="daohang">
+        <div onclick="turnto(1)" style="background-color: #FF000080" id="pd1">即时</div>
+        <div onclick="turnto(2)" style="background-color: #FF00FF80" id="pd2">地图</div>
+        <div onclick="turnto(3)" style="background-color: #00dd0080" id="pd3">整理</div>  
+        <div onclick="turnto(4)" style="background-color: #0000FF80" id="pd4">提醒</div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!--即时-->
+      <div class="pg" id="pg1" style="background-color: #FF000060">
+        主体页面<hr/>
+        <a href="banqun.html">点击此处查看班级群收录<br/>
+        所有的班级群二维码均已收录</a>
+        <hr/>
+        &#10148;缴费已开启，<b style="font-size:150%">选床租空调21日14:00开启</b>，军训服装24日开启，31日至1日报到。 ——<a href="https://yx.ncwu.edu.cn">智慧迎新官网</a>
+        <hr/>
+        即时消息(“——”后为超链接)<br/>
+        &#10148;选床租空调：8.21-14:00开启于智慧迎新。 ——<a href="https://yx.ncwu.edu.cn">智慧迎新</a><br/>
+        &#10148;军训：9.4至9.24，周末不放假。 ——<a href="https://mp.weixin.qq.com/s/rkZg6OW9suKjl3UH5G3uGg">华水小喇叭</a><br/>
+        &#10148;校园sim卡：以使用校园网，联通49使用智慧迎新，移动电信29到校办理。 ——<a href="https://mp.weixin.qq.com/s/4O1z-94ZXHo71MNmWGQctw">华水小喇叭</a><br/>
+        &#10148;团关系：暂未开始对接。 ——<a  href="https://mp.weixin.qq.com/s/QSh_N6og0y-Sfz2LaL71Bw">华水小喇叭</a>；<a href="javascript:alert('qq群:792037479')">官方解惑群</a><br/>
+        &#10148;银行卡：学校将统一发建行卡。<br/>
+        &#10148;档案相关：档案绝对不可拆封！！！<br/>
+        &#10148;学号：8.11已分配，手机端智慧迎新可查看。 ——<a href="https://yx.ncwu.edu.cn/webPhoneIndex.do">智慧迎新m</a><br/>
+        &#10148;课表：8.10已可在小喇叭查询。 ——<a href="https://mp.weixin.qq.com/s/P51dhW2ARgoAzl-jxw5aXQ">华水小喇叭</a><br/>
+        &#10148;入学考试：9.12-15:00~16:00字迹检测考试(暂定)。 ——<a href="https://www2.ncwu.edu.cn/jiaowu/info/1008/2214.htm">教务处</a><br/>
+        &#10148;四六级考试：口试11月开始，笔试12月开始。<br/>
+        &#10148;选课：9.20-8:00开始。 ——<a href="https://www2.ncwu.edu.cn/jiaowu/info/1008/2214.htm">教务处</a><br/>
+        &#10148;教材：需自费，发书时间未定。<br/>
+        &#10148;华小水：8.22在桨声发布最终录取名单。 ——<a href="https://mp.weixin.qq.com/s/cDyDCSlHVVT6M_Xut52dag">华小水投票</a><br/>
+        <hr/>
+        <a href="zhoubian.html">花园周边</a>：美食、住宿与旅游。
+        <hr/>
+        本页不显著的更新<br/>
+        8.20拆分本页为电气入学整合和花园周边，调整了网站逻辑。<br/>
+        8.21更新<a href="javascript:turnto(2)">电气地图</a>，新增了宿舍楼标注。班群页微信群续时期。(将在当日晚实装)
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!--地图-->
+      <div class="pg" id="pg2" style="background-color: #FF00FF60">
+        花园地图<hr/>
+        &#10148;详细地图
+        <div class="a"><a href="_img/ruxue/map-dq.jpg">查看电气版</a></div>
+        <div class="a"><a href="_img/ruxue/map.jpg">查看纯净版</a></div><hr/>
+        &#10148;<a href="https://www.amap.com/place/B01730IAES">高德地图</a><br/>
+        &#10148;<a href="https://www.720yun.com/t/4ddrr6nweosrlmw20w?pano_id=yLuAErvorBbXmrIA">校园全景</a><br/>手机端点击右上角从上往下第四个按钮取消视角摇晃。<br/>
+        &#10148;<a href="https://mp.weixin.qq.com/s/DfWqykemYO2P4Os9x9LVRw">校区介绍-小喇叭</a><br/>我院和能源与动力学院的前身为电力学院<br/>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!--整理-->
+      <div class="pg" id="pg3" style="background-color: #00dd0060">
+        信息整理(地址等多为超链接可点击)<hr/>
+        <table style="width:98%;border-collapse: collapse;">
+            <tr><th>项目</th><th>内容</th></tr>
+            <tr><td>报到负责</td><td>魏然老师18638663892</td></tr>
+            <tr><td>校区地址</td><td><a href="https://www.amap.com/place/B01730IAES">金水区北环路36号(花园南区)</a><br/><a href="https://www.amap.com/place/B017307G1K">金水区水科路20号(花园北区)</a></td></tr>
+            <tr><td>我院地址</td><td>院楼：<a href="https://www.amap.com/place/B0FFL06JTF">花园校区1号教学楼</a><br/>基础课常在<a href="https://www.amap.com/place/B0HKM7C2XX">5</a>、<a href="https://www.amap.com/place/B0FFL06U4J">6</a>号教学楼<br/>宿舍楼待定</td></tr>
+            <tr><td>校区邮编</td><td>450045</td></tr>
+            <tr><td>邮寄地址</td><td>河南省郑州市北环路36号<br/>华北水利水电大学电气工程学院</td></tr>
+            <tr><td>地铁站</td><td><a href="https://www.amap.com/place/BV10602508">沙门站</a> 2号线 4号线 (迎新在B口)</td></tr>
+            <tr><td>公交站</td><td><a href="https://www.amap.com/place/BV10419155">北三环徐寨</a> G29,185,186,Y55<br/><a href="https://www.amap.com/place/BV09009441">BRT金台路站</a> B3,B52,B302,G69<br/><a href="https://www.amap.com/place/BV10942605">华水北区</a> S157</td></tr>
+            <tr><td>学校发布</td><td><a href="https://www.ncwu.edu.cn">校官网</a> | <a href="https://mp.weixin.qq.com/s/rKHIhbjenftA-P7989HLSQ">校公众号</a> | <a href="https://mp.weixin.qq.com/s/OAoDGY2IKnPYBewNXdOhww">华水桨声</a> | <a href="https://mp.weixin.qq.com/s/cb19g6kI-JCtkYo3NpK-7A">华水小喇叭</a><br/><a href="https://www2.ncwu.edu.cn/zhaoshengwang/">招生办官网</a> | <a href="https://mp.weixin.qq.com/s/Gk77ll_QpCJT2ngA4QA3pw">招生办公众号</a></td></tr>
+            <tr><td>我院发布</td><td><a href="https://www2.ncwu.edu.cn/dianqi">学院官网</a> | <a href="https://mp.weixin.qq.com/s/gGjXQuS2AMgBpZQ-30mcvg">学院公众号</a></td></tr>
+            <tr><td>费用准备</td><td>学费：电气专业￥5500/生.年，其他￥5000/生.年<br/>住宿费：六人￥800/生.年，四人￥1000/生.年<br/>军训服装：￥100/生<br/>体检：￥30/生<br/><b>以下为自愿缴费</b><br/>空调租赁：￥420/间.年<br/>医保：￥350/生.年<br/>三位一体：￥360/生<br/>爱心互助基金：￥12/生<br/><a href="https://yx.ncwu.edu.cn">缴费地址</a></td></tr>
+            <tr><td>物品准备</td>
+            <td><b>报到用品：</b><br/>高中毕业证，高考准考证，身份证，录取通知书，<br/>身份证(正反)和户口本复印件，<br/>一寸照片蓝底8张，二寸蓝底红底各4张(社团用)，<br/>学生档案(若自带)，团员档案(若自带)。<br/><b>
+            生活用品：</b><br/>0.9x2.0m床具，衣物，拖鞋，书包，洗漱具，文具，<br/>药，抹布，电脑手机，耳机，U盘，充电宝&线，钱。<br/><b>
+            军训用品：</b><br/>军训服装，纯黑色中短袜，皮筋(女生)，纸巾湿巾，<br/>防晒霜，水杯，日常药品，腰带，<br/>县及以上医院证明(若申请免训)。</td></tr>
+        </table>
+        <hr/>
+        &#10148;<a href="https://yx.ncwu.edu.cn/webarticle.do?articleId=2023073011483556466">入学须知(官方文档)</a>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!--提醒-->
+      <div class="pg" id="pg4" style="background-color: #0000FF60">
+        温馨提醒(“——”后为超链接)<hr/>
+        &#10148;地铁相关：<br/>1.郑州地铁已接入支付宝出行，请提前进入其界面做好实名认证，在乘车时刷码进站；<br/>2.保护好物品，女孩子在扶梯、地铁等时保护好隐私；<br/>3.在黄灯闪烁时请勿硬挤，行李箱平着拉靠近身体，安全第一；<br/>4.地铁1.2.5号线为我市主干线；早7-9点，晚17-20点为我市通勤高峰。<hr/>
+        &#10148;自驾相关：<br/>1.水科路极度拥挤不建议驶入；<br/>2.校外车辆入校需在南门登记；<br/>3.早7-9点，晚17-20点为我市通勤高峰；<br/>4.北三环高架在花园路出口下高架，西向东需下桥后立即驶入主道，在花园路立交走剪刀形掉头。 ——<a href="https://b23.tv/WpkyXTh">查看实拍视频</a><hr/>
+        &#10148;飞机相关：<br/>1.飞机上凉，记得放厚衣服在身边；<br/>2.机场到达后行至-1楼，有城郊县地铁口，坐贾河为终点站的列车可直达学校。<hr/>
+        &#10148;高铁相关：<br/>1.七五折票指南 ——<a href="https://mp.weixin.qq.com/s/FWuzlX73mWy4rYsCFDhSsQ">华水小喇叭</a><br/>2.高铁到达后按站内指引乘坐地铁，建议转车时优先选择4号线。<hr/>
+        &#10148;火车/巴士相关：<br/>1.半价票指南 ——<a href="https://mp.weixin.qq.com/s/FWuzlX73mWy4rYsCFDhSsQ">华水小喇叭</a><br/>2.到站后找带有学校标志的大巴，早8-晚6，人满即走。<hr/>
+        &#10148;携带物品：<br/>1.建议盆、衣架、小灯等到校再买，也可直接网购发至菜鸟驿站以减轻携带压力。 ——<a href="javascript:turnto(2);">查看学校地图</a><br/>2.别急着挂遮光帘！至少等到军训后。
+      </div>
+    </div>
+    <script src="/topper.js"></script>
+    </body>
+  </html>

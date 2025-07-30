@@ -1,44 +1,43 @@
 <!doctype html>
 <html>
-<head id="head"><meta charset="UTF-8" /><link rel="stylesheet" href="/_css/main.css" />
-  <script src="/_js/pageid.js"></script>
-  <script>
-    function pgid_inURL(){
-      let url=location.href;
-      let urlin=[0,0];
-      let url2="";
-      if(url.indexOf('#')>0){urlin[0]=0;url2="#"+url.split('#')[1];url=url.split('#')[0];}
-      if(url.indexOf('?')>0){urlin[0]=0;url2="?"+url.split('?')[1]+url2;url=url.split('?')[0];}
-      url=url.endsWith('/') ? url.slice(0, -1) : url ;
-      if(pgid(url.slice(-5))){
-        url2=pgid(url.slice(-5))+url2
-        return url2;
-      }else{
-        return false;
+  <head>
+    <script src="/q.js"></script>
+    <script>_js(["topper","pageId"]);_css()</script>
+    <script>
+      function pgid_inURL(){
+        let url=location.href;
+        let urlin=[0,0];
+        let url2="";
+        if(url.indexOf('#')>0){urlin[0]=0;url2="#"+url.split('#')[1];url=url.split('#')[0];}
+        if(url.indexOf('?')>0){urlin[0]=0;url2="?"+url.split('?')[1]+url2;url=url.split('?')[0];}
+        url=url.endsWith('/') ? url.slice(0, -1) : url ;
+        if(pgid(url.slice(-5))){
+          url2=pgid(url.slice(-5))+url2
+          return url2;
+        }else{
+          return false;
+        }
       }
-    }
-    var turn2=pgid_inURL()
-    if(turn2){location.href=turn2}
-  </script>
-</head>
-<body>
-<p id="topper"></p>
-<hr/>
-<p id="debug"></p>
-<hr/>
+      var turn2=pgid_inURL()
+      if(turn2){location.href=turn2}
+    </script>
+  </head>
+  <body>
+    <header></header>
+    <hr/>
+    <nav-debug></nav-debug>
+    <hr/>
 
-<p class="m" id="most">404_notfound
-</p>
-<hr/>
-<p id="alert"><span class="flynum" style="color:red">9</span>秒后或<a onclick="history.back()">点击此处返回上页</a><br/>您也可以<a onclick="location.href='/'">点击此处回到主页</a></p>
-<script>
-  function xym(){document.querySelector("#alert").innerHTML="正在重新导向新页面..."}
-  if(location.href.endsWith('htm')){location.href+='l';xym()}
-  var tm=9;
-  setInterval(()=>{tm-=1;document.querySelector(".flynum").innerHTML=tm;if(tm==0){history.back();xym()}},1000)
-</script>
-<hr/><hr/>
-<footer id="footer"></footer>
-<script src="/_js/topper.js"></script>
-</body>
+  <h1>404_notfound</h1>
+  <hr/>
+  <p><span class="flynum"><span style="color:#f00">9</span>秒后或</span><a onclick="history.back()">点击此处返回上页</a><br/>您还可以<a onclick="location.href='/'">点击此处回到主页</a></p>
+  <script>
+    function xym(){document.querySelector(".flynum").innerHTML="正在重新导向新页面...<br />您也可以"}
+    if(location.href.endsWith('htm')){location.href+='l';xym()}
+    var tm=9;
+    let myin=setInterval(()=>{tm-=1;document.querySelector(".flynum").innerHTML=`<span style='color:#f00'>${tm}</span>秒后或`;if(tm==0){history.back();xym();clearInterval(myin)}},1000)
+  </script>
+  <hr/><hr/>
+  <footer id="footer"></footer>
+  </body>
 </html>

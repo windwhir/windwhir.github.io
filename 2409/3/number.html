@@ -1,0 +1,31 @@
+<!Doctype HTML>
+<html>
+<head>
+<title>2409三模姓名考号对照</title>
+<style>
+  *{transition:all 1000ms;scroll-behavior: smooth;}
+  body{background-color: #cfc;font-size: 3vw;text-align: center;}
+  a{color:#000}
+</style>
+<script src="1.js"></script>
+<script>
+alist=yuwen
+function namego(){
+if(navigator.userAgent.indexOf("qq")>0){alert("请点击右上角三点选择浏览器打开")}
+if(navigator.userAgent.indexOf("WeChat")>0){alert("请在下次弹窗时点击横线并输入查询的姓名")}
+ajob=prompt("请输入查询的姓名")
+for(i=0;alist[i];i++)
+{
+ if(ajob==alist[i][1]){
+ document.querySelector("p").innerHTML+="<br/>"+alist[i][1]+" : "+alist[i][0]
+}
+}
+}
+</script>
+</head>
+<body onload="namego()">
+  <div style="position: fixed;bottom: 0;right: 0;z-index: -1000;color: #00000010;">©WindWhir</div><div style="position: fixed;bottom: 0;left: 0;z-index: -1000;color: #00000010;">2409+x </div><div style="position: fixed;bottom: 4vw;right: 0;z-index: 1000;"><a href="#name">↑</a></div>
+  <div style="font-size: 5vw;"><a id="name" href="javascript:namego()" accesskey="1">开始查询(Alt+1)</a><br/><div style="font-size: 3vw;"><a id="name" href="index.html">切换到小分查询</a><hr/>
+  <p>若没有查询到请检查输入</p>
+</body>
+</html>

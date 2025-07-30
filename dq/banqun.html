@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<title>电气班级群收录</title>
+<head><meta charset="UTF-8" /><link rel="stylesheet" href="/_css/main.css" ><link rel="icon" href="/_img/windwhir.ico">
+<style>del{color:#888}div{font-size: 5.5vw}img{width:40vw;height:auto}</style>
+</head>
+<body onload="onload()">
+<div><a href="index.html">&lt;--返回大学篇[dq]导航</a></div>
+<h1 style="font-size:2.8vh;display: block;position: absolute;right:0;top:0;margin:0" id="most">电气班级群收录</h1>
+<div style="font-size:1vh;display: block;position: absolute;right:0;top:2.8vh">windwhir.top/dq/banqun</div>
+<p id="topper" style="display:none"></p>
+<div id="debug" style="display:none"></div>
+<hr/>
+<div class="warn">本页已<br/>停止维护</div>
+<hr/>
+<div>迎新系统的班码实为年级钉群码</div><hr/>
+<div class="m">请点击班号</div>
+<div><a href="javascript:go(99)">电气工程学院迎新年级q群</a></div>
+<div id="banhao">
+电气：<a>100</a>,<a>101</a>,<a>102</a>,<a>103</a>,<a>104</a>,<a>105</a>,<a>106</a>,<a>107</a><br/>
+自动化：<a>108</a>,<a>109</a>,<a>110</a>,<a>111</a>,<a>112</a>,<a>113</a><br/>
+智慧能源：<a>114</a>,<a>115</a>
+</div>
+<hr/>
+<div style="text-align: center;">显示区<br/>
+班级:<span id="cl"></span><br/>
+qq群:<br/><a id="q" href=""><img id="qq" src="_res/ruxue/q/none.png" alt="小导未发布"/></a><br/>
+微信群:<br/>已过期<br/>
+钉钉群:<br/><a id="d" href=""><img id="dd" src="_res/ruxue/d/none.png" alt="小导未发布"/></a><br/>
+其他:<span id="qt"></span>
+</div>
+<hr/>
+<div>本页由电气2024101班整理<br/>班级群问题请在钉钉大群询问</div>
+<hr/>
+<footer id="footer"></footer>
+<script>
+  var qq=[,1001954320,985150607,,824714474,,,,,,,,7938458967,812027664,991267195,1001898484]
+  var qt=[,,,,,,,,,,,"小导微信x15896703340",,,,]
+  function onload(){
+    let banji=document.querySelectorAll("#banhao a")
+    for(i=0;i<16;i++)
+    banji[i].href="javascript:go("+i+")"
+  }
+  function go(num){
+    document.querySelector("#qt").innerHTML=qt[num]
+    if(num<10){num="0"+num}
+    document.querySelector("#cl").innerHTML="1"+num
+    document.querySelector("#qq").src="_res/ruxue/q/1"+num+".png"
+    document.querySelector("#q").href="_res/ruxue/q/1"+num+".png"
+    document.querySelector("#d").href="_res/ruxue/d/1"+num+".png"
+    document.querySelector("#dd").src="_res/ruxue/d/1"+num+".png"
+  }
+</script>
+</body>
+</html>

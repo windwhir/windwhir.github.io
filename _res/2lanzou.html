@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="/q.js"></script>
+    <script>_js();_css()</script>
+  </head>
+  <body>
+    <header></header>
+    <hr/>
+    <nav-debug></nav-debug>
+    <hr/>
+
+<h1>转蓝奏云提示</h1>
+<hr/>
+<p><span class="flynum"><span style="color:#f00">9</span>秒后或</span>点击密码处转跳下载</p>
+<p class="a"><a onclick="golanzou()">密码whir</a></p>
+<p class="m">蓝奏云可能会被报不安全<br/>但实际安全可靠，请放心进入</p>
+<p class="a"><a onclick="history.back">点此返回上一页</a></p>
+<script src="/_js/urlrel.js"></script>
+<script>
+    function golanzou(){location.href="https://windwhir.lanzouw.com/"+urlrel('page')}
+    function xym(){document.querySelector(".flynum").innerHTML="正在重新导向新页面...<br />您也可以"}
+    if(location.href.endsWith('htm')){location.href+='l';xym()}
+    var tm=9;
+    let myin=setInterval(()=>{tm-=1;document.querySelector(".flynum").innerHTML=`<span style='color:#f00'>${tm}</span>秒后或`;if(tm==0){golanzou();xym();clearInterval(myin)}},1000)
+</script>
+<hr/><hr/>
+<footer id="footer"></footer>
+</body>
+</html>
