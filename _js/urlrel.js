@@ -1,1 +1,0 @@
-function urlrel(release){let params=new URLSearchParams(window.location.href.split('?')[1]);return params.get(release);}
