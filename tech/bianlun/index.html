@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="unicode">
+    <title>辩论会！</title>
+    <style>
+        html,body{
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            color:#fff;
+            background-color: #000;
+          }
+        div{
+          text-align: center;
+        }
+        a{
+          color:#fff
+        }
+    </style>
+  </head>
+  <body>
+    <div style="top :0;left:0;width:100vw;height:5vh;position:fixed;">
+      <span style="font-size: 4vh;" id="bisai">辩论会！</span>
+      <hr/>
+    </div>
+    <div style="top:10vh;left:0;width:100vw;height:20vh;position:fixed;">
+      <div style="position:absolute;top:0;left:4vw;width:43vw;height:100%;font-size: 6vh;" id="zheng">输入正方论题</div>
+      <div style="position:absolute;top:0;left:54vw;width:43vw;height:100%;font-size: 6vh;" id="fan">输入反方论题</div>
+    </div>
+    <div id="d0" style="position:fixed;top:40vh;left:0;width:100vw;height:55vh;opacity:0.3">
+      <img src="bgimg.png" style="swidth: 100%;height:100%" />
+    </div>
+    <div style="top:35vh;left:0;width:100vw;height:20vh;position:fixed;font-size:5vh;">
+      <a href="javascript:main()" id="menu">开始辩论</a>
+      <span id="xiaoshi">
+        <br/><br/><a href="javascript:bianti()">更改辩题</a>
+        <br/><br/><a href="javascript:document.querySelector('body').requestFullscreen()">请求全屏</a>
+        <br/><br/><div style="font-size:2vh">编写coding :<br/>风吹呼呼WindWhir<br/><br/><a href="bianlun.zip" download="辩论会.zip">下载线下版(推荐)</a></div>
+      </span>
+    </div>
+    <div id="d1" style="position:fixed;top:50vh;left:0;width:100vw;height:55vh;display:none">
+      <div id="timer1" style="position:absolute;top:0;left:0;width: 100%;height:35vh;font-size: 15vh">LOAD</div>
+      <div style="position:absolute;top:28vh;left:0;width:100vw;font-size:5vh;"><a href="javascript:kaiguan(1)">开始/暂停</a></div>
+    </div>
+    <div id="d2" style="position:fixed;top:50vh;left:0;width:100vw;height:55vh;display:none">
+      <div id="timer2" style="position:absolute;top:0;left:0;width: 100%;height:35vh;font-size: 15vh">LOAD</div>
+      <div style="position:absolute;top:28vh;left:0;width:100vw;font-size:5vh;"><a href="javascript:kaiguan(2)">开始/暂停</a></div>
+    </div>
+    <div id="d3" style="position:fixed;top:50vh;left:0;width:100vw;height:55vh;display:none">
+      <div id="timer3" style="position:absolute;top:0;left:4vw;width:43vw;height:35vh;font-size: 15vh;">LOAD</div>
+      <div id="timer4" style="position:absolute;top:0;left:54vw;width:43vw;height:35vh;font-size: 15vh">LOAD</div>
+      <div id="shaoshengdiv" style="border:solid 0.3vh white;background-color:#000000cc;position:absolute;top:0;left:0vw;width:99vw;height:20vh;font-size: 15vh;display: none;">请等待哨声结束<span id="shaoshengspan">0</span></div>
+      <div style="position:absolute;top:28vh;width:100vw;height:35vh;font-size:5vh;"><a href="javascript:qiehuan()">更换计时方(当前<span id="fang">正</span>方)</a> - <a href="javascript:kaiguan(muqian)">开始/暂停</a></div>
+    </div>
+    <script>
+      var step=0;var tm=[0,0,0,0,0];var itv=[false,false,false,false,false];
+      //步骤和动作
+      var menu=[
+        ["1：发言\n2：小结\n3：其他环节","发言","小结","其他环节"],
+        ["1：开始辩论\n2：评委介绍\n3：评委致辞\n4：双方介绍\n5：辩论结束\n6：投票环节\n7：评委点评\n8：宣布结果\n9：辩论结束","开始辩论","评委介绍","评委致辞","双方介绍","辩论结束","投票环节","评委点评","宣布结果","辩论结束"],
+        ["1：立论\n2：质询\n3：对辩\n4：盘问\n5：自由辩论\n6：总结陈词","立论","质询","对辩","盘问","自由辩论","总结陈词"],
+        ["1：立论小结\n2：质询小结\n3：对辩小结\n4：盘问小结\n5：自由辩论小结","立论小结","质询小结","对辩小结","盘问小结","自由辩论小结"]
+      ];
+      const urlParams = new URLSearchParams(window.location.search);
+      var action = JSON.parse(urlParams.get('act'));
+      //主函数
+      function main(){
+        let fang=" ";
+        switch (action[step][0]){
+          case 0:fang=" ";break;
+          case 1:fang="正方：";break;
+          case 2:fang="反方：";break;
+          case 3:fang="双方："
+        }
+        let huanjie=fang+menu[(action[step][1]-(action[step][1]%10))/10][action[step][1]%10]
+        document.querySelector("#menu").innerHTML=huanjie;
+        cd(action[step][0]);
+        muqian=3;
+        document.querySelector("#fang").innerHTML="正";
+        for(i=1;i<5;i++){
+          clearInterval(itv[i]);
+          itv[i]=false;
+          tm[i]=action[step][2];
+          document.querySelector("#timer"+i).innerHTML=xianshi(tm[i])
+        }
+        if(step==0){
+          document.querySelector("body").requestFullscreen();
+          document.querySelector("#xiaoshi").innerHTML="";
+        }else if(step==(action.length-1)){
+          document.exitFullscreen()
+        }
+        step++;
+      }
+      //changedisplay
+      function cd(num){
+        document.querySelector("#d0").style.opacity="0.1";
+        document.querySelector("#d1").style.display="none";
+        document.querySelector("#d2").style.display="none";
+        document.querySelector("#d3").style.display="none";
+        document.querySelector("#d"+num).style.display="block";
+        document.querySelector("#d"+num).style.opacity="1";
+      }
+      //更换辩题
+      function bianti(){
+        document.querySelector("#zheng").innerHTML=prompt("请输入正方辩题\n换行：输入“换行”会自动转化为换行符",document.querySelector("#zheng").innerHTML).replaceAll("换行","<br>");
+        document.querySelector("#fan").innerHTML=prompt("请输入反方辩题\n换行：输入“换行”会自动转化为换行符",document.querySelector("#fan").innerHTML).replaceAll("换行","<br>");
+      }
+      //时间格式转化
+      function xianshi(time){
+        let minutes = Math.floor(time/60);
+        let seconds = time%60;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        return (minutes + ':' + seconds)
+      }
+      //每次时间闪烁
+      function gundong(xuhao){
+        if(tm[xuhao]>0){
+          tm[xuhao]--;
+          document.querySelector("#timer"+xuhao).innerHTML=xianshi(tm[xuhao]);
+        }else{
+          document.querySelector("#timer"+xuhao).innerHTML="OVER";
+          clearInterval(itv[xuhao]);itv[xuhao]= false;
+          if((tm[3]+tm[4])>0){shaoshengwait()};
+        }
+        if(tm[xuhao]==30){
+          document.querySelector("#warn").play()
+        }else if(tm[xuhao]==0)
+          document.querySelector("#finish").play()
+      }
+      //开关计时器
+      function kaiguan(xuhao){
+        if(itv[xuhao]&&tm[xuhao]>0){
+          clearInterval(itv[xuhao]);
+          itv[xuhao]= false;
+        }else{
+          itv[xuhao]=setInterval(()=>{gundong(xuhao)},1000);
+        }
+      }
+      //切换计时方
+      var muqian=3;
+      function qiehuan(){
+        switch(muqian){
+          case 3:muqian1=4;document.querySelector("#fang").innerHTML="反";break;
+          case 4:muqian1=3;document.querySelector("#fang").innerHTML="正";
+        }
+        if(itv[muqian]){
+          clearInterval(itv[muqian]);
+          itv[muqian]=false;
+          kaiguan(muqian1);
+        }
+        muqian=muqian1;
+      }
+      function shaoshengwait(){//对辩的哨声
+        document.querySelector("#shaoshengdiv").style.display="block";
+        let ssnum=5;
+        let ssitv=setInterval(()=>{document.querySelector("#shaoshengspan").innerHTML=ssnum;ssnum--;
+          if(ssnum<0){
+            clearInterval(ssitv);
+            document.querySelector("#shaoshengdiv").style.display="none";
+            qiehuan();kaiguan(muqian);
+          }
+        },1000)
+      }
+      //应对竖屏
+      var isLandscape = false;
+      function updateOrientation() {
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        isLandscape = width > height;
+        if (!isLandscape) {
+          alert("请使用横屏访问")
+        }
+      }
+      updateOrientation();
+      window.addEventListener('orientationchange', updateOrientation);
+      //获取网址中的流程
+      function urlrel(release){
+        let params=new URLSearchParams(window.location.href.split('?')[1]);return params.get(release);
+      }
+      var bt1=urlrel('bt1');var bt2=urlrel('bt2');var hm=urlrel('hm')
+      if(bt1){
+        document.querySelector("#zheng").innerHTML=bt1.replaceAll("换行","<br>");
+      }
+      if(bt2){
+        document.querySelector("#fan").innerHTML=bt2.replaceAll("换行","<br>");
+      }
+      if(!hm){document.querySelector("title").innerHTML=document.querySelector("#bisai").innerHTML=hm}
+      if(!action){alert("您使用不正常方式打开，即将切换至创建页。");location.href="chuangjian.html"
+      }else if(!(bt1&&bt2)){
+        bianti()
+      }
+    </script>
+    <audio src="warn.mp3" id="warn"></audio>
+    <audio src="finish.mp3" id="finish"></audio>
+  </body>
+</html>
