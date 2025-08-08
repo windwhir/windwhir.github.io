@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   //首尾，样式，图标
   document.querySelector("header").innerHTML=('<a href="/"><img src="/_img/windwhir.ico" />风吹呼呼WindWhir</a>')
   document.querySelector("footer").innerHTML=('<img src="/_img/windwhir.ico" />风吹呼呼WindWhir | +x '+document.querySelector("footer").innerHTML)
-  if(!document.querySelector("title")){document.querySelector("head").innerHTML+=('<meta charset="UTF-8" /><title>'+document.querySelector("h1").innerHTML+'</title><link rel="icon" href="/_img/windwhir.ico" />')}
+  if(!document.querySelector("title")){document.querySelector("head").innerHTML+=('<meta charset="UTF-8" /><meta name="color-scheme" content="light"><title>'+document.querySelector("h1").innerHTML+'</title><link rel="icon" href="/_img/windwhir.ico" />')}
   //music大文件夹
   if(thehref.indexOf("music")>0){
   document.querySelector("title").innerHTML+=" - music"
@@ -42,3 +42,4 @@ document.addEventListener('DOMContentLoaded', ()=> {
 })
 
 function topperJs_pageId(neihan){navigator.clipboard.writeText("http://windwhir.top/"+neihan)}
+
