@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/_img/windwhir.ico" rel="icon" />
+  <title>行列式_知识 - WindWhir.top</title>
+  <script src="determinant.js"></script>
+  <script src="../matrix.js" async></script>
+  <style>
+        #jisuan{text-decoration: underline #f00;transition: 1s;}
+        #zhishi{text-decoration: underline #0f0;}
+        #jisuan:hover{color:#faa}
+        #jisuan::after{
+          content: "前往>";
+          font-size: 1vh;
+          display: inline-block;
+          writing-mode: vertical-rl;
+          text-orientation:upright;
+          transform: translateY(0.5vh);
+        }
+        #zhishi::after{
+          content: "当前v";
+          font-size: 1vh;
+          display: inline-block;
+          writing-mode: vertical-rl;
+          text-orientation:upright;
+          transform: translateY(0.5vh);
+        }
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          color:#fff;
+          text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        html,body {
+          min-height: 100vh;
+          padding:5px;
+          background: linear-gradient(135deg, #6e8efb, #a777e3);
+          scroll-behavior: smooth;
+        }
+        section{
+          flex: 1;
+          min-width: 350px;
+          border-radius: 12px;
+          padding: 1.5rem;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+          background: linear-gradient(45deg, #11e, #39f);
+          align-self: flex-start;
+        }
+        section.more{
+          background: linear-gradient(45deg, #f65, #fb9);
+        }
+        h2,h3{
+          font-size: 3vh;
+        }
+        section div , section pre{
+          font-size: 2.5vh;
+          padding: 0.5vh 0 0 0;
+          display: none;
+        }
+        table{
+          border-left:#fff solid 2px ;
+          border-right:#fff solid 2px ;
+          padding-left:15px;
+          padding-right:15px;
+        }
+        td{
+          padding: 4px 10px;
+          text-align: center;
+          width: 4rem;
+          height: 3rem;
+        }
+        r-b{
+          display: inline;
+          color: #f00;
+          font-weight: bold;
+          text-shadow: 
+            -1px -1px 0 #fff,  
+            1px -1px 0 #fff,
+            -1px 1px 0 #fff,
+            1px 1px 0 #fff
+        }
+  </style>
+</head>
+<body>
+  <header style="height:10vh">
+    <h1 style="font-size: 4vh;">行列式 : <a id="zhishi">知识</a> | <a id="jisuan" href="index.html">计算</a> </h1>
+    <div style="font-size: 2vh">http://windwhir.top/10201 (建议<a href="javascript:alert('电脑:Ctrl+D\n微信:浏览器打开后按手机\n手机:手动更多>添加书签')">加书签</a>)
+    </div>
+  </header>
+  <div style="margin:0 0 2rem 0;font-size: 3vh;text-align: center;">点击卡片中<b>粗体字</b>以<b>展开/关闭</b>详细内容。<a href="javascript:openAll()">展开全部</a><br/></div>
+  <main style="display: flex;overflow: auto;flex-wrap: wrap;gap: 2rem;margin: 0 2rem 0;justify-content: center;">
+    
+    <section class="more">
+      <h2>1 行列式基础</h2>
+    </section>
+    
+    <section>
+      <h3>1.1 行列式概念</h3>
+      <div>
+        行列式表示一个数，本质是一种“数值表示工具”。<br/>
+        要区别于绝对值，<m-t>a</m-t>= a，但 |a| 可能表示绝对值。
+      </div>
+    </section>
+    
+    <section>
+      <h3>1.2 行列式记号</h3>
+      <div>
+        行列式通常用大写字母<b><i>D</i></b><sub>n</sub> 表示。<br/>
+        其中各元素用小写字母a<sub>ij</sub> 表示<br/>
+        i表示行，j表示列。例如：
+        <m-t>a<sub>11</sub>,a<sub>12</sub>;a<sub>21</sub>,a<sub>22</sub></m-t>
+        行列式起源于解线性方程组(<a href="#kelaimufaze">详情</a>)，其核心是双下标定位和数值计算。
+      </div>
+    </section>
+    
+    <section>
+      <h3 id="duijiaoxianfaze">1.3 对角线法则</h3>
+      <div>
+        <r-b>仅</r-b>适用于二阶和三阶行列式。<br/>
+        二阶：
+        <m-t>a11,a12;a21,a22</m-t> = a11*a22 - a12*a21（主对角线积减副对角线积）<br/>
+        三阶：
+        <m-t>a11,a12,a13;a21,a22,a23;a31,a32,a33</m-t> = a11*a22*a33 + a13*a21*a32 + a12*a23*a31 - a13*a22*a31 - a12*a21*a33 - a11*a23*a32（三个主对角线积减副对角线积）
+      </div>
+    </section>
+    
+    <section>
+      <h3 id="pailie">1.4 逆序数与排列</h3>
+      <div>
+        逆序数：<br/>
+        在一个排列中，若较大的数排在较小的数之前，则构成一个逆序。逆序总数称为该排列的逆序数，记作 τ(p)。<br/>
+        对排列 p=(i₁,i₂,...,iₙ)，统计所有满足 iₐ &gt; iₑ且 a &lt; b的数对个数。<br/>
+        奇排列与偶排列<br/>
+        若 τ(p)为 ​偶数​ → ​偶排列。<br/>
+        若 τ(p)为 ​奇数​ → ​奇排列。
+      </div>
+    </section>
+        
+    <section>
+      <h3 id="dingyi">1.5 n阶行列式</h3>
+      <div>​
+        n 阶定义​：
+        <m-t>a11,...,a1n;...;an1,...,ann</m-t> = ∑ δ(i₁i₂⋯iₙ) a₁ᵢ₁ a₂ᵢ₂ ⋯ aₙᵢₙ<br/>
+        ∑表示对 1 到 n 的所有排列求和（n!个项）。<br/>
+        δ(i₁i₂⋯iₙ)= 1（<a href="#pailie">偶排列</a>）或 -1（<a href="#pailie">奇排列</a>）。<br/>
+        该节还包含：<a href="#sanjiaohanglieshi">三角行列式</a>
+      </div>
+    </section>
+    
+    <section class="more">
+      <h2>2 行列式性质</h2>
+    </section>
+    
+    <section>
+      <h3>2.1 单位行列式</h3>
+      <div><m-t>1,0,...,0;0,1,...,0;...;0,0,...,1</m-t> = 1<br/>对角元素全1，其余为0的n阶行列式恒为1（特殊对角阵）。</div>
+    </section>
+    
+    <section>
+      <h3 id="sanjiaohanglieshi">2.2 对角与三角行列式</h3>
+      <div>
+        对角行列式：<m-t>a11,0,...,0;0,a22,...,0;...;0,0,...,ann</m-t> = a11*a22*...*ann<br/>
+        上三角行列式：<m-t>a11,a12,...,a1n;0,a22,...,a2n;...;0,0,...,ann</m-t> = a11*a22*...*ann<br/>
+        下三角行列式：类似上三角，主对角线以下为零时同理。
+      </div>
+    </section>
+    
+    <section>
+      <h3>2.3 提取行倍数(数乘性质)</h3>
+      <div>
+        一行元素的公因子可提到行列式外。属于关于行的线性性。<br/><br/>
+        <m-t><r-b>k</r-b>a,<r-b>k</r-b>b;c,d</m-t> = <r-b>k</r-b>·<m-t>a,b;c,d</m-t><br/>
+        操作符​：对第i行乘k → 行列式值×k
+      </div>
+    </section>
+    
+    <section>
+      <h3>2.4 行拆分(可加性)</h3>
+      <div>
+        若一行元素均为两数和，可拆分为两个行列式之和。属于关于行的线性性。<br/><br/>
+        <m-t><r-b>(a+b)</r-b>,<r-b>(c+d)</r-b>;e,f</m-t> = <m-t>a,c;e,f</m-t> + <m-t>b,d;e,f</m-t>
+      </div>
+    </section>
+     
+    <section>
+      <h3>2.5 行互换变号</h3>
+      <div>
+        交换两行，行列式值变号。<br/><br/>
+        <m-t>a,b;c,d</m-t> = -1 ×<m-t>c,d;a,b</m-t><br/>
+        操作符​：r<sub>i</sub> ↔ r<sub>j</sub>（交换第i,j行）
+      </div>
+    </section>
+    
+    <section>
+      <h3>2.6 零行或比例行</h3>
+      <div>
+        线性相关导致空间退化。<br/>
+        一行全零 → 行列式=0<br/>
+        两行成比例 → 行列式=0<br/>
+        两行成比例指两行中同列元素成相同比例。
+      </div>
+    </section>
+    
+    <section>
+      <h3 id="beijiahangbubian">2.7 倍加行不变性</h3>
+      <div>
+        一行的倍数加到另一行 → 行列式值不变。<br/><br/>
+        <m-t>a,b;c,d</m-t> → <m-t>a<r-b>+kc</r-b>,b<r-b>+kd</r-b>;c,d</m-t>值不变。<br/><br/>
+        操作符​：r<sub>i</sub> + k·r<sub>j</sub>（最核心的化简工具）
+      </div>
+    </section>
+    
+    <section>
+      <h3>2.8 转置不变性</h3>
+      <div>
+        行列互换 → 值不变，即 D = Dᵀ<br/><br/>
+        <m-t>a,b;c,d</m-t> = <m-t>a,c;b,d</m-t><br/>
+        这使得行操作可直接推广到列：<br/>
+        列互换 c<sub>i</sub> ↔ c<sub>j</sub>使值×(-1)<br/>
+        倍加列 c<sub>i</sub> + k·c<sub>j</sub>值不变
+      </div>
+    </section>
+    
+    <section class="more">
+      <h2>3 拉普拉斯展开</h2>
+      <div></div>
+    </section>
+    
+    <section>
+      <h3>3.1 余子式</h3>
+      <div>
+        余子式：<br/>
+        在n阶行列式D<sub>n</sub>中，元素a<sub>ij</sub>的余子式M<sub>ij</sub>是划去第i行和第j列后，剩余元素构成的(n-1)阶行列式。<br/>
+        M<sub>ij</sub> = det(删除第i行、第j列后的子阵)<br/>
+        代数余子式：<br/>
+        A<sub>ij</sub> = (-1)^(i+j) * M<sub>ij</sub><br/>
+        由位置(i,j)决定正负（如(1,1)为+，(1,2)为-）
+      </div>
+    </section>
+    
+    <section>
+      <h3>3.2 按行/列展开</h3>
+      <div>
+        将高阶行列式降阶计算。优先选择零元素多的行/列展开，减少计算量。<br/><br/>
+        ​按行展开​：<br/>
+        任意行i的元素与其代数余子式乘积和等于行列式值：<br/>
+        D<sub>n</sub> = ∑_{k=1}^n a<sub>ik</sub> * A<sub>ik</sub><br/>
+        不同行元素与代数余子式乘积和为零：<br/>
+        ∑_{k=1}^n a<sub>ik</sub> * A<sub>jk</sub> = 0（当 i ≠ j）<br/><br/>
+        ​按列展开​：<br/>
+        任意列j的元素与其代数余子式乘积和等于行列式值：<br/>
+        D<sub>n</sub> = ∑_{k=1}^n a<sub>kj</sub> * A<sub>kj</sub><br/>
+        不同列元素与代数余子式乘积和为零：<br/>
+        ∑_{k=1}^n a<sub>ki</sub> * A<sub>kj</sub> = 0（当 i ≠ j）
+      </div>
+    </section>
+    
+    <section class="more">
+      <h2>4 行列式计算</h2>
+    </section>
+    
+    <section>
+      <h3>4.1 对角线法则与定义</h3>
+      <div>
+        <a href="#duijiaoxianfaze">对角线法则</a>可用于二阶与三阶行列式。<br/>
+        <a href="#dingyi">定义法</a>高阶时过于困难，一般不推荐使用。<br/>
+      </div>
+    </section>
+    
+    <section>
+      <h3>4.2 三角化法</h3>
+      <div>
+        通过行/列变换化为上/下三角行列式 → 值=对角元乘积<br/><br/>
+        步骤​：<br/>
+        ​1、调整a₁₁位置​：<br/>
+        目标：使a₁₁ ≠ 0且尽量为±1（简化运算）<br/>
+        操作：行交换rᵢ ↔ rⱼ或列交换cᵢ ↔ cⱼ<br/>
+        优化：优先选绝对值小的非零元，或提取行倍数<br/>
+        <br/>
+        2、​消元创造下方零元：​<br/>
+        操作：rᵢ + k·r₁ → rᵢ（i=2~n）<br/>
+        技巧：倍数k = -aᵢ₁/a₁₁<br/>
+        <br/>
+        3、​递归处理右下子阵：​<br/>
+        对(n-1)阶子式重复步骤1-2<br/>
+        <br/>
+        ​终止条件​：出现全零行→值=0<br/>
+      </div>
+    </section>
+    
+    <section>
+      <h3>4.3 降价法</h3>
+      <div>
+        按零元多的行/列展开 → 降为低阶行列式<br/><br/>
+        步骤​：<br/>
+        1、​创造零元​：用<a href="#beijiahangbubian">倍加行不变性</a>使某行/列出现多个零<br/>
+        2、​Laplace展开​：按该行/列展开，仅需计算非零元对应的代数余子式<br/>
+        3、​递归计算​：对余子式重复上述过程
+      </div>
+    </section>
+    
+    <section class="more">
+      <h2>5 记忆行列式</h2>
+    </section>
+    
+    <section>
+      <h3>5.1 全对称型</h3>
+      <div>
+        形式​：主对角全x，其余全a<br/>
+        Dₙ = <m-t>x,a,a,...,a; a,x,a,...,a; ... ;a,a,a,...,x</m-t><br/>
+        解法（行和归一化）​​：<br/>
+        1、所有行加到第1行（性质3+6）：<br/>
+        → 第1行全为[x+(n-1)a]<br/>
+        2、提取公因子：[x+(n-1)a]·<m-t>1,1,...,1; a,x,...,a; ...</m-t>
+        3、第1行×(-a)加到其余行：<br/>
+        → 下三角阵：对角元[1, x-a, x-a, ..., x-a]<br/>
+        4、​结果​：Dₙ = [x+(n-1)a]·(x-a)ⁿ⁻¹<br/>
+      </div>
+    </section>
+    
+    <section>
+      <h3>5.2 箭式行列式</h3>
+      <div>
+        形式​：<br/>
+        Dₙ₊₁ = <m-t>a₀,a₁,...,aₙ; b₁,d₁,0,...,0; ... ;bₙ,0,0,...,dₙ</m-t><br/>
+        解法（消边角）​​：<br/>
+        1、第k行（k≥2）乘以-aₖ/dₖ加到第1行：<br/>
+        → 第1行第k列变为0<br/>
+        2、化为下三角阵：<br/>
+        <m-t>a₀-Σ(aₖbₖ/dₖ), 0,...,0; b₁,d₁,...,0; ...</m-t>
+        3、​结果​：Dₙ₊₁ = [a₀ - Σₖ(aₖbₖ/dₖ)]·(d₁d₂...dₙ)
+      </div>
+    </section>
+    
+    <section>
+      <h3>5.3 范德蒙行列式</h3>
+      <div>
+        ​形式​：<br/>
+        Vₙ = <m-t>1,1,...,1; x₁,x₂,...,xₙ; ... ;x₁ⁿ⁻¹,x₂ⁿ⁻¹,...,xₙⁿ⁻¹</m-t><br/>
+        ​结果定理​：<br/>Vₙ = ∏_{1≤i&lt;j≤n} (x_j - x_i)<br/><br/>
+        证明（数学归纳法）​​：<br/>
+        1、基础​：n=2时V₂ = x₂ - x₁成立<br/>
+        2、​归纳假设​：n-1阶成立<br/>
+        3、消元操作​：<br/>
+        从最后行开始：rₖ - xₙ·rₖ₋₁ → rₖ（k=n,n-1,...,2）<br/>
+        每列提取公因子(xⱼ - xₙ)<br/>
+        右下角余子式即Vₙ₋₁<br/>
+        4、结果​：Vₙ = (∏_{j=1}^{n-1}(xₙ - xⱼ))·Vₙ₋₁ = ∏_{1≤i&lt;j≤n}(x_j - x_i)
+      </div>
+    </section>
+    
+    <section class="more">
+      <h2 id="kelaimufaze">6 克莱姆法则</h2>
+    </section>
+    
+    <section>
+      <h3>6.1 定理</h3>
+      <div>
+        适用条件：​<br/>
+        方程类型​：含 n个方程和 n个未知数的线性方程组<br/>
+        关键前提​：系数行列式 D ≠ 0<br/><br/>
+        解：<br/>x<sub>j</sub> = D<sub>j</sub> / D (j=1,2,3...n)<br/>
+        其中 Dⱼ是将 D的第 j列替换为常数项 (b₁,…,bₙ)ᵀ后的行列式。
+      </div>
+    </section>
+    
+    <section>
+      <h3>未完待续……</h3>
+      <div>技术有限，这后面好难做出来，建议还是看书吧</div>
+    </section>
+    
+  </main>
+  <footer style="height:5vh;margin:1.5rem 0 0 0;font-size: 2vh;">
+    <img src="/_img/windwhir.ico" />风吹呼呼WindWhir | +x - <a href="/">空间主页</a> - <a href="../">数学</a>
+  </footer>
+  <script>
+    const h3Elements = document.querySelectorAll("h3");
+    for(let i = 0; i < h3Elements.length; i++) {
+      h3Elements[i].addEventListener('click', function() {
+        const theDiv = this.nextElementSibling;
+        theDiv.style.display = theDiv.style.display === 'block' ? 'none' : 'block';
+      });
+    }
+    function openAll(){
+      for(let i = 0; i < h3Elements.length; i++) {
+        h3Elements[i].nextElementSibling.style.display="block"
+      }
+    }
+    const matrixs=document.querySelectorAll("m-t");
+    for(let i=0;i<matrixs.length;i++){
+      let zhongjian=matrixs[i].innerHTML
+        .replace(new RegExp(';', 'g'), '</td></tr><tr><td>')
+        .replace(new RegExp(',', 'g'), '</td><td>');
+      matrixs[i].innerHTML="<table><tr><td>"+zhongjian+"</td></tr></table>"
+    }
+  </script>
+</body>
+</html>
